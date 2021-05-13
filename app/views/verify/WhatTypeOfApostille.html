@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What type of apostille are you verifying?
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "/verify"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<form action="/verify/WhatTypeOfApostille/form-handler" method="post" novalidate>
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  idPrefix: "typeofapostille",
+  name: "typeofapostille",
+  fieldset: {
+    legend: {
+      text: "What type of apostille are you verifying?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "If you received the apostille as a PDF file, select ‘eApostille’, otherwise select ‘Paper’."
+  },
+  items: [
+    {
+      value: "paper",
+      text: "Paper"
+    },
+    {
+      value: "epostille",
+      text: "eApostille - received as a PDF file"
+    }
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+</form>
+
+{% endblock %}

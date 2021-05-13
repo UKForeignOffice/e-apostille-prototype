@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  eApostille verified
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+href: "/verify/VerifyPaper"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-l">Apostille verified</h1>
+
+{{ govukTable({
+  caption: "Apostille details",
+  captionClasses: "govuk-table__caption--m govuk-visually-hidden",
+  firstCellIsHeader: true,
+  rows: [
+    [
+      {
+        text: "Apostille number"
+      },
+      {
+        text: "APO-1234567"
+      }
+    ],
+	[
+		{
+		text: "Date issued"
+		},
+		{
+		text: "12th February 2021"
+		}
+	],
+    [
+      {
+        text: "Has been signed by"
+      },
+      {
+        text: "Joesephine Bloggs-Smyth"
+      }
+    ],
+    [
+      {
+        text: "Acting in capacity of"
+      },
+      {
+        text: "Notary public"
+      }
+    ],
+    [
+      {
+        text: "Bears the stamp / seal of"
+      },
+      {
+        text: "The said notary public"
+      }
+    ],
+    [
+      {
+        text: "Issued by"
+      },
+      {
+        text: "L. Egal Officer"
+      }
+    ]
+  ]
+}) }}
+
+<p>
+	All paper apostilles (legalisation certificates) issued by the Legalisation Office bear the a raised and embossed imprint of the Foreign Commonwealth Office crest. This embossed imprint should also appear immediately below on the document to which the apostille is attached.
+</p>
+
+<p>
+{{ govukButton({
+  text: "Start again",
+  href: "/verify/WhatTypeOfApostille"
+}) }}
+</p>
+<p>
+{{ govukButton({
+  text: "Print",
+  classes: "govuk-button--secondary"
+}) }}
+</p>
+{% endblock %}
