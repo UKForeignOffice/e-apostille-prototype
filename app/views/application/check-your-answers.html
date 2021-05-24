@@ -1,0 +1,192 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers before paying for your application
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/application/additional-information"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+  <h1 class="govuk-heading-xl">
+    Check your answers before paying for your application
+  </h1>
+
+  <h2 class="govuk-heading-m">
+	  Your details
+  </h2>
+  {{ govukSummaryList({
+	  classes: 'govuk-!-margin-bottom-9',
+	  rows: [
+		  {
+			key: {
+				text: "First name"
+			},
+			value: {
+				text: data.userDetails.firstName
+			},
+			actions: {
+				items: [
+					{
+						href: "#",
+						text: "Change",
+						visuallyHiddenText: "first name"
+					}
+				]
+			}
+		},
+		  {
+			  key: {
+				text: "Last name"
+			  },
+			  value: {
+				text: data.userDetails.lastName
+			  },
+			  actions: {
+				  items: [
+					  {
+						href: "#",
+						text: "Change",
+						visuallyHiddenText: "last name"
+					  }
+				  ]
+			  }
+		  },
+		  {
+			  key: {
+			  	text: "Mobile number"
+			  },
+			  value: {
+			  	text: data.userDetails.mobileNumber
+			  },
+			  actions: {
+				  items: [
+					  {
+					  	href: "#",
+					  	text: "Change",
+					  	visuallyHiddenText: "mobile number"
+					  }
+				  ]
+			}
+		  },
+		  {
+			  key: {
+			  text: "Email"
+			  },
+			  value: {
+			  text: data.userDetails.email
+			  },
+			  actions: {
+				  items: [
+					  {
+						  href: "#",
+						  text: "Change",
+						  visuallyHiddenText: "email"
+					  }
+				  ]
+			  }
+		  }
+		  ]
+  	})
+  }}
+
+	  <h2 class="govuk-heading-m">
+		  Uploaded documents
+	  </h2>
+	  {{ govukSummaryList({
+		  classes: 'govuk-!-margin-bottom-9',
+		  rows: [
+			  {
+				  key: {
+					text: "File"
+				  },
+				  value: {
+					text: data.documents[0].fileName
+				  },
+				  actions: {
+					  items: [
+						{
+							  href: "#",
+							  text: "Change",
+							  visuallyHiddenText: "uploaded document"
+						}
+					]
+					}
+				}
+			]
+	  })
+	  }}
+
+	  <h2 class="govuk-heading-m">
+		  Additional information
+	  </h2>
+	  {{ govukSummaryList({
+		  classes: 'govuk-!-margin-bottom-9',
+		  rows: [
+			  {
+				  key: {
+				  	text: "Your reference"
+				  },
+				  value: {
+				  	text: data.documents[0].usersReference
+				  },
+				  actions: {
+					  items: [
+						  {
+							  href: "#",
+							  text: "Change",
+							  visuallyHiddenText: "your reference"
+						  }
+					  ]
+				  }
+			  }
+		  ]
+	  })
+	  }}
+
+	  <h2 class="govuk-heading-m">
+		  Cost
+	  </h2>
+	  {{ govukSummaryList({
+		  classes: 'govuk-!-margin-bottom-9',
+		  rows: [
+		  {
+			  key: {
+				text: "Total cost to legalise 1 document"
+			  },
+			  value: {
+				text: data.cost | formatCurrency
+			  },
+			  actions: {
+				  items: [
+				  {
+					  href: "#",
+					  text: "",
+					  visuallyHiddenText: ""
+				  }
+				]
+			  }
+		  }
+		  ]
+	  })
+  }}
+
+<p class="govuk-body">You will be refunded for each document we are unable to legalise.</p>
+
+{{ govukButton({
+    text: "Continue",
+    href: "/application/pay-for-application"
+}) }}
+
+</div>
+</div>
+
+
+{% endblock %}

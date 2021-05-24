@@ -1,0 +1,179 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Personal details
+{% endblock %}
+
+{% block beforeContent %}
+<div id="menubar" style="float: right; margin-left: 10px;">
+  <span class="govuk-body">Joesephine Bloggs-Smyth</span>
+  <span class="govuk-body">
+  <a href="/application/my-legalisation-account" class="govuk-link" style="margin-left: 10px;">Applications</a>
+  <a href="/application/personal-details" class="govuk-link" style="margin-left: 10px;">Account</a>
+  <a href="/application/addresses" class="govuk-link" style="margin-left: 10px;">Addresses</a>
+  <a href="/application/start" class="govuk-link" style="margin-left: 10px;">Sign out</a>
+  </span>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-xl">
+    Personal details
+  </h1>
+
+  {{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "First name"
+      },
+      value: {
+        text: "Joesephine"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "first name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Last name"
+      },
+      value: {
+        text: "Bloggs-Smyth"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "date of birth"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Telephone"
+      },
+      value: {
+        text: "07812 345678"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "telephone"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Mobile number"
+      },
+      value: {
+        text: "Not specified"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "mobile number"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Feedback consent"
+      },
+      value: {
+        text: "No"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "feedback consent"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Email"
+      },
+      value: {
+        text: "joesephine@example.com"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "email"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Password"
+      },
+      value: {
+        text: "**********"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "password"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+{{ govukDetails({
+  summaryText: "How to close your account",
+  html: 'If you want to close your account please contact us at <a href="#">legalisationenquiries@fcdo.gov.uk</a>'
+}) }}
+
+<p class="govuk-body">If you represent a business you can <a href="#">register for the legalisation premium service.</a></p>
+
+
+  <h2 class="govuk-heading-l">
+    Saved payment details
+  </h2>
+
+<p class="govuk-body">You can save your card details so that you don't have to type them in each time you apply.</p>
+
+<p class="govuk-body">Follow these steps to save a card when you make an application:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>enter your card details</li>
+  <li>ensure the 'Remember these details' box is ticked when you are asked to review and complete your payment - this will save the card</li>
+  <li>next time you make an application, you'll see your saved card at the top of the payment page and can use it to pay</li>
+  <li>you can delete saved cards or add additional cards each time you go to pay</li>
+</ul>
+
+{{ govukInsetText({
+  text: "For security reasons, any cards you save are only displayed on the Barclaycard Smartpay payment pages."
+}) }}
+
+  </div>
+</div>
+{% endblock %}

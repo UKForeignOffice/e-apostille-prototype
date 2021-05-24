@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Additional information
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "#"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+{{ govukInput({
+  label: {
+    text: "Additional information",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "If you have your own internal reference number you can enter it here."
+  },
+  id: "additional-information",
+  name: "additional-information"
+}) }}
+
+{{ govukButton({
+    text: "Continue",
+    href: "/application/check-your-answers"
+}) }}
+
+  </div>
+</div>
+
+{% endblock %}

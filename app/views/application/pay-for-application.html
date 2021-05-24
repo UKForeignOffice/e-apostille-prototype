@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Pay for your application
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/application/check-your-answers"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-xl">
+    Pay for your application
+  </h1>
+
+  <p class="govuk-body">You'll now be taken to Barclaycard SmartPay, where you
+    can pay with Maestro, MasterCard or Visa.</p>
+
+  <p class="govuk-body">When entering a new card tick the 'Remember these details'
+   box if you wish to save it. This will help you make applications more quickly
+    in future.</p>
+
+  <p class="govuk-body">If you've previously saved a card you'll be able to use
+     it to pay, or enter new card details.</p>
+
+  {{ govukButton({
+      text: "Pay",
+      href: "/application/barclaycard-smartpay"
+  }) }}
+
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check if your documents can be legalised
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/application/documents-certified-check"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-xl">
+    Check if your documents can be legalised
+  </h1>
+
+  <p class="govuk-body">We accept most types of documents if they have been
+    certified by a notary.</p>
+
+  <p class="govuk-body">You cannot use this eApostille service if your document is:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>issued by the General Register Office (GRO)</li>
+    <li>ACRO police certificate for England and Wales</li>
+    <li>Disclosure Barring Service (DBS) certificate for England and Wales</li>
+    <li>disclosure certificate for Scotland</li>
+    <li>disclosure certificate for Northern Ireland</li>
+    <li>Association of Chartered Certified Accountants (ACCA) membership certificate</li>
+    <li>fingerprint certificate</li>
+    <li>certified by the British Council</li>
+  </ul>
+
+  <p class="govuk-body">If you need one of these types of documents apostilled
+    you will need to post the original using the <a href="#">standard application.</a></p>
+
+    {{ govukWarningText({
+      text: "The eApostille is for use in countries party to the Hague Convention of 5 October 1961 - we cannot issue refunds if the apostille is not accepted.",
+      iconFallbackText: "Warning"
+    }) }}
+
+    {{ govukButton({
+        text: "Continue",
+        href: "/application/upload-documents"
+    }) }}
+
+    <p class="govuk-body">
+      <a href="#">Post documents using standard application</a>
+    </p>
+
+  </div>
+</div>
+
+
+{% endblock %}

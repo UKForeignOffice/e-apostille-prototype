@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/application/sign-in"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-xl">
+    Your details
+  </h1>
+
+  <p class="govuk-body">We will use your details to notify you of the progress of your application.</p>
+
+  {{ govukTable({
+  firstCellIsHeader: true,
+  rows: [
+    [
+      {
+        text: "First name"
+      },
+      {
+        text: "Joesephine"
+      }
+    ],
+    [
+      {
+        text: "Last name"
+      },
+      {
+        text: "Bloggs-Smyth"
+      }
+    ],
+    [
+      {
+        text: "Telephone number"
+      },
+      {
+        text: "07812 345678"
+      }
+    ],
+    [
+      {
+        text: "Mobile number"
+      },
+      {
+        text: "None provided"
+      }
+    ],
+    [
+      {
+        text: "Email"
+      },
+      {
+        text: "joesephine@example.com"
+      }
+    ]
+  ]
+}) }}
+
+  <p class="govuk-body">You can update them in <a href="/application/my-legalisation-account">your account.</a></p>
+
+  {{ govukButton({
+      text: "Continue",
+      href: "/application/documents-certified-check"
+  }) }}
+
+  </div>
+
+</div>
+
+{% endblock %}

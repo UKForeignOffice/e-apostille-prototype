@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Are your documents certified and digitally signed by a notary?
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/application/your-details"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukRadios({
+      classes: "govuk-radios--inline",
+      idPrefix: "documents-certified",
+      name: "documents-certified",
+      fieldset: {
+        legend: {
+          text: "Are your documents certified and digitally signed by a notary?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: {
+        html: '<p class="govuk-body">To use this eApostille service, your documents
+          must be PDFs that have been certified and digitally signed by a notary.</p>
+
+          <p class="govuk-body">If you can’t use the eApostille service, you will
+            need to post your documents instead using the
+            <a href="#">standard application.</a></p>'
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+        text: "Continue",
+        href: "/application/check-documents"
+    }) }}
+
+    <p class="govuk-body">
+      <a href="#">Post documents using standard application</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

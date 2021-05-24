@@ -1,3 +1,6 @@
+
+const dateFns = require('date-fns')
+
 module.exports = function (env) {
   /**
    * Instantiate object used to store the methods registered as a
@@ -41,5 +44,13 @@ module.exports = function (env) {
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */
+
+  filters.formatIsoDate = function(isoDate) {
+    return isoDate ? dateFns.format(new Date(isoDate), 'Pp') : ''
+  }
+
+  filters.formatCurrency = function(value) {
+    return typeof value === 'number' ? `£${value.toFixed(2)}` : ''
+  }
   return filters
 }

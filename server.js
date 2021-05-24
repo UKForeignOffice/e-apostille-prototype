@@ -21,7 +21,8 @@ const middleware = [
 const config = require('./app/config.js')
 const documentationRoutes = require('./docs/documentation_routes.js')
 const packageJson = require('./package.json')
-const routes = require('./app/routes.js')
+const verifyRoutes = require('./app/routes/router-verify.js')
+const applicationRoutes = require('./app/routes/router-application.js')
 const utils = require('./lib/utils.js')
 const extensions = require('./lib/extensions/extensions.js')
 
@@ -232,13 +233,9 @@ if (promoMode === 'true') {
 }
 
 // Load routes (found in app/routes.js)
-if (typeof (routes) !== 'function') {
-  console.log(routes.bind)
-  console.log('Warning: the use of bind in routes is deprecated - please check the Prototype Kit documentation for writing routes.')
-  routes.bind(app)
-} else {
-  app.use('/', routes)
-}
+
+app.use('/verify', verifyRoutes)
+app.use('/application', applicationRoutes)
 
 if (useDocumentation) {
   // Clone app locals to documentation app locals

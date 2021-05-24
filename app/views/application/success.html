@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Application successfully submitted
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: "Application complete",
+      html: '<p class="govuk-body-m" style="color: white;">
+        Total amount: ' + (data.cost | formatCurrency) + ' for 1 document<br>
+             Application reference: <strong>' + data.usersReference + '</strong><br>
+             Email confirmation sent to ' + data.userDetails.email + '</p>'
+    }) }}
+
+    <p class="govuk-body">
+      Your application has been successfully submitted.
+    </p>
+
+    <h2 class="govuk-heading-l">
+      What to do next
+    </h2>
+
+    <p class="govuk-body">
+      Your documents should be legalised within 2 working
+      days and will be available to download from your account.
+    </p>
+
+    {{ govukWarningText({
+      html: 'For security, you will have 14 days from when the documents have been legalised to download them before they are deleted.
+<br> <br>
+        If you do not download them within this time, you will need to pay for another application to have them legalised again.',
+      iconFallbackText: "Warning"
+    }) }}
+
+    <p class="govuk-body">
+      We will notify you when your documents have been legalised.
+    </p>
+
+    <p class="govuk-body">
+      <a href="/application/select-a-service">Start a new application</a>
+    </p>
+
+    <p class="govuk-body">
+      <a href="#">View applications</a>
+    </p>
+
+    <hr class="govuk-section-break--xl govuk-section-break--visible">
+
+    <div class="contact">
+      <h2 class="govuk-heading-l">
+              Contact us
+      </h2>
+      <p class="govuk-body">
+        <a href="mailto:legalisationenquiries@fcdo.gov.uk">legalisationenquiries@fcdo.gov.uk</a> <br>
+          Telephone: 03700 00 22 44<br>
+          Monday to Friday, 10am to 4pm<br>
+          <a href="#">Find out about call charges</a>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

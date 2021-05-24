@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Application A-D-21-0212-1234-ABCD
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/my-legalisation-account"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% set html %}
+      <p class="govuk-notification-banner__heading">
+        You have 14 days left to download your legalised documents.
+      </p>
+    {% endset %}
+
+    {{ govukNotificationBanner({
+      html: html
+    }) }}
+
+  <h1 class="govuk-heading-xl">
+    Application A-D-21-0212-1234-ABCD
+  </h1>
+
+  <p class="govuk-body">For security, you have 14 left days to download your
+    successfully legalised document before it is deleted. If you do not
+    download it within this time, you will need to pay for another application
+    to have it legalised again.</p>
+
+     {{ govukTable({
+       caption: "Application details",
+       captionClasses: "govuk-table__caption--m",
+       firstCellIsHeader: true,
+       rows: [
+         [
+           {
+             text: "Application reference"
+           },
+           {
+             text: "A-D-21-0212-1234-ABCD"
+           }
+         ],
+         [
+           {
+             text: "Date submitted"
+           },
+           {
+             text: "12 February 2021"
+           }
+         ],
+         [
+           {
+             text: "Number of documents"
+           },
+           {
+             text: "1"
+           }
+         ],
+         [
+           {
+             text: "Your reference"
+           },
+           {
+             text: "A1234567"
+           }
+         ],
+         [
+           {
+             text: "Status"
+           },
+           {
+             text: "Completed"
+           }
+         ]
+       ]
+     }) }}
+
+     {{ govukTable({
+       caption: "Payment details",
+       captionClasses: "govuk-table__caption--m",
+       firstCellIsHeader: true,
+       rows: [
+         [
+           {
+             text: "Amount"
+           },
+           {
+             text: "£30.00"
+           }
+         ],
+         [
+           {
+             text: "Payment reference"
+           },
+           {
+             text: "8516125154710905"
+           }
+         ],
+         [
+           {
+             text: "Service"
+           },
+           {
+             text: "eApostille"
+           }
+         ]
+       ]
+     }) }}
+
+     {{ govukTable({
+       caption: "Documents",
+       captionClasses: "govuk-table__caption--m",
+       firstCellIsHeader: true,
+       head: [
+           {
+             text: "Document name"
+           },
+           {
+             text: "Status"
+           }
+         ],
+       rows: [
+         [
+           {
+             text: "MyClientDocuments.pdf"
+           },
+           {
+             html: '<a href="#">Download legalised document</a>'
+           }
+         ]
+        ]
+     }) }}
+
+     <p class="govuk-body">Your payment will appear on your bank statement as FCDO Legalisation Service.
+       </p>
+
+       {{ govukButton({
+           text: "Return to your applications",
+           href: "/my-legalisation-account"
+       }) }}
+
+
+{% endblock %}

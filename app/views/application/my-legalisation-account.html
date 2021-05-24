@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  My legalisation account
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/my-account-nav.html" %}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl">
+  My legalisation account
+</h1>
+
+<div class="govuk-!-margin-bottom-4">
+{{ govukButton({
+  text: "Start new application",
+  href: "/application/select-a-service"
+}) }}
+</div>
+
+<h2 class="govuk-heading-l">
+  Application history
+</h2>
+
+{{ govukTable({
+  firstCellIsHeader: false,
+  head: [
+    {
+      html: '<a href="#">Date</a>'
+    },
+    {
+      html: '<a href="#">Application reference</a>'
+    },
+    {
+      html: '<a href="#">Service</a>'
+    },
+    {
+      html: '<a href="#">Documents</a>'
+    },
+    {
+      html: '<a href="#">Payments</a>'
+    },
+    {
+      html: '<a href="#">Your reference</a>'
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: "Track your documents"
+    }
+  ],
+  rows: [
+  [
+    {
+      text: "12 Jan 2021"
+    },
+    {
+      html: '<a href="/application/A-D-21-0212-1234-ABCD">A-D-21-0212-1234-ABCD</a>'
+    },
+    {
+      text: "eApostille"
+    },
+    {
+      text: "1",
+format: "numeric"
+    },
+    {
+      text: "£30.00",
+format: "numeric"
+    },
+    {
+      text: "A1234567"
+    },
+    {
+      text: "Submitted"
+    },
+    {
+      text: "Received"
+    }
+  ],
+  [
+    {
+      text: "5 Feb 2021"
+    },
+    {
+      html: '<a href="/application/A-D-21-0212-1234-ABCD-completed">A-C-21-0205-0343-5BEC</a>'
+    },
+    {
+      text: "Standard"
+    },
+    {
+      text: "1",
+format: "numeric"
+    },
+    {
+      text: "£35.00",
+format: "numeric"
+    },
+    {
+      text: "Z9876543"
+    },
+    {
+      text: "Completed"
+    },
+    {
+      text: "Not available"
+    }
+  ]
+  ]
+}) }}
+
+{% endblock %}

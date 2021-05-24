@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Saved addresses
+{% endblock %}
+
+{% block beforeContent %}
+<div id="menubar" style="float: right; margin-left: 10px;">
+  <span class="govuk-body">Joesephine Bloggs-Smyth</span>
+  <span class="govuk-body">
+  <a href="/application/my-legalisation-account" class="govuk-link" style="margin-left: 10px;">Applications</a>
+  <a href="/application/personal-details" class="govuk-link" style="margin-left: 10px;">Account</a>
+  <a href="/application/addresses" class="govuk-link" style="margin-left: 10px;">Addresses</a>
+  <a href="/application/start" class="govuk-link" style="margin-left: 10px;">Sign out</a>
+  </span>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-xl">
+    Saved addresses
+  </h1>
+
+<p class="govuk-body">Speed up your postal applications by saving return addresses you use regularly.</p>
+
+{{ govukButton({
+  text: "Add an address"
+}) }}
+
+
+
+  </div>
+</div>
+{% endblock %}

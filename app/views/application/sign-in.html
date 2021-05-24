@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Sign in
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+	<form action="/application/sign-in/form-handler" method="post">
+    {% call govukFieldset({
+      legend: {
+        text: "Sign in",
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true
+      }
+    }) %}
+
+      {{ govukInput({
+        label: {
+            text: "Email"
+        },
+        id: "email",
+        name: "email"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Password"
+        },
+        id: "password",
+        name: "password"
+      }) }}
+
+    {% endcall %}
+
+    {{ govukButton({
+        text: "Sign in"
+    }) }}
+	</form>
+    <p class="govuk-body">
+      <a href="#">Create an account</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

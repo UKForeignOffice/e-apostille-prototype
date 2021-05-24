@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Upload documents
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/application/check-documents"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-xl">
+    Upload documents
+  </h1>
+
+  <p class="govuk-body">Upload your documents to be apostilled. Each document must be:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>certified and digitally signed by a notary</li>
+    <li>in PDF format</li>
+    <li>less than 50MB</li>
+    <li>one PDF per apostille</li>
+  </ul>
+	  <div class="govuk-form-group">
+		  <label class="govuk-label" for="file-upload-1">
+			  Upload a PDF
+		  </label>
+		  <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file" accept=".pdf">
+	  </div>
+
+{{ govukButton({
+    text: "Continue",
+    href: "/application/additional-information"
+}) }}
+
+{% endblock %}
