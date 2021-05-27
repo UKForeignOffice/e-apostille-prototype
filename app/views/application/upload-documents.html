@@ -27,16 +27,17 @@
     <li>less than 50MB</li>
     <li>one PDF per apostille</li>
   </ul>
+	  <form action="/application/upload-documents/form-handler" method="post">
 	  <div class="govuk-form-group">
 		  <label class="govuk-label" for="file-upload-1">
 			  Upload a PDF
 		  </label>
-		  <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file" accept=".pdf">
+		  <input class="govuk-file-upload" id="file-upload-1" name="pdf" type="file" accept=".pdf">
 	  </div>
+		  {{ govukButton({
+		  text: "Continue"
+		  }) }}
+	  </form>
 
-{{ govukButton({
-    text: "Continue",
-    href: "/application/additional-information"
-}) }}
 
 {% endblock %}
