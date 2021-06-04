@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Choose a service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="flex-space-between">
+	{{ govukBackLink({
+	text: "Back",
+	href: "/application/2-your-account"
+	}) }}
+	{% include "includes/my-account-nav.html" %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+	  <div class="govuk-form-group">
+		  <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+			  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+				  <h1 class="govuk-fieldset__heading">
+					  Which service would you like?
+				  </h1>
+			  </legend>
+			  <br />
+			  <div class="govuk-radios">
+				  <div class="govuk-radios__item">
+					  <input class="govuk-radios__input" id="e-apostille" name="service" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+					  <label class="govuk-label govuk-radios__label" for="e-apostille">
+						  <span class="govuk-heading-m">
+						  eApostille service
+						  </span>
+					  </label>
+					  <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+						  <p class="govuk-body">This is a new service to issue an electronic apostille (eApostille). </p>
+						  <ul class="govuk-list govuk-list--bullet">
+							  <li>Documents must be PDFs certified and digitally signed by a notary</li>
+							  <li>£30 per document</li>
+							  <li>An electronic apostille will be available to download from your account within 2 working days</li>
+						  </ul>
+					  </div>
+				  </div>
+				  <div class="govuk-radios__item">
+					  <input class="govuk-radios__input" id="standard" name="service" type="radio" value="government-gateway" aria-describedby="standard-item-hint">
+					  <label class="govuk-label govuk-radios__label" for="standard">
+						  <span class="govuk-heading-m">
+						  Standard service
+						  </span>
+					  </label>
+					  <div id="standard-item-hint" class="govuk-hint govuk-radios__hint">
+						  <ul class="govuk-list govuk-list--bullet">
+							  <li>Due to the impact of coronavirus (COVID-19) processing
+								  and return delivery times may be longer than usual.</li>
+							  <li>£30 per document</li>
+							  <li>Documents sent and returned by post</li>
+						  </ul>
+					  </div>
+				  </div>
+				  <div class="govuk-radios__item">
+					  <input class="govuk-radios__input" id="premium" name="service" type="radio" value="government-gateway" aria-describedby="premium-item-hint">
+					  <label class="govuk-label govuk-radios__label" for="premium">
+						  <span class="govuk-heading-m">
+						  Premium service
+						  </span>
+					  </label>
+					  <div id="premium-item-hint" class="govuk-hint govuk-radios__hint">
+						  <ul class="govuk-list govuk-list--bullet">
+							  <li>For businesses only</li>
+							  <li>£75 per document</li>
+							  <li>London drop-off and collection only</li>
+							  <li>The counter opens on working days, 9am to 1pm for drop-off and 2pm to 4pm for collection</li>
+							  <li>Same-day service for applications received before 1pm</li>
+						  </ul>
+					  </div>
+				  </div>
+			  </div>
+		  </fieldset>
+	  </div>
+	  {{ govukButton({
+	  text: "Continue",
+	  href: "/application/4-check-documents"
+	  }) }}
+  </div>
+</div>
+
+{% endblock %}

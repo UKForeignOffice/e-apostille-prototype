@@ -5,10 +5,13 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "/application/additional-information"
-  }) }}
+<div class="flex-space-between">
+	{{ govukBackLink({
+	text: "Back",
+	href: "/application/8-additional-information"
+	}) }}
+	{% include "includes/my-account-nav.html" %}
+</div>
 {% endblock %}
 
 {% block content %}
@@ -98,31 +101,27 @@
   }}
 
 	  <h2 class="govuk-heading-m">
-		  Uploaded documents
+		  Uploaded PDF files
 	  </h2>
-	  {{ govukSummaryList({
-		  classes: 'govuk-!-margin-bottom-9',
-		  rows: [
-			  {
-				  key: {
-					text: "File"
-				  },
-				  value: {
-					text: data.pdf
-				  },
-				  actions: {
-					  items: [
-						{
-							  href: "#",
-							  text: "Change",
-							  visuallyHiddenText: "uploaded document"
-						}
-					]
-					}
-				}
-			]
-	  })
-	  }}
+	  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+		  <div class="govuk-summary-list__row">
+			  <dt class="govuk-summary-list__key">
+				  Files
+			  </dt>
+			  <dd class="govuk-summary-list__value">
+				  <ul class="govuk-list">
+					  {% for file in data.pdf %}
+					  <li>{{file}}</li>
+					  {% endfor %}
+				  </ul>
+			  </dd>
+			  <dd class="govuk-summary-list__actions">
+				  <a class="govuk-link" href="#">
+					  Change<span class="govuk-visually-hidden"> files</span>
+				  </a>
+			  </dd>
+		  </div>
+	  </dl>
 
 	  <h2 class="govuk-heading-m">
 		  Additional information
@@ -135,7 +134,7 @@
 				  	text: "Your reference"
 				  },
 				  value: {
-				  	text: data.documents[0].usersReference
+				  	text: data['application-reference']
 				  },
 				  actions: {
 					  items: [
@@ -154,35 +153,22 @@
 	  <h2 class="govuk-heading-m">
 		  Cost
 	  </h2>
-	  {{ govukSummaryList({
-		  classes: 'govuk-!-margin-bottom-9',
-		  rows: [
-		  {
-			  key: {
-				text: "Total cost to legalise 1 document"
-			  },
-			  value: {
-				text: data.cost | formatCurrency
-			  },
-			  actions: {
-				  items: [
-				  {
-					  href: "#",
-					  text: "",
-					  visuallyHiddenText: ""
-				  }
-				]
-			  }
-		  }
-		  ]
-	  })
-  }}
+	  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+		  <div class="govuk-summary-list__row">
+			  <dt class="govuk-summary-list__key">
+				  Total cost to legalise {%if data.pdf.length > 1 %}{{data.pdf.length}} PDF files{% else %}1 PDF file{% endif %}
+			  </dt>
+			  <dd class="govuk-summary-list__value">
+				  {{data.cost | formatCurrency}}
+			  </dd>
+		  </div>
+	  </dl>
 
-<p class="govuk-body">You will be refunded for each document we are unable to legalise.</p>
+<p class="govuk-body">You will be refunded for each PDF file we are unable to legalise.</p>
 
 {{ govukButton({
     text: "Continue",
-    href: "/application/pay-for-application"
+    href: "/application/10-pay-for-application"
 }) }}
 
 </div>

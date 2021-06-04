@@ -5,7 +5,5 @@ module.exports = {
     mobileNumber: '07812345678',
     email: 'joesephine@example.com'
   },
-  documents: [],
-  usersReference: '',
-  cost: 30
+  documents: []
 };

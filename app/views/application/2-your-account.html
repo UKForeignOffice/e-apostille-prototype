@@ -5,19 +5,20 @@
 {% endblock %}
 
 {% block beforeContent %}
+<br />
 {% include "includes/my-account-nav.html" %}
 {% endblock %}
 
 {% block content %}
 
 <h1 class="govuk-heading-xl">
-  My legalisation account
+  Your account
 </h1>
 
 <div class="govuk-!-margin-bottom-4">
 {{ govukButton({
   text: "Start new application",
-  href: "/application/select-a-service"
+  href: "/application/3-which-service"
 }) }}
 </div>
 
@@ -29,22 +30,22 @@
   firstCellIsHeader: false,
   head: [
     {
-      html: '<a href="#">Date</a>'
+      html: 'Date'
     },
     {
-      html: '<a href="#">Application reference</a>'
+      html: 'Application reference'
     },
     {
-      html: '<a href="#">Service</a>'
+      html: 'Service'
     },
     {
-      html: '<a href="#">Documents</a>'
+      html: 'Documents'
     },
     {
-      html: '<a href="#">Payments</a>'
+      html: 'Payments'
     },
     {
-      html: '<a href="#">Your reference</a>'
+      html: 'Your reference'
     },
     {
       text: "Status"

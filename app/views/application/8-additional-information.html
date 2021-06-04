@@ -5,16 +5,20 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "/application/upload-documents"
-  }) }}
+<div class="flex-space-between">
+	{{ govukBackLink({
+	text: "Back",
+	href: "/application/7-upload-documents"
+	}) }}
+	{% include "includes/my-account-nav.html" %}
+</div>
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
 
+	  <form action="/application/9-check-your-answers">
 {{ govukInput({
   label: {
     text: "Additional information",
@@ -24,14 +28,14 @@
   hint: {
     text: "If you have your own internal reference number you can enter it here."
   },
-  id: "additional-information",
-  name: "additional-information"
+  id: "application-reference",
+  name: "application-reference"
 }) }}
 
 {{ govukButton({
-    text: "Continue",
-    href: "/application/check-your-answers"
+    text: "Continue"
 }) }}
+	  </form>
 
   </div>
 </div>

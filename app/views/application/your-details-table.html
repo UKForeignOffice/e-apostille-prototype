@@ -21,53 +21,52 @@
   </h1>
 
   <p class="govuk-body">We will use your details to notify you of the progress of your application.</p>
-	  {{ govukSummaryList({
-	  classes: 'govuk-!-margin-bottom-9',
-	  rows: [
-		  {
-			  key: {
-			  text: "First name"
-			  },
-			  value: {
-			  text: 'Joesephine'
-			  }
-		  },
-		  {
-			  key: {
-			  text: "Last name"
-			  },
-			  value: {
-			  text: 'Bloggs-Smyth'
-			  }
-		  },
-		  {
-			  key: {
-			  text: "Telephone number"
-			  },
-			  value: {
-			  text: '07812 345678'
-			  }
-		  },
-		  {
-			  key: {
-			  text: "Mobile number"
-			  },
-			  value: {
-			  text: '07812 345678'
-			  }
-		  },
-		  {
-			  key: {
-			  text: "Email"
-			  },
-			  value: {
-			  text: "joesephine@example.com"
-			  }
-		  }
-	  ]
-  })
-}}
 
+  {{ govukTable({
+  firstCellIsHeader: true,
+  rows: [
+    [
+      {
+        text: "First name"
+      },
+      {
+        text: "Joesephine"
+      }
+    ],
+    [
+      {
+        text: "Last name"
+      },
+      {
+        text: "Bloggs-Smyth"
+      }
+    ],
+    [
+      {
+        text: "Telephone number"
+      },
+      {
+        text: "07812 345678"
+      }
+    ],
+    [
+      {
+        text: "Mobile number"
+      },
+      {
+        text: "None provided"
+      }
+    ],
+    [
+      {
+        text: "Email"
+      },
+      {
+        text: "joesephine@example.com"
+      }
+    ]
+  ]
+}) }}
 
   <p class="govuk-body">You can update them in <a href="/application/my-legalisation-account">your account.</a></p>
 

@@ -5,15 +5,18 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "/application/check-your-answers"
-  }) }}
+<div class="flex-space-between">
+	{{ govukBackLink({
+	text: "Back",
+	href: "/application/9-check-your-answers"
+	}) }}
+	{% include "includes/my-account-nav.html" %}
+</div>
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
 
   <h1 class="govuk-heading-xl">
     Pay for your application
@@ -31,7 +34,7 @@
 
   {{ govukButton({
       text: "Pay",
-      href: "/application/payment-details"
+      href: "/application/11-payment-details"
   }) }}
 
 </div>

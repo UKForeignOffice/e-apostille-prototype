@@ -5,16 +5,20 @@
 {% endblock %}
 
 {% block beforeContent %}
+<div class="flex-space-between">
   {{ govukBackLink({
     text: "Back",
-    href: "/application/your-details"
+    href: "/application/4-check-documents"
   }) }}
+{% include "includes/my-account-nav.html" %}
+</div>
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
 
+	  <form action="/application/5-documents-certified-check/form-handler" method="post">
     {{ govukRadios({
       classes: "govuk-radios--inline",
       idPrefix: "documents-certified",
@@ -28,11 +32,7 @@
       },
       hint: {
         html: '<p class="govuk-body">To use this eApostille service, your documents
-          must be PDFs that have been certified and digitally signed by a notary.</p>
-
-          <p class="govuk-body">If you can’t use the eApostille service, you will
-            need to post your documents instead using the
-            <a href="#">standard application.</a></p>'
+          must be PDFs that have been certified and digitally signed by a notary.</p>'
       },
       items: [
         {
@@ -47,13 +47,9 @@
     }) }}
 
     {{ govukButton({
-        text: "Continue",
-        href: "/application/check-documents"
+        text: "Continue"
     }) }}
-
-    <p class="govuk-body">
-      <a href="#">Post documents using standard application</a>
-    </p>
+	  </form>
 
   </div>
 </div>

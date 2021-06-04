@@ -1,0 +1,20 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Payment details
+{% endblock %}
+
+{% block beforeContent %}
+<div class="flex-space-between">
+	{{ govukBackLink({
+	text: "Back",
+	href: "/application/10-pay-for-application"
+	}) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<h1>Payment details</h1>
+<a href="/application/12-success">Click to continue</a>
+
+{% endblock %}

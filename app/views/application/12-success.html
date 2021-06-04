@@ -4,21 +4,25 @@
   Application successfully submitted
 {% endblock %}
 
+{% block beforeContent %}
+<br />
+	{% include "includes/my-account-nav.html" %}
+{% endblock %}
+
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
 
-    {{ govukPanel({
-      titleText: "Application complete",
-      html: '<p class="govuk-body-m" style="color: white;">
-        Total amount: ' + (data.cost | formatCurrency) + ' for 1 document<br>
-             Application reference: <strong>' + data.usersReference + '</strong><br>
-             Email confirmation sent to ' + data.userDetails.email + '</p>'
-    }) }}
 
-    <p class="govuk-body">
-      Your application has been successfully submitted.
-    </p>
+	  <div class="govuk-panel govuk-panel--confirmation">
+		  <h1 class="govuk-panel__title">Application submitted</h1>
+		  <div class="govuk-panel__body">
+			  <p class="govuk-body-m" style="color: white;">
+				  Total paid: <strong>{{data.cost | formatCurrency}} for {%if data.pdf.length > 1 %}{{data.pdf.length}} PDF files{% else %}1 PDF file{% endif %}</strong><br />
+				  Application reference: <strong>{{data['application-reference']}}</strong><br>
+				  Email confirmation sent to <strong>{{data.userDetails.email}}</strong></p>
+		  </div>
+	  </div>
 
     <h2 class="govuk-heading-l">
       What to do next

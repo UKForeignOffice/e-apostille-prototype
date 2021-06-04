@@ -5,24 +5,29 @@
 {% endblock %}
 
 {% block beforeContent %}
+
+<div class="flex-space-between">
   {{ govukBackLink({
     text: "Back",
-    href: "/application/documents-certified-check"
+    href: "/application/3-which-service"
   }) }}
+{% include "includes/my-account-nav.html" %}
+</div>
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
 
   <h1 class="govuk-heading-xl">
-    Check if your documents can be legalised
+    Check if your documents are eligible for the eApostille service
   </h1>
 
   <p class="govuk-body">We accept most types of documents if they have been
     certified by a notary.</p>
 
   <p class="govuk-body">You cannot use this eApostille service if your document is:</p>
+	  <div class="govuk-!-margin-bottom-8">
   <ul class="govuk-list govuk-list--bullet">
     <li>issued by the General Register Office (GRO)</li>
     <li>ACRO police certificate for England and Wales</li>
@@ -33,19 +38,34 @@
     <li>fingerprint certificate</li>
     <li>certified by the British Council</li>
   </ul>
-
-  <p class="govuk-body">If you need one of these types of documents apostilled
-    you will need to post the original using the <a href="#">standard application.</a></p>
-
-    {{ govukWarningText({
-      text: "The eApostille is for use in countries party to the Hague Convention of 5 October 1961 - we cannot issue refunds if the apostille is not accepted.",
-      iconFallbackText: "Warning"
-    }) }}
-
+  </div>
+	  <form action="/application/4-check-documents/form-handler" method="post">
+	  {{ govukRadios({
+	  classes: "govuk-radios--inline",
+	  idPrefix: "documents-eligible",
+	  name: "documents-eligible",
+	  fieldset: {
+	  legend: {
+	  text: "Are your documents eligible for the eApostille service?",
+	  isPageHeading: false,
+	  classes: "govuk-fieldset__legend--m"
+	  }
+	  },
+	  items: [
+	  {
+	  value: "yes",
+	  text: "Yes"
+	  },
+	  {
+	  value: "no",
+	  text: "No"
+	  }
+	  ]
+	  }) }}
     {{ govukButton({
-        text: "Continue",
-        href: "/application/upload-documents"
+        text: "Continue"
     }) }}
+	  </form>
 
     <p class="govuk-body">
       <a href="#">Post documents using standard application</a>
