@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Choose a service
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="flex-space-between">
+{{ govukBackLink({
+text: "Back",
+href: "/application"
+}) }}
+	<a href="/application/sign-in">Sign in</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+		<h1 class="govuk-heading-xl">
+			Choose a service
+		</h1>
+		<h2 class="govuk-heading-l">
+			Standard service
+		</h2>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Due to the impact of coronavirus (COVID-19) processing
+				and return delivery times may be longer than usual.</li>
+			<li>£30 per document</li>
+			<li>Documents sent and returned by post</li>
+		</ul>
+		<p class="govuk-body">If you're a regular customer you can <a href="#">create an
+			account</a> to speed up your applications (optional).</p>
+
+		{{ govukButton({
+		text: "Start a standard application",
+		classes: "govuk-button--secondary"
+		}) }}
+
+		<h2 class="govuk-heading-l">
+			Premium service
+		</h2>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>For businesses only</li>
+			<li>£75 per document</li>
+			<li>London drop-off and collection only</li>
+			<li>The counter opens on working days, 9am to 1pm for drop-off and 2pm to 4pm for collection</li>
+			<li>Same-day service for applications received before 1pm</li>
+		</ul>
+		<p class="govuk-body">To use the premium service you need to <a href="#">create an account.</a>
+			You'll be asked to provide company details.</p>
+
+		{{ govukButton({
+		text: "Start a premium application",
+		classes: "govuk-button--secondary"
+		}) }}
+
+
+		<div class="contact">
+			<h2 class="govuk-heading-l">
+				Contact us
+			</h2>
+			<p class="govuk-body">
+				<a href="mailto:legalisationenquiries@fcdo.gov.uk">legalisationenquiries@fcdo.gov.uk</a> <br>
+				Telephone: 03700 00 22 44<br>
+				Monday to Friday, 10am to 4pm<br>
+				<a href="#">Find out about call charges</a>
+			</p>
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}

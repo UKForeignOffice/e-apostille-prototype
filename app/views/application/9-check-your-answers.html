@@ -8,7 +8,7 @@
 <div class="flex-space-between">
 	{{ govukBackLink({
 	text: "Back",
-	href: "/application/8-additional-information"
+	href: "/application/8-user-reference"
 	}) }}
 	{% include "includes/my-account-nav.html" %}
 </div>
@@ -19,102 +19,21 @@
   <div class="govuk-grid-column-three-quarters-from-desktop">
 
   <h1 class="govuk-heading-xl">
-    Check your answers before paying for your application
+    Check your answers before submitting your application
   </h1>
 
-  <h2 class="govuk-heading-m">
-	  Your details
-  </h2>
-  {{ govukSummaryList({
-	  classes: 'govuk-!-margin-bottom-9',
-	  rows: [
-		  {
-			key: {
-				text: "First name"
-			},
-			value: {
-				text: data.userDetails.firstName
-			},
-			actions: {
-				items: [
-					{
-						href: "#",
-						text: "Change",
-						visuallyHiddenText: "first name"
-					}
-				]
-			}
-		},
-		  {
-			  key: {
-				text: "Last name"
-			  },
-			  value: {
-				text: data.userDetails.lastName
-			  },
-			  actions: {
-				  items: [
-					  {
-						href: "#",
-						text: "Change",
-						visuallyHiddenText: "last name"
-					  }
-				  ]
-			  }
-		  },
-		  {
-			  key: {
-			  	text: "Mobile number"
-			  },
-			  value: {
-			  	text: data.userDetails.mobileNumber
-			  },
-			  actions: {
-				  items: [
-					  {
-					  	href: "#",
-					  	text: "Change",
-					  	visuallyHiddenText: "mobile number"
-					  }
-				  ]
-			}
-		  },
-		  {
-			  key: {
-			  text: "Email"
-			  },
-			  value: {
-			  text: data.userDetails.email
-			  },
-			  actions: {
-				  items: [
-					  {
-						  href: "#",
-						  text: "Change",
-						  visuallyHiddenText: "email"
-					  }
-				  ]
-			  }
-		  }
-		  ]
-  	})
-  }}
-
 	  <h2 class="govuk-heading-m">
-		  Uploaded PDF files
+		  Add your documents
 	  </h2>
 	  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 		  <div class="govuk-summary-list__row">
 			  <dt class="govuk-summary-list__key">
-				  Files
-			  </dt>
-			  <dd class="govuk-summary-list__value">
 				  <ul class="govuk-list">
-					  {% for file in data.pdf %}
-					  <li>{{file}}</li>
-					  {% endfor %}
-				  </ul>
-			  </dd>
+				  {% for file in data.pdf %}
+				  <li>{{file}}</li>
+				  {% endfor %}
+			  </ul>
+			  </dt>
 			  <dd class="govuk-summary-list__actions">
 				  <a class="govuk-link" href="#">
 					  Change<span class="govuk-visually-hidden"> files</span>
@@ -122,19 +41,19 @@
 			  </dd>
 		  </div>
 	  </dl>
-
+{% if data['user-reference'] %}
 	  <h2 class="govuk-heading-m">
-		  Additional information
+		  Reference
 	  </h2>
 	  {{ govukSummaryList({
 		  classes: 'govuk-!-margin-bottom-9',
 		  rows: [
 			  {
 				  key: {
-				  	text: "Your reference"
+				  	text: 'Your reference'
 				  },
 				  value: {
-				  	text: data['application-reference']
+				  	text: data['user-reference']
 				  },
 				  actions: {
 					  items: [
@@ -149,7 +68,7 @@
 		  ]
 	  })
 	  }}
-
+{% endif %}
 	  <h2 class="govuk-heading-m">
 		  Cost
 	  </h2>
@@ -165,7 +84,9 @@
 	  </dl>
 
 <p class="govuk-body">You will be refunded for each PDF file we are unable to legalise.</p>
-
+<hr />
+	  <br />
+	  <br />
 {{ govukButton({
     text: "Continue",
     href: "/application/10-pay-for-application"

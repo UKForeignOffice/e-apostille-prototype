@@ -21,15 +21,15 @@
 	  <form action="/application/9-check-your-answers">
 {{ govukInput({
   label: {
-    text: "Additional information",
+    text: "Do you wish to add an internal reference number (optional)?",
     classes: "govuk-label--l",
     isPageHeading: true
   },
   hint: {
-    text: "If you have your own internal reference number you can enter it here."
+    text: "If you wish to add your own internal reference number to help with your own records, then you can enter it here."
   },
-  id: "application-reference",
-  name: "application-reference"
+  id: "user-reference",
+  name: "user-reference"
 }) }}
 
 {{ govukButton({

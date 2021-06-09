@@ -15,7 +15,7 @@ const COST_PER_PDF = 30;
 
 router.post(UPLOADS_PATH, upload.array('pdf'), (req, res, next) => {
   req.session.data.cost = req.body.pdf.length * COST_PER_PDF
-  res.redirect('/application/8-additional-information')
+  res.redirect('/application/8-user-reference')
 })
 
 router.post('/sign-in/form-handler', (req, res, next) => {

@@ -19,7 +19,7 @@
 		  <div class="govuk-panel__body">
 			  <p class="govuk-body-m" style="color: white;">
 				  Total paid: <strong>{{data.cost | formatCurrency}} for {%if data.pdf.length > 1 %}{{data.pdf.length}} PDF files{% else %}1 PDF file{% endif %}</strong><br />
-				  Application reference: <strong>{{data['application-reference']}}</strong><br>
+				  Application reference: <strong>{{data['user-reference']}}</strong><br>
 				  Email confirmation sent to <strong>{{data.userDetails.email}}</strong></p>
 		  </div>
 	  </div>
