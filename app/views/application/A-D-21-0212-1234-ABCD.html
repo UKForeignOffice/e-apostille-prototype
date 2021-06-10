@@ -5,10 +5,13 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "/my-legalisation-account"
-  }) }}
+<div class="flex-space-between">
+	{{ govukBackLink({
+	text: "Back",
+	href: "/2-your-account"
+	}) }}
+	{% include "includes/my-account-nav.html" %}
+</div>
 {% endblock %}
 
 {% block content %}
