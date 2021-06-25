@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Additional information
+  Do you wish to add an internal reference (optional)?
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,12 +21,12 @@
 	  <form action="/application/9-check-your-answers">
 {{ govukInput({
   label: {
-    text: "Do you wish to add an internal reference number (optional)?",
+    text: "Do you wish to add an internal reference (optional)?",
     classes: "govuk-label--l",
     isPageHeading: true
   },
   hint: {
-    text: "If you wish to add your own internal reference number to help with your own records, then you can enter it here."
+    text: "If you wish to add an internal reference to help with your own records, such as a case number or name, then you can enter it here."
   },
   id: "user-reference",
   name: "user-reference"

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Check if your documents can be legalised
+Get the documents legalised using the eApostille service
 {% endblock %}
 
 {% block beforeContent %}
@@ -9,7 +9,7 @@
 <div class="flex-space-between">
   {{ govukBackLink({
     text: "Back",
-    href: "/application/5-documents-certified-check"
+    href: "/application/5a-saved-as-pdf"
   }) }}
 {% include "includes/my-account-nav.html" %}
 </div>
@@ -20,21 +20,13 @@
   <div class="govuk-grid-column-three-quarters-from-desktop">
 
   <h1 class="govuk-heading-xl">
-    Get your documents legalised using the eApostille service
+    Get the documents legalised using the eApostille service
   </h1>
-	  <p class="govuk-body">Your legalised documents and electronic apostille will be issued and can be downloaded from your account.
+	  <p class="govuk-body">The legalised documents and electronic apostille will be issued and available to download from your account within 10 working days of completing this service.
 	  </p>
-
-	  <h2 class="govuk-heading-l">
-		  What you’ll need
-	  </h2>
-	  <ul class="govuk-list govuk-list--bullet">
-		  <li>the documents you want to legalise, ready to upload as PDF files</li>
-		  <li>each PDF file certified and digitally signed by a practising notary</li>
-		  <li>a credit or debit card for payment</li>
-	  </ul>
-	  <p class="govuk-body">If you do not enter any information for more than 30
-		  minutes, your application will time out and you will have to start again.</p>
+	  <p class="govuk-body">Make sure you have a credit or debit card ready for payment.</p>
+	  <p class="govuk-body">If you do not enter any information for more than 30 minutes, your application will time out and you will have to start again.
+	  </p>
 	  <div class="govuk-!-margin-top-6">
 		  {{ govukButton({
 		  text: "Start now",

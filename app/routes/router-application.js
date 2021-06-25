@@ -13,8 +13,8 @@ const upload = multer({ storage })
 const UPLOADS_PATH = '/7-upload-documents/form-handler'
 const COST_PER_PDF = 30;
 
-router.post(UPLOADS_PATH, upload.array('pdf'), (req, res, next) => {
-  req.session.data.cost = req.body.pdf.length * COST_PER_PDF
+router.post(UPLOADS_PATH, upload.array('documents'), (req, res, next) => {
+  req.session.data.cost = req.body.documents.length * COST_PER_PDF
   res.redirect('/application/8-user-reference')
 })
 
@@ -33,6 +33,14 @@ router.post('/4-check-documents/form-handler', (req, res, next) => {
 
 router.post('/5-documents-certified-check/form-handler', (req, res, next) => {
   if (req.session.data['documents-certified'] === 'yes') {
+    res.redirect('/application/5a-saved-as-pdf')
+    return
+  }
+  res.redirect('/application/5-documents-certified-check-fail')
+});
+
+router.post('/5a-saved-as-pdf/form-handler', (req, res, next) => {
+  if (req.session.data['saved-as-pdf'] === 'yes') {
     res.redirect('/application/6-start-eapostille')
     return
   }

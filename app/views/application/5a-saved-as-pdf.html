@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Are the documents certified and digitally signed by a notary?
+All the documents you wish to be legalised must be uploaded as a PDF
 {% endblock %}
 
 {% block beforeContent %}
 <div class="flex-space-between">
   {{ govukBackLink({
     text: "Back",
-    href: "/application/4-check-documents"
+    href: "/application/5-documents-certified-check"
   }) }}
 {% include "includes/my-account-nav.html" %}
 </div>
@@ -18,21 +18,20 @@ Are the documents certified and digitally signed by a notary?
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters-from-desktop">
 
-	  <form action="/application/5-documents-certified-check/form-handler" method="post">
+	  <form action="/application/5a-saved-as-pdf/form-handler" method="post">
     {{ govukRadios({
       classes: "govuk-radios--inline",
-      idPrefix: "documents-certified",
-      name: "documents-certified",
+      idPrefix: "saved-as-pdf",
+      name: "saved-as-pdf",
       fieldset: {
         legend: {
-          text: "Are the documents certified and digitally signed by a notary?",
+          text: "All the documents you wish to be legalised must be uploaded as a PDF",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
         }
       },
       hint: {
-        html: '<p class="govuk-body">To use the eApostille service, the documents
-          must be uploaded as PDFs that have been certified and digitally signed by a notary.</p>'
+        html: '<p class="govuk-body">Each uploaded PDF must:</p><ul class="govuk-list govuk-list--bullet"><li>have a single notarial cover sheet</li><li>include the documents you wish to legalise</li><li>be certified and digitally signed by a practising notary</li><li>have a maximum file size of 100MB</li></ul>'
       },
       items: [
         {
