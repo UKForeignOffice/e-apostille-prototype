@@ -8,7 +8,7 @@
 <div class="flex-space-between">
 	{{ govukBackLink({
 	text: "Back",
-	href: "/application/8-user-reference"
+	href: "/application/7-upload-documents"
 	}) }}
 	{% include "includes/my-account-nav.html" %}
 </div>
@@ -23,19 +23,19 @@
   </h1>
 
 	  <h2 class="govuk-heading-m">
-		  Add your documents
+		  Uploaded PDF files
 	  </h2>
 	  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 		  <div class="govuk-summary-list__row">
 			  <dt class="govuk-summary-list__key">
 				  <ul class="govuk-list">
-				  {% for file in data.pdf %}
-				  <li>{{file}}</li>
+				  {% for document in data.documents %}
+				  <li>{{document}}</li>
 				  {% endfor %}
 			  </ul>
 			  </dt>
 			  <dd class="govuk-summary-list__actions">
-				  <a class="govuk-link" href="#">
+				  <a class="govuk-link" href="/application/7-upload-documents">
 					  Change<span class="govuk-visually-hidden"> files</span>
 				  </a>
 			  </dd>
@@ -75,7 +75,7 @@
 	  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 		  <div class="govuk-summary-list__row">
 			  <dt class="govuk-summary-list__key">
-				  Total cost to legalise {%if data.pdf.length > 1 %}{{data.pdf.length}} PDF files{% else %}1 PDF file{% endif %}
+				  Total cost
 			  </dt>
 			  <dd class="govuk-summary-list__value">
 				  {{data.cost | formatCurrency}}
@@ -83,8 +83,6 @@
 		  </div>
 	  </dl>
 
-<p class="govuk-body">You will be refunded for each PDF file we are unable to legalise.</p>
-<hr />
 	  <br />
 	  <br />
 {{ govukButton({

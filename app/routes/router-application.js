@@ -13,10 +13,32 @@ const upload = multer({ storage })
 const UPLOADS_PATH = '/7-upload-documents/form-handler'
 const COST_PER_PDF = 30;
 
-router.post(UPLOADS_PATH, upload.array('documents'), (req, res, next) => {
-  req.session.data.cost = req.body.documents.length * COST_PER_PDF
-  res.redirect('/application/8-user-reference')
+router.post(UPLOADS_PATH, upload.array('documents'), (req, res) => {
+  req.session.data.cost = totalApplicationCost(req.body.documents);
+  req.session.data.documents = documentNames(req.body.documents);
+  res.redirect('/application/9-check-your-answers');
 })
+
+/**
+ * @param {string | Array<string>} documents
+ * @returns {number}
+ */
+function totalApplicationCost(documents) {
+  const onlyOneDocument = typeof documents === 'string' && documents !== '';
+  const totalDocumentCost = documents.length * COST_PER_PDF;
+
+  return onlyOneDocument ? 30 : totalDocumentCost;
+}
+
+/**
+ * @param {string | Array<string>} documents
+ * @returns {Array<string>}
+ */
+function documentNames(documents) {
+  const onlyOneDocument = typeof documents === "string";
+
+  return onlyOneDocument ? [documents] : documents;
+}
 
 router.post('/sign-in/form-handler', (req, res, next) => {
 
