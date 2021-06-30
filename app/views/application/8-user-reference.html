@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Do you wish to add an internal reference (optional)?
+  Would you like to give this application a reference (optional)?
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,7 +21,7 @@
 	  <form action="/application/9-check-your-answers">
 {{ govukInput({
   label: {
-    text: "Do you wish to add an internal reference (optional)?",
+    text: "Would you like to give this application a reference (optional)?",
     classes: "govuk-label--l",
     isPageHeading: true
   },

@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Application successfully submitted
+Application successfully submitted
 {% endblock %}
 
 {% block beforeContent %}
-	{% include "includes/my-account-nav.html" %}
+{% include "includes/my-account-nav.html" %}
 {% endblock %}
 
 {% block content %}
@@ -13,57 +13,34 @@
   <div class="govuk-grid-column-three-quarters-from-desktop">
 
 
-	  <div class="govuk-panel govuk-panel--confirmation">
-		  <h1 class="govuk-panel__title">Application submitted</h1>
-		  <div class="govuk-panel__body">
-			  <p class="govuk-body-m" style="color: white;">
-				  Total paid: <strong>{{data.cost | formatCurrency}} for {%if data.pdf.length > 1 %}{{data.pdf.length}} PDF files{% else %}1 PDF file{% endif %}</strong><br />
-				  Application reference: <strong>{{data['user-reference']}}</strong><br>
-				  Email confirmation sent to <strong>{{data.userDetails.email}}</strong></p>
-		  </div>
-	  </div>
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">Application complete</h1>
+      <div class="govuk-panel__body">
+        Your reference number
+        <p style="color: white;"><strong>A-D-21-0212-1234-ABCD</strong</p>
+      </div>
+    </div>
 
+    <p class="govuk-body">We have sent you a confirmation email.</p>
     <h2 class="govuk-heading-l">
-      What to do next
+      What happens next
     </h2>
 
     <p class="govuk-body">
-      Your documents should be legalised within 2 working
-      days and will be available to download from your account.
-    </p>
-
-    {{ govukWarningText({
-      html: 'For security, you will have 14 days from when the documents have been legalised to download them before they are deleted.
-<br> <br>
-        If you do not download them within this time, you will need to pay for another application to have them legalised again.',
-      iconFallbackText: "Warning"
-    }) }}
-
-    <p class="govuk-body">
-      We will notify you when your documents have been legalised.
+      We will let you know by email when the legalised documents and eApostille will be available to download from your account.
     </p>
 
     <p class="govuk-body">
-      <a href="/application/3-which-service">Start a new application</a>
+      Due to coronavirus (COVID-19) it currently takes up to 10 working days to issue an eApostille.
     </p>
 
     <p class="govuk-body">
       <a href="/application/2-your-account">View applications</a>
     </p>
 
-    <hr class="govuk-section-break--xl govuk-section-break--visible">
-
-    <div class="contact">
-      <h2 class="govuk-heading-l">
-              Contact us
-      </h2>
-      <p class="govuk-body">
-        <a href="mailto:legalisationenquiries@fcdo.gov.uk">legalisationenquiries@fcdo.gov.uk</a> <br>
-          Telephone: 03700 00 22 44<br>
-          Monday to Friday, 10am to 4pm<br>
-          <a href="#">Find out about call charges</a>
-      </p>
-    </div>
+    <p class="govuk-body">
+      <a href="/application/3-which-service">Start new application</a>
+    </p>
 
   </div>
 </div>
