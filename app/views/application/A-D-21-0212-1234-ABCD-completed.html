@@ -1,29 +1,29 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Application A-C-21-0205-0343-5BEC
+Application A-D-21-0212-1234-ABCD
 {% endblock %}
 
 {% block beforeContent %}
 <div class="flex-space-between">
-  {{ govukBackLink({
-  text: "Back",
-  href: "/application/2-your-account"
-  }) }}
-  {% include "includes/my-account-nav.html" %}
+    {{ govukBackLink({
+    text: "Back",
+    href: "/application/13-your-account-from-email"
+    }) }}
+    {% include "includes/my-account-nav.html" %}
 </div>
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-three-quarters-from-desktop">
+    <div class="govuk-grid-column-three-quarters-from-desktop">
 
-    <h1 class="govuk-heading-xl">
-      Application A-C-21-0205-0343-5BEC
-    </h1>
+        <h1 class="govuk-heading-xl">
+            Application A-D-21-0212-1234-ABCD
+        </h1>
 
-    <p class="govuk-body">Your application has been successfully submitted.</p>
-    <p class="govuk-body">You can download your legalised documents.</p>
+        <p class="govuk-body">Your application has been successfully submitted.</p>
+        <p class="govuk-body">You can download your legalised documents.</p>
 
     {{ govukWarningText({
     html: 'You have 14 days from today to download the eApostilles before they are deleted for security reasons.
@@ -32,111 +32,84 @@ Application A-C-21-0205-0343-5BEC
     iconFallbackText: "Warning"
     }) }}
 
-    <div class="no-table-header-border">
-      {{ govukTable({
-      caption: "Uploaded PDFs",
-      captionClasses: "govuk-table__caption--m",
-      firstCellIsHeader: false,
-      head: [
-      {
-      text: "Name"
-      },
-      {
-      text: "Status"
-      }
-      ],
-      rows: [
-      [
-      {
-      text: ""
-      },
-      {
-      html: '<button class="govuk-button govuk-button--secondary govuk-!-margin-0" data-module="govuk-button">Download
-        all</button>'
-      }
-      ],
-      [
-      {
-      text: "document_1.pdf"
-      },
-      {
-      html: '<button class="govuk-button govuk-button--secondary govuk-!-margin-0"
-        data-module="govuk-button">Download</button>'
-      }
-      ],
-      [
-      {
-      text: "document_2.pdf"
-      },
-      {
-      html: '<button class="govuk-button govuk-button--secondary govuk-!-margin-0"
-        data-module="govuk-button">Download</button>'
-      }
-      ],
-      [
-      {
-      text: "document_3.pdf"
-      },
-      {
-      html: '<a class="govuk-link" href="#">Rejected</a>'
-      }
-      ]
-      ]
-      }) }}
-    </div>
 
-    <br>
-    <div class="no-table-border">
-      {{ govukTable({
-      caption: "Application details",
-      captionClasses: "govuk-table__caption--m",
-      firstCellIsHeader: true,
-      rows: [
-      [
-      {
-      text: "Service"
-      },
-      {
-      text: "eApostille"
-      }
-      ],
-      [
-      {
-      text: "Date submitted"
-      },
-      {
-      text: "12 February 2021"
-      }
-      ]
-      ]
-      }) }}
-    </div>
+        {{ govukTable({
+        caption: "Uploaded PDFs",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: false,
+        head: [
+        {
+        text: "Name"
+        },
+        {
+        text: "Status"
+        }
+        ],
+        rows: [
+        [
+        {
+        text: "test_pdf.pdf"
+        },
+        {
+        html: '<button class="govuk-button govuk-button--secondary govuk-!-margin-0"
+            data-module="govuk-button">Download</button>'
+        }
+        ]
+        ]
+        }) }}
 
-    <div class="no-table-border">
-      {{ govukTable({
-      caption: "Payment details",
-      captionClasses: "govuk-table__caption--m",
-      firstCellIsHeader: true,
-      rows: [
-      [
-      {
-      text: "Amount"
-      },
-      {
-      text: "£90.00"
-      }
-      ],
-      [
-      {
-      text: "Payment reference"
-      },
-      {
-      text: "8516125154710905"
-      }
-      ]
-      ]
-      }) }}
-    </div>
+        <br>
+        <div class="no-table-border">
+            {{ govukTable({
+            caption: "Application details",
+            captionClasses: "govuk-table__caption--m",
+            firstCellIsHeader: true,
+            rows: [
+            [
+            {
+            text: "Service"
+            },
+            {
+            text: "eApostille"
+            }
+            ],
+            [
+            {
+            text: "Date submitted"
+            },
+            {
+            text: "5 July 2021"
+            }
+            ]
+            ]
+            }) }}
+        </div>
 
-    <p class="govuk-body">Your payment will appear on your bank statement as FCDO Legalisation Service.</p>
-    {% endblock %}
+        <div class="no-table-border">
+            {{ govukTable({
+            caption: "Payment details",
+            captionClasses: "govuk-table__caption--m",
+            firstCellIsHeader: true,
+            rows: [
+            [
+            {
+            text: "Amount"
+            },
+            {
+            text: "£30.00"
+            }
+            ],
+            [
+            {
+            text: "Payment reference"
+            },
+            {
+            text: "8516125154710905"
+            }
+            ]
+            ]
+            }) }}
+        </div>
+
+        <p class="govuk-body">Your payment will appear on your bank statement as FCDO Legalisation Service.</p>
+        {% endblock %}

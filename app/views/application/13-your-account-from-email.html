@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your account
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/my-account-nav.html" %}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl">
+    Your account
+</h1>
+
+<div class="govuk-!-margin-bottom-4">
+    {{ govukButton({
+    text: "New application",
+    href: "/application/3-which-service"
+    }) }}
+</div>
+
+<h2 class="govuk-heading-l">
+    Application history
+</h2>
+
+{{ govukTable({
+firstCellIsHeader: false,
+head: [
+{
+html: 'Date submitted'
+},
+{
+html: 'Application reference'
+},
+{
+html: 'Service'
+},
+{
+text: "Application Status"
+}
+],
+rows: [
+[
+{
+text: "05-07-21"
+},
+{
+html: '<a href="/application/A-D-21-0212-1234-ABCD-completed">A-D-21-0212-1234-ABCD</a>'
+},
+{
+text: "eApostille"
+},
+{
+text: "Ready to download"
+}
+],
+[
+{
+text: "12-02-21"
+},
+{
+html: '<a href="/application/A-C-21-0205-0343-5BEC-completed">A-C-21-0205-0343-5BEC</a>'
+},
+{
+text: "eApostille"
+},
+{
+text: "Ready to download"
+}
+]
+]
+}) }}
+
+{% endblock %}
