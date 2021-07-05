@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Are the documents certified and digitally signed by a notary?
+Have the PDFs been certified and digitally signed by a notary?
 {% endblock %}
 
 {% block beforeContent %}
@@ -25,14 +25,13 @@ Are the documents certified and digitally signed by a notary?
       name: "documents-certified",
       fieldset: {
         legend: {
-          text: "Are the documents certified and digitally signed by a notary?",
+          text: "Have the PDFs been certified and digitally signed by a notary?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
         }
       },
       hint: {
-        html: '<p class="govuk-body">To use the eApostille service, the documents
-          must be uploaded as PDFs that have been certified and digitally signed by a notary.</p>'
+        html: '<p class="govuk-body">To use the eApostille service, the documents must be uploaded as PDFs that have been certified with a single notarial cover sheet and digitally signed by a notary.</p>'
       },
       items: [
         {

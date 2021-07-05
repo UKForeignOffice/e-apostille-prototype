@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-All the documents you wish to be legalised must be uploaded as a PDF
+Have the documents been saved as a PDF?
 {% endblock %}
 
 {% block beforeContent %}
@@ -25,13 +25,19 @@ All the documents you wish to be legalised must be uploaded as a PDF
       name: "saved-as-pdf",
       fieldset: {
         legend: {
-          text: "All the documents you wish to be legalised must be uploaded as a PDF",
+          text: "Have the documents been saved as a PDF?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
         }
       },
       hint: {
-        html: '<p class="govuk-body">Each uploaded PDF must:</p><ul class="govuk-list govuk-list--bullet"><li>have a single notarial cover sheet</li><li>include the documents you wish to legalise</li><li>be certified and digitally signed by a practising notary</li><li>have a maximum file size of 100MB</li></ul>'
+        html: '
+          <p class="govuk-body">Each uploaded PDF must:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>include the documents you wish to legalise</li>
+              <li>be certified by a single notarial cover sheet and digitally signed by a notary </li>
+              <li>have a maximum file size of 100MB</li>
+            </ul>'
       },
       items: [
         {

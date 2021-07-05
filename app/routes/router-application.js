@@ -47,7 +47,7 @@ router.post('/sign-in/form-handler', (req, res, next) => {
 
 router.post('/4-check-documents/form-handler', (req, res, next) => {
   if (req.session.data['documents-eligible'] === 'yes') {
-    res.redirect('/application/5-documents-certified-check')
+    res.redirect("/application/5a-saved-as-pdf");
     return
   }
   res.redirect('/application/4-check-documents-fail')
@@ -55,7 +55,7 @@ router.post('/4-check-documents/form-handler', (req, res, next) => {
 
 router.post('/5-documents-certified-check/form-handler', (req, res, next) => {
   if (req.session.data['documents-certified'] === 'yes') {
-    res.redirect('/application/5a-saved-as-pdf')
+    res.redirect("/application/6-start-eapostille");
     return
   }
   res.redirect('/application/5-documents-certified-check-fail')
@@ -63,10 +63,10 @@ router.post('/5-documents-certified-check/form-handler', (req, res, next) => {
 
 router.post('/5a-saved-as-pdf/form-handler', (req, res, next) => {
   if (req.session.data['saved-as-pdf'] === 'yes') {
-    res.redirect('/application/6-start-eapostille')
+    res.redirect("/application/5-documents-certified-check");
     return
   }
-  res.redirect('/application/5-documents-certified-check-fail')
+  res.redirect("/application/5a-saved-as-pdf-fail");
 });
 
 module.exports = router;
