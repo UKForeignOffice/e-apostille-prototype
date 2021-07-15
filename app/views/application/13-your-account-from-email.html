@@ -21,9 +21,29 @@ Your account
     }) }}
 </div>
 
-<h2 class="govuk-heading-l">
+<h2 class="govuk-heading-m">
     Application history
 </h2>
+
+<form class="govuk-!-margin-bottom-5" style="position: relative;">
+  <input
+    class="govuk-input"
+    id="search"
+    style="width: 320px"
+    name="search"
+    type="search"
+    spellcheck="false"
+    aria-describedby="search-hint"
+    autocomplete="email"
+    placeholder="Search by reference or service"
+  >
+  <input
+    class="submit-button"
+    type="button"
+    value="Search"
+    style="position: absolute;"
+  >
+</form>
 
 {{ govukTable({
 firstCellIsHeader: false,

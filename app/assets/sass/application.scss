@@ -45,3 +45,20 @@ $govuk-assets-path: '/govuk/assets/';
 .no-table-header-border .govuk-table__head .govuk-table__header{
   border-bottom: none;
 }
+
+.submit-button {
+  width: 40px;
+  height: 40px;
+  border-width: 0 0 0 1px;
+  border-left-color: #222;
+  border-radius: 0;
+  overflow: hidden;
+  text-indent: -5000px;
+  cursor: pointer;
+  color: #fff;
+  background: #0b0c0c url(../images/search-button.png) no-repeat 0px 50%;
+
+  &:focus {
+    outline: 3px solid #ffdd00;
+  }
+}
