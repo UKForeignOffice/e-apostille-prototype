@@ -16,7 +16,7 @@ const COST_PER_PDF = 30;
 router.post(UPLOADS_PATH, upload.array('documents'), (req, res) => {
   req.session.data.cost = totalApplicationCost(req.body.documents);
   req.session.data.documents = documentNames(req.body.documents);
-  res.redirect('/application/9-check-your-answers');
+  res.redirect('/application/8-user-reference');
 })
 
 /**
