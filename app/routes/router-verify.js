@@ -28,7 +28,7 @@ router.post('/VerifyEApostille/form-handler', (req, res, next) => {
 })
 
 
-router.post('/verify/VerifyPaper/form-handler', (req, res, next) => {
+router.post('/VerifyPaper/form-handler', (req, res, next) => {
 
   const vcode = req.session.data['apostillenumber']
 
