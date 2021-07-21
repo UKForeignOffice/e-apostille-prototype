@@ -18,19 +18,29 @@ Application A-D-21-0212-1234-ABCD
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters-from-desktop">
 
+      {% set html %}
+      <p class="govuk-notification-banner__heading">
+        You have 21 days left to download the legalised documents.
+      </p>
+      {% endset %}
+
+      {{ govukNotificationBanner({
+        html: html
+      }) }}
+
         <h1 class="govuk-heading-xl">
             Application A-D-21-0212-1234-ABCD
         </h1>
 
-        <p class="govuk-body">Your application has been successfully submitted.</p>
-        <p class="govuk-body">You can download your legalised documents.</p>
+        <p class="govuk-body">Your application has been processed.</p>
+        <p class="govuk-body">You have 21 days to download the e-Apostilles before they are deleted for security reasons.
+        You can download them as many times as you wish in this time.</p>
 
-    {{ govukWarningText({
-    html: 'You have 21 days from today to download the e-Apostilles before they are deleted for security reasons. You can download the PDFs as many times as you wish in this time.
-    <br><br>If you do not
-    download them within this time, you will need to pay for another application to have them legalised again.',
-    iconFallbackText: "Warning"
-    }) }}
+        {{ govukWarningText({
+          html: 'If you do not download them within 21 days from legalisation, you will need to pay
+                for another application to have the documents legalised again.',
+          iconFallbackText: "Warning"
+        }) }}
 
 
         {{ govukTable({

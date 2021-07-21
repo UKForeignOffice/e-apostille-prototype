@@ -15,6 +15,7 @@ Which service would you like?
 {% endblock %}
 
 {% block content %}
+<form action="/application/3-which-service/form-handler" method="post">
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-three-quarters-from-desktop">
 		<div class="govuk-form-group">
@@ -28,7 +29,7 @@ Which service would you like?
 				<div class="govuk-radios">
 					<div class="govuk-radios__item">
 						<input class="govuk-radios__input" id="e-apostille" name="service" type="radio"
-							   value="government-gateway" aria-describedby="sign-in-item-hint">
+							   value="eapostille-service" aria-describedby="sign-in-item-hint">
 						<label class="govuk-label govuk-radios__label" for="e-apostille">
 						  <span class="govuk-heading-m">
 						  e-Apostille service
@@ -40,20 +41,21 @@ Which service would you like?
 							<p class="govuk-body">You need to:</p>
 
 							<ul class="govuk-list govuk-list--bullet">
-								<li>upload one or multiple documents as a PDF (no bigger than 100MB), up to a maximum of 20 PDFs per application
-								</li>
 								<li>make sure all PDFs have been certified with a single notarial cover sheet and digitally signed by a notary</li>
-								<li>pay £30 for each PDF
-								</li>
+								<li>upload one or multiple documents as a PDF (no bigger than 100MB), up to a maximum of 20 PDFs per application</li>
+								<li>pay £30 for each PDF</li>
 								<li>download the PDFs from your account within 21 days of them being available. Due to coronavirus (COVID-19) it may take 10 working days to legalise your documents </li>
 							</ul>
-							<p class="govuk-body">Some countries may not accept an electronic Apostille as proof that your document has been legalised. Before you use this service, you need to check if an electronic Apostille will be accepted in the country you wish to use it. We cannot refund you if the Apostille is not accepted.
-							</p>
+							<p class="govuk-body">Some countries may not accept an electronic Apostille as proof that your document has been legalised.</p>
+							{{ govukInsetText({
+  							text: "Before you use this service, you need to check if an electronic Apostille will be accepted in the country
+									you wish to use it. We cannot refund you if the Apostille is not accepted."
+								}) }}
 						</div>
 					</div>
 					<div class="govuk-radios__item">
 						<input class="govuk-radios__input" id="standard" name="service" type="radio"
-							   value="government-gateway" aria-describedby="standard-item-hint">
+							   value="standard-service" aria-describedby="standard-item-hint">
 						<label class="govuk-label govuk-radios__label" for="standard">
 						  <span class="govuk-heading-m">
 						  Standard service
@@ -82,10 +84,9 @@ Which service would you like?
 			</fieldset>
 		</div>
 		{{ govukButton({
-		text: "Continue",
-		href: "/application/4-check-documents"
+		text: "Continue"
 		}) }}
 	</div>
 </div>
-
+</form>
 {% endblock %}

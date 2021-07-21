@@ -18,20 +18,33 @@ Application A-C-21-0205-0343-5BEC
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters-from-desktop">
 
+    {% set html %}
+    <p class="govuk-notification-banner__heading">
+      You have 21 days left to download the legalised documents.
+    </p>
+    {% endset %}
+
+    {{ govukNotificationBanner({
+      html: html
+    }) }}
+
     <h1 class="govuk-heading-xl">
       Application A-C-21-0205-0343-5BEC
     </h1>
 
-    <p class="govuk-body">Your application has been processed.</p>
-    <p class="govuk-body">You can download your legalised documents from this page.</p>
+    <p class="govuk-body">You have 21 days from now to download a PDF version of the legalised documents
+      before they are deleted for security reasons.
+    You can download them as many times as you wish in this time.</p>
 
-    {{ govukWarningText({
-    html: 'You have 21 days from today to download the e-Apostilles before they are deleted for security reasons.
-    You can download the PDFs as many times as you wish in this time.
-    <br><br>If you do not
-    download them within this time, you will need to pay for another application to have the documents legalised again.',
-    iconFallbackText: "Warning"
-    }) }}
+      {{ govukWarningText({
+        text: "If you do not download them within 21 days, you will need to pay
+              for another application to have the documents legalised again.",
+        iconFallbackText: "Warning"
+      }) }}
+
+      <p class="govuk-body">Once downloaded, you can send the PDF to the overseas authority
+      that needs the legalised documents. You cannot use a printed version of the PDF.
+      Each PDF contains both the original uploaded document along with an e-Apostille.</p>
 
     <div class="no-table-header-border">
       {{ govukTable({
@@ -39,47 +52,80 @@ Application A-C-21-0205-0343-5BEC
       captionClasses: "govuk-table__caption--m",
       firstCellIsHeader: false,
       head: [
-      {
-      text: "Name"
-      },
-      {
-      text: "Status"
-      }
+              {
+                text: "Name"
+              },
+              {
+                text: "Status"
+              }
+            ],
+            rows: [
+                    [
+                      {
+                        text: ""
+                      },
+                      {
+                        html: '<button class="govuk-button govuk-button--secondary govuk-!-margin-0" data-module="govuk-button">
+                          Download all</button>'
+        }
       ],
-      rows: [
       [
       {
-      text: ""
-      },
-      {
-      html: '<button class="govuk-button govuk-button--secondary govuk-!-margin-0" data-module="govuk-button">Download
-        all</button>'
-      }
-      ],
-      [
-      {
-      text: "document_1.pdf"
+      text: "client_document_1.pdf"
       },
       {
       html: '<button class="govuk-button govuk-button--secondary govuk-!-margin-0"
-        data-module="govuk-button">Download</button>'
+        data-module="govuk-button">Download <span class="govuk-visually-hidden">client_document_1.pdf</span></button>'
       }
       ],
       [
       {
-      text: "document_2.pdf"
+      text: "client_document_2.pdf"
       },
       {
       html: '<button class="govuk-button govuk-button--secondary govuk-!-margin-0"
-        data-module="govuk-button">Download</button>'
+        data-module="govuk-button">Download<span class="govuk-visually-hidden">client_document_2.pdf</span></button>'
       }
       ],
       [
       {
-      text: "document_3.pdf"
+      text: "client_document_3.pdf"
       },
       {
-      html: '<a class="govuk-link" href="#">Rejected</a>'
+      html: '<p class="govuk-body"> <strong>
+              Document has been rejected
+              </strong>
+              </p>
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    GRO certificates cannot be legalised using the e-Apostille service
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p  class="govuk-body">
+                    You must use the standard service to legalise General Register
+                    Office (GRO) certificates.
+                  </p>
+                  <p  class="govuk-body">
+                    Certificates from GRO are birth, marriage, civil partnership, death,
+                    adoption and commemorative certificates.
+                  </p>
+                  <p  class="govuk-body">
+                    We are unable to legalise scanned copies of GRO certificates.
+                    We can only legalise original paper certificates or paper certified
+                    copies that have been produced by the GRO.
+                  </p>
+                  <p class="govuk-body">
+                    For more information on obtaining a paper certified copy from the GRO
+                    please visit:
+                    <a href="https://www.gro.gov.uk/gro/content/" class="govuk-link">www.gro.gov.uk/gro/content/</a>.
+                  </p>
+                </div>
+              </details>
+              <p  class="govuk-body">
+                You have been refunded for this document.
+              </p>'
       }
       ]
       ]
@@ -93,23 +139,59 @@ Application A-C-21-0205-0343-5BEC
       captionClasses: "govuk-table__caption--m",
       firstCellIsHeader: true,
       rows: [
-      [
-      {
-      text: "Service"
-      },
-      {
-      text: "e-Apostille"
-      }
-      ],
-      [
-      {
-      text: "Date submitted"
-      },
-      {
-      text: "12 February 2021"
-      }
-      ]
-      ]
+              [
+                {
+                  text: "Application reference"
+                },
+                {
+                  html: '<p  class="govuk-body">
+                    A-C-21-0205-0343-5BEC
+                  </p>
+                  <p  class="govuk-body">
+                    Use this application reference if you need to contact the FCDO Legalisation Office.
+                  </p>'
+                }
+                ],[
+                {
+                  text: "Service"
+                },
+                {
+                  text: "e-Apostille"
+                }
+              ],
+              [
+                {
+                  text: "Date submitted"
+                },
+                {
+                  text: "12 February 2021"
+                }
+              ],
+              [
+                {
+                  text: "Date completed"
+                },
+                {
+                  text: "18 February 2021"
+                }
+              ],
+              [
+                {
+                  text: "Your reference"
+                },
+                {
+                  text: "Janice Simpson"
+                }
+              ],
+              [
+                {
+                  text: "Status"
+                },
+                {
+                  text: "Completed"
+                }
+              ]
+            ]
       }) }}
     </div>
 
@@ -119,23 +201,39 @@ Application A-C-21-0205-0343-5BEC
       captionClasses: "govuk-table__caption--m",
       firstCellIsHeader: true,
       rows: [
-      [
-      {
-      text: "Amount"
-      },
-      {
-      text: "£90.00"
-      }
-      ],
-      [
-      {
-      text: "Payment reference"
-      },
-      {
-      text: "8516125154710905"
-      }
-      ]
-      ]
+              [
+                {
+                  text: "Original amount"
+                },
+                {
+                  text: "£90.00"
+                }
+              ],
+              [
+                {
+                  text: "Refunded amount"
+                },
+                {
+                  text: "£30.00"
+                }
+              ],
+              [
+                {
+                  text: "Total paid"
+                },
+                {
+                  text: "£60.00"
+                }
+              ],
+              [
+                {
+                  text: "Payment reference"
+                },
+                {
+                  text: "8516125154710905"
+                }
+              ]
+            ]
       }) }}
     </div>
 

@@ -45,6 +45,14 @@ router.post('/sign-in/form-handler', (req, res, next) => {
   res.redirect('/application/2-your-account')
 });
 
+router.post('/3-which-service/form-handler', (req, res, next) => {
+  if (req.session.data['service'] === 'eapostille-service') {
+    res.redirect("/application/4-check-documents");
+    return
+  }
+  res.redirect('/application/standard-service-document-check')
+});
+
 router.post('/4-check-documents/form-handler', (req, res, next) => {
   if (req.session.data['documents-eligible'] === 'yes') {
     res.redirect("/application/5a-saved-as-pdf");
