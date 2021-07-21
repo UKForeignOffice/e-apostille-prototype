@@ -1,4 +1,4 @@
-# eApostille prototype
+# e-Apostille prototype
 
 This prototype is for user research purposes, not production use.
 
