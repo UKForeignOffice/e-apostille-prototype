@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Application A-D-21-0212-5678-EFDH
+{% endblock %}
+
+{% block beforeContent %}
+<div class="flex-space-between">
+  {{ govukBackLink({
+  text: "Back",
+  href: "/application/2-your-account"
+  }) }}
+  {% include "includes/my-account-nav.html" %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+    <h1 class="govuk-heading-xl">
+      Application A-D-21-0212-5678-EFDH
+    </h1>
+
+    <p class="govuk-body">Your application has been processed now.</p>
+    <p class="govuk-body">The time window to download the legalised documents has now been expired.</p>
+    <p class="govuk-body">If you have not downloaded the PDFs yet, you will need to pay for another application to have them legalised again.</p>
+
+
+    {{ govukTable({
+    caption: "Uploaded PDFs",
+    captionClasses: "govuk-table__caption--m",
+    firstCellIsHeader: false,
+    head: [
+        {
+        text: "Name"
+        },
+        {
+        text: "Status"
+        }
+        ],
+        rows: [
+          [
+          {
+          text: "my_clients_documents_20210221.pdf"
+          },
+          {
+          text: "Download expired"
+          }
+          ],
+          [
+          {
+          text: "my_other_clients_documents_20210220.pdf"
+          },
+          {
+          text: "Download expired"
+          }
+          ]
+        ]
+    }) }}
+
+    <br>
+    <div class="no-table-border">
+      {{ govukTable({
+      caption: "Application details",
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      rows: [
+        [
+        {
+        text: "Service"
+        },
+        {
+        text: "e-Apostille"
+        }
+        ],
+        [
+        {
+        text: "Date submitted"
+        },
+        {
+        text: "5 July 2021"
+        }
+        ],
+        [
+        {
+        text: "Date completed"
+        },
+        {
+        text: "10 July 2021"
+        }
+        ],
+        [
+        {
+        text: "Your reference"
+        },
+        {
+        text: "Simpson, H.J."
+        }
+        ]
+      ]
+      }) }}
+    </div>
+
+    <div class="no-table-border">
+      {{ govukTable({
+      caption: "Payment details",
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      rows: [
+      [
+      {
+      text: "Total paid"
+      },
+      {
+      text: "£30.00"
+      }
+      ],
+      [
+      {
+      text: "Payment reference"
+      },
+      {
+      text: "85166725154710905"
+      }
+      ]
+      ]
+      }) }}
+    </div>
+
+    <p class="govuk-body">Your payment will appear on your bank statement as FCDO Legalisation Service.</p>
+    {% endblock %}
