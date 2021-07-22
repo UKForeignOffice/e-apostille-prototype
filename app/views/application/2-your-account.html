@@ -49,19 +49,25 @@
   firstCellIsHeader: false,
   head: [
     {
-      html: 'Date submitted'
+      html: '<a href="#">Date submitted</a>'
     },
     {
-      html: 'Application reference'
+      html: '<a href="#">Application reference</a>'
     },
     {
-      html: 'Your reference'
+      html: '<a href="#">Your reference</a>'
     },
     {
-      html: 'Service'
+      html: '<a href="#">Service</a>'
     },
     {
-      text: "Application Status"
+      html: '<a href="#">Status</a>'
+    },
+    {
+      html: '<a href="#">Documents legalised</a>'
+    },
+    {
+      html: '<a href="#">Documents rejected</a>'
     }
   ],
   rows: [
@@ -79,7 +85,13 @@
       text: "e-Apostille"
     },
     {
-      text: "In progress"
+      html: '<strong class="govuk-tag govuk-tag--blue">In progress</strong>'
+    },
+    {
+      text: "/"
+    },
+    {
+      text: "/"
     }
   ],
   [
@@ -96,7 +108,13 @@
       text: "e-Apostille"
     },
     {
-      text: "Ready to download"
+      html: '<strong class="govuk-tag">Completed</strong>'
+    },
+    {
+      text: "2"
+    },
+    {
+      text: "1"
     }
   ]
   ]

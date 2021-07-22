@@ -32,15 +32,19 @@ Application A-D-21-0212-1234-ABCD
             Application A-D-21-0212-1234-ABCD
         </h1>
 
-        <p class="govuk-body">Your application has been processed.</p>
-        <p class="govuk-body">You have 21 days to download the e-Apostilles before they are deleted for security reasons.
+        <p class="govuk-body">You have 21 days from now to download a PDF version of the legalised documents
+          before they are deleted for security reasons.
         You can download them as many times as you wish in this time.</p>
 
-        {{ govukWarningText({
-          html: 'If you do not download them within 21 days from legalisation, you will need to pay
-                for another application to have the documents legalised again.',
-          iconFallbackText: "Warning"
-        }) }}
+          {{ govukWarningText({
+            text: "If you do not download them within 21 days, you will need to pay
+                  for another application to have the documents legalised again.",
+            iconFallbackText: "Warning"
+          }) }}
+
+          <p class="govuk-body">Once downloaded, you can send the PDF to the overseas authority
+          that needs the legalised documents. You cannot use a printed version of the PDF.
+          Each PDF contains both the original uploaded document along with an e-Apostille.</p>
 
 
         {{ govukTable({
@@ -58,7 +62,7 @@ Application A-D-21-0212-1234-ABCD
         rows: [
         [
         {
-        text: "test_pdf.pdf"
+        text: "test_clients_pdf.pdf"
         },
         {
         html: '<button class="govuk-button govuk-button--secondary govuk-!-margin-0"
@@ -75,22 +79,38 @@ Application A-D-21-0212-1234-ABCD
             captionClasses: "govuk-table__caption--m",
             firstCellIsHeader: true,
             rows: [
-            [
-            {
-            text: "Service"
-            },
-            {
-            text: "e-Apostille"
-            }
-            ],
-            [
-            {
-            text: "Date submitted"
-            },
-            {
-            text: "5 July 2021"
-            }
-            ]
+              [
+              {
+              text: "Service"
+              },
+              {
+              text: "e-Apostille"
+              }
+              ],
+              [
+              {
+              text: "Date submitted"
+              },
+              {
+              text: "5 July 2021"
+              }
+              ],
+              [
+              {
+              text: "Date completed"
+              },
+              {
+              text: "11 July 2021"
+              }
+              ],
+              [
+              {
+              text: "Your reference"
+              },
+              {
+              text: "Robert J. Carlisle"
+              }
+              ]
             ]
             }) }}
         </div>
@@ -101,22 +121,22 @@ Application A-D-21-0212-1234-ABCD
             captionClasses: "govuk-table__caption--m",
             firstCellIsHeader: true,
             rows: [
-            [
-            {
-            text: "Amount"
-            },
-            {
-            text: "£30.00"
-            }
-            ],
-            [
-            {
-            text: "Payment reference"
-            },
-            {
-            text: "8516125154710905"
-            }
-            ]
+              [
+              {
+              text: "Total paid"
+              },
+              {
+              text: "£30.00"
+              }
+              ],
+              [
+              {
+              text: "Payment reference"
+              },
+              {
+              text: "8516125154710905"
+              }
+              ]
             ]
             }) }}
         </div>

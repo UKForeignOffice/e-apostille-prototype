@@ -32,32 +32,34 @@
 		  </div>
 	  </div>
 	  {% endif %}
+
+    <h1 class="govuk-heading-xl">Add PDFs</h1>
+    <p class="govuk-body">It costs £30 per PDF.</p>
+    <p class="govuk-body">You can upload a maximum of 20 PDFs per application.</p>
+    <p class="govuk-body">If you are unable to upload the PDFs you can still get the
+        documents legalised by using the
+        <a href="/application/standard-service-document-check">standard service.</a>
+    </p>
+
 	  <form action="/application/7-upload-documents/form-handler" method="post">
 		  <div class="govuk-form-group">
-	  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-		  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-			  <h1 class="govuk-fieldset__heading">
-				  Add your PDFs
-			  </h1>
-		  </legend>
-		  <p class="govuk-body">You can upload a maximum of 20 PDFs per application.</p>
-		  <p class="govuk-body">It costs £30 per PDF.</p>
-		  <p class="govuk-body">If you are unable to upload your documents you can still get the documents legalised by using the <a href="/application/standard-service-document-check">standard service.</a></p>
-		<br><br>
-	  <label class="govuk-label" for="file-upload-1">
-		  Upload files
-	  </label>
-		  <div class="flex flex--v-center">
-			  <input class="govuk-file-upload" id="file-upload-1" name="documents" type="file" multiple accept="application/pdf">
+    	  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    	    <label class="govuk-label" for="file-upload-1">
+    		      Upload files
+    	    </label>
+    		  <div class="flex flex--v-center">
+    			  <input class="govuk-file-upload" id="file-upload-1" name="documents" type="file" multiple accept="application/pdf">
+    		  </div>
+    	  </fieldset>
 		  </div>
-	  </fieldset>
-		  </div>
-	  {{ govukButton({
-	  text: "Continue"
-	  }) }}
+
+  	  {{ govukButton({
+  	  text: "Continue"
+  	  }) }}
+
 	  </form>
 	</div>
-  </div>
+</div>
 
 
 {% endblock %}

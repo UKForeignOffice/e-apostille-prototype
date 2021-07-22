@@ -16,6 +16,7 @@ const COST_PER_PDF = 30;
 router.post(UPLOADS_PATH, upload.array('documents'), (req, res) => {
   req.session.data.cost = totalApplicationCost(req.body.documents);
   req.session.data.documents = documentNames(req.body.documents);
+  req.session.data.noOfDocs = req.session.data.documents.length;
   res.redirect('/application/8-user-reference');
 })
 
@@ -47,10 +48,18 @@ router.post('/sign-in/form-handler', (req, res, next) => {
 
 router.post('/3-which-service/form-handler', (req, res, next) => {
   if (req.session.data['service'] === 'eapostille-service') {
-    res.redirect("/application/4-check-documents");
+    res.redirect("/application/4a-check-acceptance");
     return
   }
   res.redirect('/application/standard-service-document-check')
+});
+
+router.post('/4a-check-acceptance/form-handler', (req, res, next) => {
+  if (req.session.data['eapostille-acceptable'] === 'yes') {
+    res.redirect("/application/4-check-documents");
+    return
+  }
+  res.redirect('/application/4a-check-acceptance-fail')
 });
 
 router.post('/4-check-documents/form-handler', (req, res, next) => {
@@ -71,7 +80,7 @@ router.post('/5-documents-certified-check/form-handler', (req, res, next) => {
 
 router.post('/5a-saved-as-pdf/form-handler', (req, res, next) => {
   if (req.session.data['saved-as-pdf'] === 'yes') {
-    res.redirect("/application/5-documents-certified-check");
+    res.redirect("/application/6-start-eapostille");
     return
   }
   res.redirect("/application/5a-saved-as-pdf-fail");

@@ -89,43 +89,42 @@ Application A-C-21-0205-0343-5BEC
       ],
       [
       {
-      text: "client_document_3.pdf"
+      html: '<p class="govuk-body">client_document_3.pdf</p>
+            <p class="govuk-body">This PDF has been rejected</p>
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  GRO certificates cannot be legalised using the e-Apostille service
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p  class="govuk-body">
+                  You must use the standard service to legalise General Register
+                  Office (GRO) certificates.
+                </p>
+                <p  class="govuk-body">
+                  Certificates from GRO are birth, marriage, civil partnership, death,
+                  adoption and commemorative certificates.
+                </p>
+                <p  class="govuk-body">
+                  We are unable to legalise scanned copies of GRO certificates.
+                  We can only legalise original paper certificates or paper certified
+                  copies that have been produced by the GRO.
+                </p>
+                <p class="govuk-body">
+                  For more information on obtaining a paper certified copy from the GRO
+                  please visit:
+                  <a href="https://www.gro.gov.uk/gro/content/" class="govuk-link">www.gro.gov.uk/gro/content/</a>.
+                </p>
+              </div>
+            </details>
+          <p  class="govuk-body">
+            You have been refunded for this document.
+          </p>'
       },
       {
-      html: '<p class="govuk-body"> <strong>
-              Document has been rejected
-              </strong>
-              </p>
-            <details class="govuk-details" data-module="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    GRO certificates cannot be legalised using the e-Apostille service
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <p  class="govuk-body">
-                    You must use the standard service to legalise General Register
-                    Office (GRO) certificates.
-                  </p>
-                  <p  class="govuk-body">
-                    Certificates from GRO are birth, marriage, civil partnership, death,
-                    adoption and commemorative certificates.
-                  </p>
-                  <p  class="govuk-body">
-                    We are unable to legalise scanned copies of GRO certificates.
-                    We can only legalise original paper certificates or paper certified
-                    copies that have been produced by the GRO.
-                  </p>
-                  <p class="govuk-body">
-                    For more information on obtaining a paper certified copy from the GRO
-                    please visit:
-                    <a href="https://www.gro.gov.uk/gro/content/" class="govuk-link">www.gro.gov.uk/gro/content/</a>.
-                  </p>
-                </div>
-              </details>
-              <p  class="govuk-body">
-                You have been refunded for this document.
-              </p>'
+      html: '<strong class="govuk-tag govuk-tag--red">Rejected</strong>'
+
       }
       ]
       ]
@@ -140,18 +139,6 @@ Application A-C-21-0205-0343-5BEC
       firstCellIsHeader: true,
       rows: [
               [
-                {
-                  text: "Application reference"
-                },
-                {
-                  html: '<p  class="govuk-body">
-                    A-C-21-0205-0343-5BEC
-                  </p>
-                  <p  class="govuk-body">
-                    Use this application reference if you need to contact the FCDO Legalisation Office.
-                  </p>'
-                }
-                ],[
                 {
                   text: "Service"
                 },
@@ -181,14 +168,6 @@ Application A-C-21-0205-0343-5BEC
                 },
                 {
                   text: "Janice Simpson"
-                }
-              ],
-              [
-                {
-                  text: "Status"
-                },
-                {
-                  text: "Completed"
                 }
               ]
             ]

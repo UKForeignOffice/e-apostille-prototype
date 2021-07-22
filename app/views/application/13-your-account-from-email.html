@@ -48,57 +48,75 @@ Your account
 {{ govukTable({
 firstCellIsHeader: false,
 head: [
-{
-html: 'Date submitted'
-},
-{
-html: 'Application reference'
-},
-{
-html: 'Your reference'
-},
-{
-html: 'Service'
-},
-{
-text: "Application Status"
-}
+  {
+    html: '<a href="#">Date submitted</a>'
+  },
+  {
+    html: '<a href="#">Application reference</a>'
+  },
+  {
+    html: '<a href="#">Your reference</a>'
+  },
+  {
+    html: '<a href="#">Service</a>'
+  },
+  {
+    html: '<a href="#">Status</a>'
+  },
+  {
+    html: '<a href="#">Documents legalised</a>'
+  },
+  {
+    html: '<a href="#">Documents rejected</a>'
+  }
 ],
 rows: [
-[
-{
-text: "05-07-2021"
-},
-{
-html: '<a href="/application/A-D-21-0212-1234-ABCD-completed">A-D-21-0212-1234-ABCD</a>'
-},
-{
-text: "Robert J. Carlisle"
-},
-{
-text: "e-Apostille"
-},
-{
-text: "Ready to download"
-}
-],
-[
-{
-text: "12-02-2021"
-},
-{
-html: '<a href="/application/A-C-21-0205-0343-5BEC-completed">A-C-21-0205-0343-5BEC</a>'
-},
-{
-text: "Janice Simpson"
-},
-{
-text: "e-Apostille"
-},
-{
-text: "Ready to download"
-}
-]
+  [
+    {
+    text: "05-07-2021"
+    },
+    {
+    html: '<a href="/application/A-D-21-0212-1234-ABCD-completed">A-D-21-0212-1234-ABCD</a>'
+    },
+    {
+    text: "Robert J. Carlisle"
+    },
+    {
+    text: "e-Apostille"
+    },
+    {
+    html: '<strong class="govuk-tag">Completed</strong>'
+    },
+    {
+      text: "1"
+    },
+    {
+      text: "0"
+    }
+  ],
+  [
+    {
+    text: "12-02-2021"
+    },
+    {
+    html: '<a href="/application/A-C-21-0205-0343-5BEC-completed">A-C-21-0205-0343-5BEC</a>'
+    },
+    {
+    text: "Janice Simpson"
+    },
+    {
+    text: "e-Apostille"
+    },
+    {
+    html: '<strong class="govuk-tag">Completed</strong>'
+    },
+    {
+      text: "2"
+    },
+    {
+      text: "1"
+    }
+  ]
 ]
 }) }}
 

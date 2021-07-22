@@ -22,11 +22,22 @@ Get the documents legalised using the e-Apostille service
   <h1 class="govuk-heading-xl">
     Get the documents legalised using the e-Apostille service
   </h1>
-	  <p class="govuk-body">The legalised documents and electronic Apostille will be issued and available to download from your account within 10 working days of completing this service.
-	  </p>
-	  <p class="govuk-body">Make sure you have a credit or debit card ready for payment.</p>
-	  <p class="govuk-body">If you do not enter any information for more than 30 minutes, your application will time out and you will have to start again.
-	  </p>
+	  <p class="govuk-body">You need:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the PDFs, certified and digitally signed by a notary </li>
+      <li>a credit or debit card for payment</li>
+    </ul>
+
+    <p class="govuk-body">
+      The legalised documents and electronic Apostille will be issued and available
+      to download from your account within 10 working days of completing this service.
+    </p>
+
+    {{ govukInsetText({
+      text: "If you do not enter any information for more than 30 minutes, your
+      application will time out and you will have to start again."
+    }) }}
+
 	  <div class="govuk-!-margin-top-6">
 		  {{ govukButton({
 		  text: "Start now",

@@ -46,9 +46,9 @@ Which service would you like?
 								<li>pay £30 for each PDF</li>
 								<li>download the PDFs from your account within 21 days of them being available. Due to coronavirus (COVID-19) it may take 10 working days to legalise your documents </li>
 							</ul>
-							<p class="govuk-body">Some countries may not accept an electronic Apostille as proof that your document has been legalised.</p>
 							{{ govukInsetText({
-  							text: "Before you use this service, you need to check if an electronic Apostille will be accepted in the country
+  							text: "Some countries may not accept an electronic Apostille as proof that your document has been legalised.
+								Before you use this service, you need to check if an electronic Apostille will be accepted in the country
 									you wish to use it. We cannot refund you if the Apostille is not accepted."
 								}) }}
 						</div>
@@ -79,7 +79,67 @@ Which service would you like?
 								</li>
 								<li>it costs £30 per document, plus courier fees or postage</li>
 							</ul>
+
+							{{ govukDetails({
+							  summaryText: "How much are the courier fees or postage?",
+							  html: '
+									<table class="govuk-table">
+										<caption class="govuk-table__caption govuk-table__caption--m">Courier costs</caption>
+										<thead class="govuk-table__head">
+											<tr class="govuk-table__row">
+												<th scope="col" class="govuk-table__header govuk-!-width-three-quarters">Country</th>
+												<th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Price</th>
+											</tr>
+										</thead>
+										<tbody class="govuk-table__body">
+												<tr class="govuk-table__row">
+												<th scope="row" class="govuk-table__header">UK (including British Forces Post Office)</th>
+												<td class="govuk-table__cell">£5.50 per 1.5kg</td>
+											</tr>
+											<tr class="govuk-table__row">
+												<th scope="row" class="govuk-table__header">European countries (not including Albania, Armenia, Azerbaijan, Belarus,
+												Bosnia and Herzegovina, Georgia, Liechtenstein, Kazakhstan, Moldova,
+												Montenegro, North Macedonia, Russia, Serbia, Turkey and Ukraine)</th>
+												<td class="govuk-table__cell">£14.50 per 1.5kg</td>
+											</tr>
+											<tr class="govuk-table__row">
+												<th scope="row" class="govuk-table__header">Rest of the world</th>
+												<td class="govuk-table__cell">£25 per 1.5kg</td>
+											</tr>
+										</tbody>
+									</table>
+
+								  <h3 class="govuk-heading-m">
+								    If you do not want to pay courier fees
+								  </h3>
+								  <p class="govuk-body">Your documents will be returned by courier but if you’re in the UK you can
+								    have them returned by post. You must include an A4-sized envelope with the
+								    return address written on it. Attach enough UK postage stamps to cover the
+								    return postage.
+								    </p>'
+							}) }}
 					</div>
+					</div>
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="premium" name="service" type="radio"
+								 value="standard-service" aria-describedby="standard-item-hint">
+						<label class="govuk-label govuk-radios__label" for="premium">
+							<span class="govuk-heading-m">
+							Premium service (business only)
+							</span>
+						</label>
+						<div id="standard-item-hint" class="govuk-hint govuk-radios__hint">
+							<p class="govuk-body">
+								The premium service is a London drop-off and collection only service.</p>
+
+								<ul class="govuk-list govuk-list--bullet">
+									<li>For businesses only</li>
+									<li>London drop-off and collection only</li>
+									<li>The counter opens on working days, 9am to 1pm for drop-off and 2pm and 4pm for collection</li>
+									<li>Same-day service for applications received before 1pm</li>
+									<li>£75 per document</li>
+								</ul>
+						</div>
 					</div>
 			</fieldset>
 		</div>

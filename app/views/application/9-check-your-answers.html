@@ -28,9 +28,9 @@
 		  <div class="govuk-summary-list__row">
 			  <dt class="govuk-summary-list__key">
 				  <ul class="govuk-list">
-				  {% for document in data.documents %}
-				  <li>{{document}}</li>
-				  {% endfor %}
+				      {% for document in data.documents %}
+				          <li>{{document}}</li>
+				      {% endfor %}
 			  </ul>
 			  </dt>
 			  <dd class="govuk-summary-list__actions">
@@ -40,34 +40,60 @@
 			  </dd>
 		  </div>
 	  </dl>
-{% if data['user-reference'] %}
+
 	  <h2 class="govuk-heading-m">
 		  Reference
 	  </h2>
-	  {{ govukSummaryList({
-		  classes: 'govuk-!-margin-bottom-9',
-		  rows: [
-			  {
-				  key: {
-				  	text: 'Your reference'
-				  },
-				  value: {
-				  	text: data['user-reference']
-				  },
-				  actions: {
-					  items: [
-						  {
-							  href: "8-user-reference",
-							  text: "Change",
-							  visuallyHiddenText: "your reference"
-						  }
-					  ]
-				  }
-			  }
-		  ]
-	  })
-	  }}
-{% endif %}
+    {% if data['user-reference'] %}
+  	  {{ govukSummaryList({
+  		  classes: 'govuk-!-margin-bottom-9',
+  		  rows: [
+  			  {
+  				  key: {
+  				  	text: 'Your reference'
+  				  },
+  				  value: {
+  				  	text: data['user-reference']
+  				  },
+  				  actions: {
+  					  items: [
+  						  {
+  							  href: "8-user-reference",
+  							  text: "Change",
+  							  visuallyHiddenText: "your reference"
+  						  }
+  					  ]
+  				  }
+  			  }
+  		  ]
+  	  })
+  	  }}
+    {% else %}
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: 'Your reference'
+            },
+            value: {
+              text: "Not specified"
+            },
+            actions: {
+              items: [
+                {
+                  href: "8-user-reference",
+                  text: "Change",
+                  visuallyHiddenText: "your reference"
+                }
+              ]
+            }
+          }
+        ]
+      })
+      }}
+    {% endif %}
+
 	  <h2 class="govuk-heading-m">
 		  Cost
 	  </h2>
@@ -75,6 +101,11 @@
 		  <div class="govuk-summary-list__row">
 			  <dt class="govuk-summary-list__key">
 				  Total cost
+          {% if data.noOfDocs == 1 %}
+          <p>for {{data.noOfDocs}} document</p>
+          {% else %}
+          <p>for {{data.noOfDocs}} documents</p>
+          {% endif %}
 			  </dt>
 			  <dd class="govuk-summary-list__value">
 				  {{data.cost | formatCurrency}}
@@ -82,14 +113,12 @@
 		  </div>
 	  </dl>
 
-	  <br />
-	  <br />
-{{ govukButton({
-    text: "Continue",
-    href: "/application/10-pay-for-application"
-}) }}
+    {{ govukButton({
+        text: "Continue",
+        href: "/application/10-pay-for-application"
+    }) }}
 
-</div>
+  </div>
 </div>
 
 
