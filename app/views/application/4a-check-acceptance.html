@@ -19,15 +19,6 @@ Check if an e-Apostille is acceptable
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters-from-desktop">
     <span class="govuk-caption-xl">e-Apostille eligibility - step 1 of 3</span>
-    <h1 class="govuk-heading-xl">
-      Check if an e-Apostille is accepted where you wish to use it
-    </h1>
-
-    <p class="govuk-body">Some countries may not accept an electronic apostille as proof
-      that documents have been legalised. Before you use this service, you need to check
-      if an electronic apostille will be accepted in the country you wish to use it.
-      We cannot offer a refund if the electronic apostille is not accepted. </p>
-
 	  <form action="/application/4a-check-acceptance/form-handler" method="post">
 	  {{ govukRadios({
 	  classes: "govuk-radios--inline",
@@ -36,10 +27,16 @@ Check if an e-Apostille is acceptable
 	  fieldset: {
 	  legend: {
 	  text: "Is the e-Apostille accepted in the destination country?",
-	  isPageHeading: false,
-	  classes: "govuk-fieldset__legend--m"
+	  isPageHeading: true,
+	  classes: "govuk-fieldset__legend--l"
 	  }
 	  },
+    hint: {
+      text: "Some countries may not accept an electronic apostille as proof
+        that documents have been legalised. Before you use this service, you need to check
+        if an electronic apostille will be accepted in the country you wish to use it.
+        We cannot offer a refund if the electronic apostille is not accepted."
+    },
 	  items: [
 	  {
 	  value: "yes",

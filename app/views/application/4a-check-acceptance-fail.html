@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+You need to use the standard service
+{% endblock %}
+
+{% block beforeContent %}
+<div class="flex-space-between">
+	{{ govukBackLink({
+	text: "Back",
+	href: "/application/4a-check-acceptance"
+	}) }}
+	{% include "includes/my-account-nav.html" %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+		<h1 class="govuk-heading-l">
+			You need to use the standard service
+		</h1>
+
+		<p class="govuk-body">
+			As the documents are not eligible for the eApostille service, you can still
+			get them legalised by using the standard service.
+		</p>
+		<p class="govuk-body">
+			You will need to apply online and then post the documents to the Legalisation Office.
+		</p>
+		<p class="govuk-body">
+			<a href="/application/standard-service-document-check">Use the standard service here.</a>
+		</p>
+
+  </div>
+</div>
+
+{% endblock %}
