@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Have the documents been saved as a PDF?
+Have the PDFs been notarised and digitally signed by a notary?
 {% endblock %}
 
 {% block beforeContent %}
@@ -25,14 +25,14 @@ Have the documents been saved as a PDF?
       name: "saved-as-pdf",
       fieldset: {
         legend: {
-          text: "Have the PDFs been certified and digitally signed by a notary?",
+          text: "Have the PDFs been notarised and digitally signed by a notary?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
         }
       },
       hint: {
         text: "To use the e-Apostille service, the documents must be uploaded as
-        PDFs that have been certified with a single notarial cover sheet and digitally signed by a notary."
+        PDFs that have been notarised and certified by a notary."
       },
       items: [
         {
