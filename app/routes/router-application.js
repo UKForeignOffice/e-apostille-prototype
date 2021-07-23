@@ -47,11 +47,17 @@ router.post('/sign-in/form-handler', (req, res, next) => {
 });
 
 router.post('/3-which-service/form-handler', (req, res, next) => {
-  if (req.session.data['service'] === 'eapostille-service') {
-    res.redirect("/application/4a-check-acceptance");
+  if (req.session.data['service'] === 'standard-service') {
+    res.redirect('/application/standard-service-document-check');
     return
   }
-  res.redirect('/application/standard-service-document-check')
+
+  if (req.session.data['service'] === 'premium-service') {
+    res.redirect('/application/standard-service-document-check');
+    return
+  }
+
+  res.redirect("/application/4a-check-acceptance");
 });
 
 router.post('/4a-check-acceptance/form-handler', (req, res, next) => {
