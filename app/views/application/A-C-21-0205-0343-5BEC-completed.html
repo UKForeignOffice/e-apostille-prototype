@@ -28,27 +28,29 @@ Application A-C-21-0205-0343-5BEC
       html: html
     }) }}
 
+    <span class="govuk-caption-xl">e-Apostille application</span>
     <h1 class="govuk-heading-xl">
-      Application A-C-21-0205-0343-5BEC
+      A-C-21-0205-0343-5BEC
     </h1>
 
-    <p class="govuk-body">You have 21 days from now to download a PDF version of the legalised documents
-      before they are deleted for data privacy reasons.
-    You can download them as many times as you wish in this time.</p>
+    <p class="govuk-body">You can now download PDF versions of the legalised documents.</p>
 
       {{ govukWarningText({
-        text: "If you do not download them within 21 days, you will need to pay
+        text: "If you do not download them within 21 days, they will be deleted for data privacy reasons. You will need to pay
               for another application to have the documents legalised again.",
         iconFallbackText: "Warning"
       }) }}
 
-      <p class="govuk-body">Once downloaded, you can send the PDF to the overseas authority
-      that needs the legalised documents. You cannot use a printed version of the PDF.
-      Each PDF contains both the original uploaded document along with an e-Apostille.</p>
+      <h2 class="govuk-table__caption--m">Download documents</h2>
+      <p class="govuk-body">You can download each PDF as many times as you wish before it is deleted.</p>
+      <p class="govuk-body">Once downloaded, you can send the entire PDF to the overseas authority
+      that needs the legalised documents.
+      Each PDF contains a copy of the original uploaded PDF along with an e-Apostille.</p>
+      <p class="govuk-body">You cannot use a printed version of the PDF, as the PDF contains the FCDO digital signature
+        which ensures its authenticity and prevents tampering.</p>
 
-    <div class="no-table-header-border">
       {{ govukTable({
-      caption: "Uploaded PDFs",
+      caption: "PDFs",
       captionClasses: "govuk-table__caption--m",
       firstCellIsHeader: false,
       head: [
@@ -90,7 +92,7 @@ Application A-C-21-0205-0343-5BEC
       [
       {
       html: '<p class="govuk-body">client_document_3.pdf</p>
-            <p class="govuk-body">This PDF has been rejected</p>
+            <p class="govuk-body">This PDF has been rejected for the following reasons:</p>
             <details class="govuk-details" data-module="govuk-details">
               <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">
@@ -129,9 +131,7 @@ Application A-C-21-0205-0343-5BEC
       ]
       ]
       }) }}
-    </div>
 
-    <br>
     <div class="no-table-border">
       {{ govukTable({
       caption: "Application details",
