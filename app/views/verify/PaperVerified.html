@@ -7,7 +7,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
   text: "Back",
-href: "/verify/VerifyPaper"
+href: "/verify/VerifyApostille"
 }) }}
 {% endblock %}
 
@@ -75,16 +75,14 @@ href: "/verify/VerifyPaper"
 	All paper Apostilles (legalisation certificates) issued by the Legalisation Office bear the a raised and embossed imprint of the Foreign Commonwealth Office crest. This embossed imprint should also appear immediately below on the document to which the Apostille is attached.
 </p>
 
-<p>
-{{ govukButton({
-  text: "Start again",
-  href: "/verify/WhatTypeOfApostille"
-}) }}
-</p>
-<p>
+<p class="govuk-body">
 {{ govukButton({
   text: "Print",
   classes: "govuk-button--secondary"
 }) }}
+</p>
+
+<p>
+  <a href='/verify/VerifyApostille'>Verify another Apostille</a>
 </p>
 {% endblock %}

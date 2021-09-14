@@ -1,56 +1,56 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Verify an e-Apostille
+  Verify an Apostille
 {% endblock %}
 
 {% block beforeContent %}
 {{ govukBackLink({
   text: "Back",
-href: "/verify/WhatTypeOfApostille"
+href: "/verify/index.html"
 }) }}
 {% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Verify an e-Apostille</h1>
+      <h1 class="govuk-heading-l">Apostille details</h1>
 
-      <form action="/verify/VerifyEApostille/form-handler" method="post" novalidate>
-
+      <form action="/verify/VerifyApostille/form-handler" method="post" novalidate>
 
 		  {{ govukInsetText({
-		  text: "The date and 16 character verification code can be found on the Apostille certificate."
+		  text: "These details can be found on the Apostille certificate."
 		  }) }}
+
         {{ govukDateInput({
           id: "issuedate",
           namePrefix: "issuedate",
           fieldset: {
             legend: {
-              text: "What is the date of the e-Apostille?",
+              text: "Apostille date",
               classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
-            text: "For example, 31 3 1980"
+            text: "For example, 31 3 2020"
           }
         }) }}
 
         {{ govukInput({
           label: {
-            text: "What is the 16 character verification code?",
+            text: "Apostille number",
             classes: "govuk-label--m"
           },
           hint: {
-            text: "For example, ABCD-1234-EFGH-5678"
+            text: "For example, A090123 or APO-1234567 or APO-ABCD-1234-EFGH-5678"
           },
           classes: "govuk-input--width-10",
-          id: "verificationcode",
-          name: "verificationcode"
+          id: "apostillenumber",
+          name: "apostillenumber"
         }) }}
 
         {{ govukButton({
-          text: "Continue"
+          text: "Verify"
         }) }}
 
       </form>

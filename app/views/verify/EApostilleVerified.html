@@ -7,7 +7,7 @@
 {% block beforeContent %}
 {{ govukBackLink({
   text: "Back",
-href: "/verify/VerifyEApostille"
+href: "/verify/VerifyApostille"
 }) }}
 {% endblock %}
 
@@ -25,23 +25,15 @@ href: "/verify/VerifyEApostille"
         text: "Apostille number"
       },
       {
-        text: "APO-1234567"
+        text: "APO-ABCD-1234-EFGH-5678"
       }
     ],
-[
-{
-text: "Date issued"
-},
-{
-text: "12th February 2021"
-}
-],
     [
       {
-        text: "Verification code"
+        text: "Date issued"
       },
       {
-        text: "ABCD-1234-EFGH-5678"
+        text: "12th February 2021"
       }
     ],
     [
@@ -79,26 +71,24 @@ text: "12th February 2021"
   ]
 }) }}
 
-<p>
+<p class="govuk-body">
   All electronic Apostilles (e-Apostilles) issued by the Legalisation Office will be in PDF format. The PDF file will bear a digital signature from ‘FCDO Legalisation Office’.  It will contain an instructions page with two PDF files attached.
 </p>
-<p>
+<p class="govuk-body">
 The first PDF attachment will be the Apostille (legalisation certificate) and will bear the same digital signature of ‘FCDO Legalisation Office’. The details shown on the Apostille will match those shown above.
 </p>
-<p>
+<p class="govuk-body">
 The second PDF attachment will be the public document the Apostille relates to and will be digitally signed by the person shown in the ‘Has been digitally signed by’ section above.
 </p>
 
-<p>
-{{ govukButton({
-  text: "Start again",
-  href: "/verify/WhatTypeOfApostille"
-}) }}
-</p>
-<p>
+<p class="govuk-body">
 {{ govukButton({
   text: "Print",
   classes: "govuk-button--secondary"
 }) }}
+</p>
+
+<p>
+  <a href='/verify/VerifyApostille'>Verify another Apostille</a>
 </p>
 {% endblock %}
