@@ -34,11 +34,12 @@ Application A-D-21-0212-1234-ABCD
 
         <p class="govuk-body">You can now download PDF versions of the legalised documents.</p>
 
-          {{ govukWarningText({
-            text: "If you do not download them within 21 days, they will be deleted for data privacy reasons. You will need to pay
-                  for another application to have the documents legalised again.",
-            iconFallbackText: "Warning"
-          }) }}
+        {{ govukWarningText({
+          text: "If you do not download your legalised documents within 21 days (by midnight on the last day),
+          they will be deleted for data privacy reasons. You will need to pay for another application to have
+          the documents legalised again.",
+          iconFallbackText: "Warning"
+        }) }}
 
           <h2 class="govuk-table__caption--m">Download documents</h2>
           <p class="govuk-body">You can download each PDF as many times as you wish before it is deleted.</p>
