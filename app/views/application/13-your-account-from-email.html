@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Your account
+Applications
 {% endblock %}
 
 {% block beforeContent %}
@@ -11,7 +11,7 @@ Your account
 {% block content %}
 
 <h1 class="govuk-heading-xl">
-    Your account
+    Applications
 </h1>
 
 <div class="govuk-!-margin-bottom-4">
@@ -21,10 +21,6 @@ Your account
     isStartButton: true
     }) }}
 </div>
-
-<h2 class="govuk-heading-m">
-    Applications
-</h2>
 
 <form class="govuk-!-margin-bottom-5" style="position: relative;">
   <input
@@ -106,7 +102,7 @@ rows: [
     text: "e-Apostille"
     },
     {
-    html: '<strong class="govuk-tag">Completed</strong><p>1 PDF rejected</p>'
+    html: '<strong class="govuk-tag">Completed</strong><br>1 PDF rejected'
     }
   ],
   [
@@ -146,10 +142,13 @@ rows: [
       text: "Standard"
     },
     {
-      html: '<strong class="govuk-tag">Completed</strong><p><a href="#">Tracking ref:<br>1234567890</a></p>'
+      html: '<strong class="govuk-tag">Completed</strong><br><a href="#">Tracking ref:<br>1234567890</a>'
     }
   ]
 ]
 }) }}
+<p class="govuk-body">
+  Showing 1 – 4 of 4 applications submitted in the last 60 days
+</p>
 
 {% endblock %}
