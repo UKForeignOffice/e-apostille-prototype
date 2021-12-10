@@ -21,8 +21,7 @@ const middleware = [
 const config = require('./app/config.js')
 const documentationRoutes = require('./docs/documentation_routes.js')
 const packageJson = require('./package.json')
-const verifyRoutes = require('./app/routes/router-verify.js')
-const applicationRoutes = require('./app/routes/router-application.js')
+const routes = require('./app/routes.js')
 const utils = require('./lib/utils.js')
 const extensions = require('./lib/extensions/extensions.js')
 
@@ -103,7 +102,7 @@ app.set('view engine', 'html')
 // Middleware to serve static assets
 app.use('/public', express.static(path.join(__dirname, '/public')))
 
-// Serve govuk-frontend in from node_modules (so not to break pre-extenstions prototype kits)
+// Serve govuk-frontend in from node_modules (so not to break pre-extensions prototype kits)
 app.use('/node_modules/govuk-frontend', express.static(path.join(__dirname, '/node_modules/govuk-frontend')))
 
 // Set up documentation app
@@ -233,9 +232,13 @@ if (promoMode === 'true') {
 }
 
 // Load routes (found in app/routes.js)
-
-app.use('/verify', verifyRoutes)
-app.use('/application', applicationRoutes)
+if (typeof (routes) !== 'function') {
+  console.log(routes.bind)
+  console.log('Warning: the use of bind in routes is deprecated - please check the Prototype Kit documentation for writing routes.')
+  routes.bind(app)
+} else {
+  app.use('/', routes)
+}
 
 if (useDocumentation) {
   // Clone app locals to documentation app locals

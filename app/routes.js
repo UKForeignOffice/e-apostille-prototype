@@ -1,5 +1,7 @@
 const express = require('express')
 const router = express.Router()
+
+// Add your routes here - above the module.exports line
 const multer = require('multer')
 
 const storage = multer.diskStorage({
@@ -10,7 +12,7 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({ storage })
-const UPLOADS_PATH = '/7-upload-documents/form-handler'
+const UPLOADS_PATH = '/application/7-upload-documents/form-handler'
 const COST_PER_PDF = 30;
 
 router.post(UPLOADS_PATH, upload.array('documents'), (req, res) => {
@@ -41,12 +43,12 @@ function documentNames(documents) {
   return onlyOneDocument ? [documents] : documents;
 }
 
-router.post('/sign-in/form-handler', (req, res, next) => {
+router.post('/application/sign-in/form-handler', (req, res, next) => {
 
   res.redirect('/application/2-your-account')
 });
 
-router.post('/3-which-service/form-handler', (req, res, next) => {
+router.post('/application/3-which-service/form-handler', (req, res, next) => {
   if (req.session.data['service'] === 'standard-service') {
     res.redirect('/application/standard-service-document-check');
     return
@@ -60,7 +62,7 @@ router.post('/3-which-service/form-handler', (req, res, next) => {
   res.redirect("/application/4a-check-acceptance");
 });
 
-router.post('/4a-check-acceptance/form-handler', (req, res, next) => {
+router.post('/application/4a-check-acceptance/form-handler', (req, res, next) => {
   if (req.session.data['eapostille-acceptable'] === 'yes') {
     res.redirect("/application/4-check-documents");
     return
@@ -68,7 +70,7 @@ router.post('/4a-check-acceptance/form-handler', (req, res, next) => {
   res.redirect('/application/4a-check-acceptance-fail')
 });
 
-router.post('/4-check-documents/form-handler', (req, res, next) => {
+router.post('/application/4-check-documents/form-handler', (req, res, next) => {
   if (req.session.data['documents-eligible'] === 'yes') {
     res.redirect("/application/5-check-notarised-and-signed");
     return
@@ -76,7 +78,7 @@ router.post('/4-check-documents/form-handler', (req, res, next) => {
   res.redirect('/application/4-check-documents-fail')
 });
 
-router.post('/5-check-notarised-and-signed/form-handler', (req, res, next) => {
+router.post('/application/5-check-notarised-and-signed/form-handler', (req, res, next) => {
   if (req.session.data['notarised-and-signed'] === 'yes') {
     res.redirect("/application/6-start-eapostille");
     return
@@ -84,4 +86,14 @@ router.post('/5-check-notarised-and-signed/form-handler', (req, res, next) => {
   res.redirect("/application/5-check-notarised-and-signed-fail");
 });
 
-module.exports = router;
+router.post('/verify/VerifyApostille/form-handler', (req, res, next) => {
+
+  const apostillenumber = req.session.data['apostillenumber']
+  if (apostillenumber === 'APO-1234567') {
+    res.redirect('/verify/PaperVerified')
+  } else {
+    res.redirect('/verify/EApostilleVerified')
+  }
+})
+
+module.exports = router
