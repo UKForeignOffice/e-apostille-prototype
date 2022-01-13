@@ -63,3 +63,19 @@ $govuk-assets-path: '/govuk/assets/';
     outline: 3px solid #ffdd00;
   }
 }
+
+.basket-table {
+  border: 5px solid #dee0e2;
+
+  .govuk-table__head th {
+    background-color: #dee0e2;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+}
+
+.quantity-input--width {
+  max-width: 4.2rem;
+}

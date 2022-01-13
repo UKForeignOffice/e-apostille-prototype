@@ -8,7 +8,7 @@
 {% block beforeContent %}
 	{{ govukBackLink({
 		text: "Back",
-		href: "/application/2-search-for-documents"
+		href: "/application/2a-search-for-documents-degree"
 	}) }}
 {% endblock %}
 
@@ -36,11 +36,40 @@
                         text: "Degree certificate or transcript(UK)"
                     },
                     {
-                        html: "<a href='#' class='govuk-!-font-weight-bold govuk-link--no-visited-state'>Select</a>"
+                        html: "<a href='/application/2a-search-for-documents-degree' class='govuk-!-font-weight-bold govuk-link--no-visited-state'>Remove</a>"
                     }
                     ]
                 ]
             }) }}
+
+
+            {{ govukTable({
+                classes: "basket-table",
+                head: [
+                    {
+                    text: "Selected documents"
+                    },
+                    {
+                    text: "Quantity (1)"
+                    }
+                ],
+                rows: [
+                    [
+                    {
+                        html: "<p class='govuk-body govuk-!-margin-bottom-0'>Degree certificate or transcript (UK)</p><a href='/application/2a-search-for-documents-degree' class='govuk-link--no-visited-state'>Remove</a>"
+                    },
+                    {
+                        html: "<input class='govuk-input quantity-input--width' type='text' value='1' />"
+                    }
+                    ]
+                ]
+            }) }}
+
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
         </div>
     </div>
 
