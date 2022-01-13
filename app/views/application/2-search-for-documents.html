@@ -1,0 +1,25 @@
+{% from "macros/document-search-form.njk" import searchForm %}
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Search and select your documents
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBackLink({
+		text: "Back",
+		href: "/application/1-who-are-you"
+	}) }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">
+                Search and select your<br/> documents
+            </h1>
+            {{ searchForm() }}
+        </div>
+    </div>
+
+{% endblock %}

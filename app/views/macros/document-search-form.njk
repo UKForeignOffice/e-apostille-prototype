@@ -1,0 +1,33 @@
+{% macro searchForm(value='') %}
+    <p class="govuk-body">Find then select all of the documents you want to legalise</p>
+
+    <form action="/application/document-search-answer" method="post" class="govuk-!-margin-bottom-5" style="position: relative;">
+        <input
+            class="govuk-input"
+            id="search"
+            style="width: 320px"
+            name="search"
+            type="search"
+            value="{{ value }}"
+            spellcheck="false"
+            aria-describedby="search-hint"
+            autocomplete="email"
+            placeholder="Search for a document"
+        />
+        <input
+            class="submit-button"
+            type="submit"
+            value="Search"
+            style="position: absolute;"
+        />
+    </form>
+
+    <p class="govuk-body">Top searches:
+        <a href="/application/2a-search-for-documents-degree" class="govuk-link govuk-link--no-visited-state">degree certificate</a>,
+        <a href="#" class="govuk-link govuk-link--no-visited-state">birth certificate</a>,
+        <a href="#" class="govuk-link govuk-link--no-visited-state">divorce document</a>,
+        <a href="#" class="govuk-link govuk-link--no-visited-state">court document</a>,
+        <a href="#" class="govuk-link govuk-link--no-visited-state">Companies House document</a>,
+        <a href="#" class="govuk-link govuk-link--no-visited-state">certificate of inorporation</a>
+    </p>
+{% endmacro %}
