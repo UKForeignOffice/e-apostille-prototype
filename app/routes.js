@@ -50,7 +50,21 @@ router.post('/application/1-who-are-you-answer', (req, res) => {
     return res.redirect('/application/2-search-for-documents');
   }
 
+  if (whoAreYou === 'existing-user') {
+    return res.redirect('/application/sign-in');
+  }
+
   res.redirect('/error-pages/generic');
+});
+
+router.post('/application/4a-is-document-certified-answer', (req, res) => {
+  const isDocumentCertified = req.session.data['document-certified'];
+
+  if (isDocumentCertified === 'yes') {
+    return res.redirect('/application/5-important-info');
+  }
+
+  res.redirect('/application/5a-get-document-certified');
 });
 
 router.post('/application/sign-in/form-handler', (_req, res) => {

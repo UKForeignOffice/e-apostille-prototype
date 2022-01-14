@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    What is the format of your document?
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBackLink({
+		text: "Back",
+		href: "/application/2b-search-for-documents-degree"
+	}) }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">
+                What is the format of<br /> your document?
+            </h1>
+
+			<h2 class="govuk-heading-m">Degree certificate or transcript(UK)</h2>
+			<p class="govuk-body">Your degree certificate or transcript (UK) can be legalised.</p>
+			<p class="govuk-body">We accept the document in the following formats. Please confirm which one you will send:</p>
+
+			<form>
+				{{ govukRadios({
+					idPrefix: "document-format",
+					name: "document-format",
+					items: [
+						{
+							value: "original",
+							text: "Your original degree certificate or transcript (UK)"
+						},
+						{
+							value: "photocopy",
+							text: "A photocopy of your degree certificate or transcript (UK)"
+						},
+						{
+							value: "printout",
+							text: "A printout of your electronic degree certificate or transcript (UK) produced from the original PDF or other electronic document"
+						},
+						{
+							value: "pdf",
+							text: "A PDF of your degree certificate or transcript"
+						}
+					]
+				}) }}
+
+				<div class="govuk-!-padding-top-4">
+					{{ govukButton({
+						href: "/application/4a-is-document-certified",
+						text: "Continue"
+					}) }}
+				</div>
+
+			</form>
+
+        </div>
+    </div>
+
+{% endblock %}

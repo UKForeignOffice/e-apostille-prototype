@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Is your document certified?
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBackLink({
+		text: "Back",
+		href: "/application/3-document-format"
+	}) }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">
+                Is your document<br /> certified?
+            </h1>
+
+			<h2 class="govuk-heading-m">Degree certificate or transcript(UK)</h2>
+			<p class="govuk-body">Your degree certificate or transcript (UK) must be certified by either:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>a solicitor or notary public in the UK</li>
+                <li>an official of the British Council (only original certificates; please check with your local British Council first as this service is not available at all locations)</li>
+            </ul>
+
+            <p class="govuk-body">When the solicitor or notary public signs the document, they must:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>have a valid practising certificate</li>
+                <li>sign the document in the UK</li>
+                <li>state the action they have taken eg witnessed, certified a copy, confirmed as original</li>
+                <li>use their personal signature, not a company signature</li>
+                <li>include the date of certification</li>
+                <li>include their name and company address</li>
+            </ul>
+
+            {{ govukInsetText({
+                text: "The solicitor or notary public’s signature must be an original, hand-written signature. We can't accept a photocopy or scan of a signature."
+            }) }}
+
+            <p class="govuk-body">Has your document been certified in line with this guidance?</p>
+
+
+
+			<form action="/application/4a-is-document-certified-answer" method="post">
+				{{ govukRadios({
+                    classes: "govuk-radios--inline",
+					idPrefix: "document-certified",
+					name: "document-certified",
+					items: [
+						{
+							value: "yes",
+							text: "Yes"
+						},
+						{
+							value: "no",
+							text: "No"
+						}
+					]
+				}) }}
+
+				<div class="govuk-!-padding-top-1">
+					{{ govukButton({
+						text: "Continue"
+					}) }}
+				</div>
+
+			</form>
+
+        </div>
+    </div>
+
+{% endblock %}

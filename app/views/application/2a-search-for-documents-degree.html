@@ -15,7 +15,7 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-l">
+            <h1 class="govuk-heading-xl">
                 Search and select your<br/> documents
             </h1>
             {{ searchForm('degree certificate') }}
@@ -41,6 +41,10 @@
                     ]
                 ]
             }) }}
+
+            <p class="govuk-body govuk-!-padding-top-4">If you know your documents can be legalised you can
+                <a href="/application/3-document-format" class="govuk-link">skip the document check</a>.
+            </p>
         </div>
     </div>
 

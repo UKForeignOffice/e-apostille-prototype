@@ -8,9 +8,8 @@ Choose a service
 <div class="flex-space-between">
 	{{ govukBackLink({
 	text: "Back",
-	href: "/application/2-your-account"
+	href: "/application/3-document-format"
 	}) }}
-	{% include "includes/my-account-nav.html" %}
 </div>
 {% endblock %}
 
@@ -21,13 +20,10 @@ Choose a service
 		<div class="govuk-form-group">
 			<fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
 				<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-					<h1 class="govuk-fieldset__heading">
-						Choose a service
+					<h1 class="govuk-heading-xl">
+						Which legalisation service would you like?
 					</h1>
 				</legend>
-				{{ govukInsetText({
-					text: "It takes up to 2 working days to process your documents, plus courier or postage time if you choose the standard (paper-based) service."
-					}) }}
 				<div class="govuk-radios">
 					<div class="govuk-radios__item">
 						<input class="govuk-radios__input" id="e-apostille" name="service" type="radio"
