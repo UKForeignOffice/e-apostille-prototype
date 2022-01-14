@@ -57,6 +57,16 @@ router.post('/application/1-who-are-you-answer', (req, res) => {
   res.redirect('/error-pages/generic');
 });
 
+router.post('/application/3-document-format-answer', (req, res) => {
+  const documentFormat = req.session.data['document-format'];
+
+  if (documentFormat === 'pdf') {
+    return res.redirect('/application/eapp/eligibility-question-one');
+  }
+
+  res.redirect('/application/4a-is-document-certified');
+});
+
 router.post('/application/4a-is-document-certified-answer', (req, res) => {
   const isDocumentCertified = req.session.data['document-certified'];
 
@@ -67,47 +77,47 @@ router.post('/application/4a-is-document-certified-answer', (req, res) => {
   res.redirect('/application/5a-get-document-certified');
 });
 
-router.post('/application/sign-in/form-handler', (_req, res) => {
-  res.redirect('/application/2-your-account');
-});
-
-router.post('/application/3-which-service/form-handler', (req, res) => {
-  if (req.session.data['service'] === 'standard-service') {
-    res.redirect('/application/standard-service-document-check');
-    return;
-  }
-
-  if (req.session.data['service'] === 'premium-service') {
-    res.redirect('/application/standard-service-document-check');
-    return;
-  }
-
-  res.redirect('/application/4a-check-acceptance');
-});
-
-router.post('/application/4a-check-acceptance/form-handler', (req, res) => {
+router.post('/application/eApp/eligibility-question-one-answers', (req, res) => {
   if (req.session.data['eapostille-acceptable'] === 'yes') {
-    res.redirect('/application/4-check-documents');
-    return;
+    return res.redirect('application/eApp/eligibility-question-two');
   }
-  res.redirect('/application/4a-check-acceptance-fail');
+  res.redirect('/application/eApp/eligibility-quesiton-one-fail');
 });
 
-router.post('/application/4-check-documents/form-handler', (req, res) => {
-  if (req.session.data['documents-eligible'] === 'yes') {
-    res.redirect('/application/5-check-notarised-and-signed');
-    return;
-  }
-  res.redirect('/application/4-check-documents-fail');
-});
 
-router.post('/application/5-check-notarised-and-signed/form-handler', (req, res) => {
-  if (req.session.data['notarised-and-signed'] === 'yes') {
-    res.redirect('/application/6-start-eapostille');
-    return;
-  }
-  res.redirect('/application/5-check-notarised-and-signed-fail');
-});
+// router.post('/application/sign-in/form-handler', (_req, res) => {
+//   res.redirect('/application/2-your-account');
+// });
+
+// router.post('/application/3-which-service/form-handler', (req, res) => {
+//   if (req.session.data['service'] === 'standard-service') {
+//     res.redirect('/application/standard-service-document-check');
+//     return;
+//   }
+
+//   if (req.session.data['service'] === 'premium-service') {
+//     res.redirect('/application/standard-service-document-check');
+//     return;
+//   }
+
+//   res.redirect('/application/4a-check-acceptance');
+// });
+
+// router.post('/application/4-check-documents/form-handler', (req, res) => {
+//   if (req.session.data['documents-eligible'] === 'yes') {
+//     res.redirect('/application/5-check-notarised-and-signed');
+//     return;
+//   }
+//   res.redirect('/application/4-check-documents-fail');
+// });
+
+// router.post('/application/5-check-notarised-and-signed/form-handler', (req, res) => {
+//   if (req.session.data['notarised-and-signed'] === 'yes') {
+//     res.redirect('/application/6-start-eapostille');
+//     return;
+//   }
+//   res.redirect('/application/5-check-notarised-and-signed-fail');
+// });
 
 router.post('/verify/VerifyApostille/form-handler', (req, res) => {
   const apostillenumber = req.session.data['apostillenumber'];

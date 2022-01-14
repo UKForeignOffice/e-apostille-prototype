@@ -22,7 +22,7 @@
 			<p class="govuk-body">Your degree certificate or transcript (UK) can be legalised.</p>
 			<p class="govuk-body">We accept the document in the following formats. Please confirm which one you will send:</p>
 
-			<form>
+			<form action="/application/3-document-format-answer" method="post">
 				{{ govukRadios({
 					idPrefix: "document-format",
 					name: "document-format",
@@ -48,7 +48,6 @@
 
 				<div class="govuk-!-padding-top-4">
 					{{ govukButton({
-						href: "/application/4a-is-document-certified",
 						text: "Continue"
 					}) }}
 				</div>

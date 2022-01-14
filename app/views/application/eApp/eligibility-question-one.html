@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Are electronic Apostilles accepted in the destination country?
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="flex-space-between">
+  {{ govukBackLink({
+    text: "Back",
+    href: "/application/3-document-format"
+  }) }}
+
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+	  <form action="/application/eApp/eligibility-question-one-answers" method="post">
+	  {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "eapostille-acceptable",
+        name: "eapostille-acceptable",
+        fieldset: {
+            legend: {
+                text: "Are electronic Apostilles accepted in the destination country?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+            }
+        },
+        hint: {
+            html: '<p class="govuk-body">Some countries may not accept electronic versions
+                of documents with an electronic Apostille
+                (e-Apostille) as proof that those documents have been legalised.</p>
+                    <p class="govuk-body">Before you use this service, you should check if
+                    an e-Apostille will be accepted in the country you wish to use it.
+                    We cannot offer a refund if the e-Apostille is not accepted.</p>
+                    <p class="govuk-body">An e-Apostille can only ever be used electronically
+                    and is not valid if the PDF containing the documents is printed out.</p>'
+        },
+        items: [
+            {
+                value: "yes",
+                text: "Yes"
+            },
+            {
+                value: "no",
+                text: "No"
+            }
+        ]
+	  }) }}
+
+    {{ govukButton({
+        text: "Continue"
+    }) }}
+
+	  </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,52 +1,101 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Get the documents legalised using the e-Apostille service
+Information based on your answers
 {% endblock %}
 
 {% block beforeContent %}
-
 <div class="flex-space-between">
-  {{ govukBackLink({
-    text: "Back",
-    href: "/application/5-check-notarised-and-signed"
-  }) }}
-{% include "includes/my-account-nav.html" %}
+	{{ govukBackLink({
+		text: "Back",
+		href: "/application/5-important-info"
+	}) }}
 </div>
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-three-quarters-from-desktop">
+	<div class="govuk-grid-column-two-thirds">
 
-  <h1 class="govuk-heading-xl">
-    Get the documents legalised using the e-Apostille service
-  </h1>
-	  <p class="govuk-body">You need:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>the documents you wish to legalise saved as PDFs, notarised and digitally signed by a notary</li>
-      <li>a credit or debit card for payment</li>
-    </ul>
+        <h1 class="govuk-heading-xl">Information based on your<br /> answers</h1>
+
+        <h2 class="govuk-heading-m">
+            Standard service
+        </h2>
+
+        <p class="govuk-body">The standard service involves applying online and posting the documents you wish to legalise.</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>you need to post the documents you wish to legalise to the Legalisation Office</li>
+            <li>your legalised documents and Apostille will be returned to your chosen address by courier or post</li>
+        </ul>
+
+        <p class="govuk-body">The standard service costs £30 per document, plus courier fees or postage.</p>
+        {{ govukTable({
+            caption: "Courier costs",
+            captionClasses: "govuk-table__caption--m",
+            firstCellIsHeader: false,
+            head: [
+                {
+                    text: "Country",
+                    classes: "govuk-!-width-three-quarters"
+                },
+                {
+                    text: "Price",
+                    classes: "govuk-!-width-one-quarter"
+                }
+            ],
+            rows: [
+                [
+                    {
+                        text: "UK (including British Forces Post Office)"
+                    },
+                    {
+                        text: "£5 per 1.5kg"
+                    }
+                ],
+                [
+                    {
+                        text: "European countries (not including Albania, Armenia, Azerbaijan, Belarus,
+                        Bosnia and Herzegovina, Georgia, Liechtenstein, Kazakhstan, Moldova,
+                        Montenegro, North Macedonia, Russia, Serbia, Turkey and Ukraine)"
+                    },
+                    {
+                        text: "£15 per 1.5kg"
+                    }
+                ],
+                [
+                    {
+                        text: "Rest of the world"
+                    },
+                    {
+                        text: "£20 per 1.5kg"
+                    }
+                ]
+            ]
+        }) }}
+
+
+    <h2 class="govuk-heading-m">
+        If you do not want to pay courier fees
+    </h2>
 
     <p class="govuk-body">
-      The legalised documents and electronic Apostille will be issued and available
-      to download from your account. Due to coronavirus (COVID-19) it may take up to
-      10 working days to legalise your documents.
+        Your documents will be returned by courier but if you’re in the UK you can
+        have them returned by post. You must include an A4-sized envelope with the
+        return address written on it. Attach enough UK postage stamps to cover the
+        return postage.
     </p>
 
-    {{ govukInsetText({
-      text: "If you do not enter any information for more than 30 minutes, your
-      application will time out and you will have to start again."
-    }) }}
+    <div class="govuk-!-margin-bottom-6">
 
-	  <div class="govuk-!-margin-top-6">
-		  {{ govukButton({
-		  text: "Continue",
-		  href: "/application/7-upload-documents"
-		  }) }}
-	  </div>
-  </div>
+        <div class="govuk-!-padding-top-4">
+            {{ govukButton({
+                href: "/application/7-create-online-account",
+                text: "Continue"
+            }) }}
+        </div>
+
+        </div>
 </div>
-
 
 {% endblock %}
