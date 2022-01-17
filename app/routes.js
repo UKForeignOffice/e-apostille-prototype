@@ -43,6 +43,15 @@ function documentNames(documents) {
   return onlyOneDocument ? [documents] : documents;
 }
 
+function eAppRoutes() {
+  router.post('/application/eApp/eligibility-question-one-answers', (req, res) => {
+    if (req.session.data['eapostille-acceptable'] === 'yes') {
+      return res.redirect('application/eApp/eligibility-question-two');
+    }
+    res.redirect('/application/eApp/eligibility-quesiton-one-fail');
+  });
+}
+
 router.post('/application/1-who-are-you-answer', (req, res) => {
   const whoAreYou = req.session.data['who-are-you'];
 
@@ -69,20 +78,22 @@ router.post('/application/3-document-format-answer', (req, res) => {
 
 router.post('/application/4a-is-document-certified-answer', (req, res) => {
   const isDocumentCertified = req.session.data['document-certified'];
+  const path = isDocumentCertified === 'yes'
+    ? '/application/5-important-info'
+    : '/application/5a-get-document-certified';
 
-  if (isDocumentCertified === 'yes') {
-    return res.redirect('/application/5-important-info');
-  }
-
-  res.redirect('/application/5a-get-document-certified');
+  return res.redirect(path);
 });
 
-router.post('/application/eApp/eligibility-question-one-answers', (req, res) => {
-  if (req.session.data['eapostille-acceptable'] === 'yes') {
-    return res.redirect('application/eApp/eligibility-question-two');
-  }
-  res.redirect('/application/eApp/eligibility-quesiton-one-fail');
+router.post('/application/7-create-online-account-answer', (req, res) => {
+  const createAccount = req.session.data['create-account'];
+  const path = createAccount === 'yes'
+    ? '/application/7a-register-page'
+    : '/application/8-complete-standard';
+
+  return res.redirect(path);
 });
+
 
 
 // router.post('/application/sign-in/form-handler', (_req, res) => {
@@ -137,5 +148,7 @@ router.post('/application/document-search-answer', (req, res) => {
 
   res.redirect('/error-pages/generic');
 });
+
+eAppRoutes();
 
 module.exports = router;

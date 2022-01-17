@@ -16,8 +16,42 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-xl">
-                Would you like to create an online account?
+                Would you like to create an online account for legalisation?
             </h1>
+
+			<form action="/application/7-create-online-account-answer" method="post">
+				{{ govukRadios({
+                    classes: "govuk-radios--inline",
+					idPrefix: "create-account",
+					name: "create-account",
+					items: [
+					    {
+							value: "yes",
+							text: "Yes"
+						},
+						{
+							value: "no",
+							text: "No"
+						}
+					]
+				}) }}
+
+                <p class="govuk-body">You'll get the most benefit if you're a regular customer</p>
+                <p class="govuk-body govuk-!-margin-top-6">With an online account you can:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>make applications more quickly by saving your details</li>
+                    <li>check status of an application</li>
+                    <li>see your recent application history</li>
+                </ul>
+
+                <p class="govuk-body">Have an online account already? <a href="/application/sign-in" class="govuk-link">Log in here</a></p>
+				<div class="govuk-!-padding-top-4">
+					{{ govukButton({
+						text: "Continue"
+					}) }}
+				</div>
+
+			</form>
         </div>
     </div>
 

@@ -79,3 +79,14 @@ $govuk-assets-path: '/govuk/assets/';
 .quantity-input--width {
   max-width: 4.2rem;
 }
+
+.interrupt-panel {
+  width: 100%;
+  padding: 30px;
+  background: #005ea5;
+  color: #fff;
+
+  & > * {
+    color: #fff;
+  }
+}

@@ -1,0 +1,134 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Create an account
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBackLink({
+		text: "Back",
+		href: "/application/7-create-online-account"
+	}) }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">
+                Create an account
+            </h1>
+
+            {{ govukDetails({
+                summaryText: "Benefits of creating an account",
+                html: "
+                    <p>
+                        Online accounts are required for our premium business service. For the standard postal service they're
+                        optional. You'll get most benefit if you're a regular customer.
+                    </p>
+                    <p>With an online account you can:</p>
+                    <ul class='govuk-list govuk-list--bullet'>
+                        <li>make applications more quickly by saving your details eg addresses, payment details</li>
+                        <li>check the status of an application</li>
+                        <li>see your recent application history</li>
+                    </ul>"
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Email"
+                },
+                classes: "govuk-!-width-one-half",
+                id: "email",
+                name: "email"
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Confirm email"
+                },
+                classes: "govuk-!-width-one-half",
+                id: "confirm-email",
+                name: "confirm-email"
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Password"
+                },
+                hint: {
+                    text: "Minimum 8 characters long with at least 1 capital letter and 1 number"
+                },
+                type: "password",
+                classes: "govuk-!-width-one-half",
+                id: "password",
+                name: "password"
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Confirm password"
+                },
+                type: "password",
+                classes: "govuk-!-width-one-half",
+                id: "confirm-password",
+                name: "confirm-password"
+            }) }}
+
+			<form action="/application/7-create-online-account-answer" method="post">
+				{{ govukRadios({
+                    classes: "govuk-radios--inline",
+					idPrefix: "create-account",
+					name: "create-account",
+                    fieldset: {
+                        legend: {
+                            text: "Are you registering on behalf of a business?",
+                            isPageHeading: false
+                        }
+                    },
+                    hint: {
+                        text: "Businesses can access our premium service"
+                    },
+					items: [
+					    {
+							value: "yes",
+							text: "Yes"
+						},
+						{
+							value: "no",
+							text: "No"
+						}
+					]
+				}) }}
+
+                <p class="govuk-body">By continuing you confirm that:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>the information you've given is correct</li>
+                    <li>you agree to the <a class="govuk-link" href="#">terms and conditions</a></li>
+                </ul>
+
+                {{ govukCheckboxes({
+                    idPrefix: "agree",
+                    name: "agree",
+                    items: [
+                        {
+                        value: "agree",
+                        text: "I agree"
+                        }
+                    ]
+                }) }}
+
+				<div class="govuk-!-padding-top-4">
+					{{ govukButton({
+                        href:"/application/8-complete-standard",
+						text: "Create an account"
+					}) }}
+				</div>
+
+                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+                <p class="govuk-body">Already got an account? <a href="/application/sign-in" class="govuk-link">Log in here</a></p>
+			</form>
+        </div>
+    </div>
+
+{% endblock %}
