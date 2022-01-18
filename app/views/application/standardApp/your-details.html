@@ -1,0 +1,93 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Your details
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBackLink({
+		text: "Back",
+		href: "/application/8-complete-standard"
+	}) }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">
+                Your details
+            </h1>
+
+            <form action="/application/standardApp/your-details-answer" method="post">
+                {{ govukInput({
+                    label: {
+                        text: "First name"
+                    },
+                    classes: "govuk-!-width-one-half",
+                    id: "first-name",
+                    name: "first-name"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Last name"
+                    },
+                    classes: "govuk-!-width-one-half",
+                    id: "last-name",
+                    name: "last-name"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Telephone numbers"
+                    },
+                    hint: {
+                        text: "Primary number"
+                    },
+                    classes: "govuk-!-width-one-half",
+                    id: "primary-number",
+                    name: "primary-number"
+                }) }}
+
+                {{ govukInput({
+                    hint: {
+                        text: "Mobile number"
+                    },
+                    classes: "govuk-!-width-one-half",
+                    id: "mobile-number",
+                    name: "mobile-number"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Email address"
+                    },
+                    hint: {
+                        text: "We'll send confirmation of your application here"
+                    },
+                    type: "email",
+                    classes: "govuk-!-width-one-half",
+                    id: "email",
+                    name: "email"
+                }) }}
+                {{ govukInput({
+                    label: {
+                        text: "Confirm email address"
+                    },
+                    type: "email",
+                    classes: "govuk-!-width-one-half",
+                    id: "confirm-email",
+                    name: "confirm-email"
+                }) }}
+
+				<div class="govuk-!-padding-top-4">
+					{{ govukButton({
+						text: "Continue"
+					}) }}
+				</div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

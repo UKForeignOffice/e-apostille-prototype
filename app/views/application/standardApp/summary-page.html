@@ -1,0 +1,296 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers before paying for your application
+{% endblock %}
+
+{% block beforeContent %}
+<div class="flex-space-between">
+	{{ govukBackLink({
+	text: "Back",
+	href: "/application/standardApp/additional-info"
+	}) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+  <h1 class="govuk-heading-l">
+    Check your answers before paying for your application
+  </h1>
+
+	  <h2 class="govuk-heading-m">
+		  Personal details
+	  </h2>
+  	  {{ govukSummaryList({
+  		  classes: 'govuk-!-margin-bottom-9',
+  		  rows: [
+  			  {
+  				  key: {
+  				  	text: 'Name'
+  				  },
+  				  value: {
+  				  	text: data['full-name']
+  				  },
+  				  actions: {
+  					  items: [
+  						  {
+  							  href: "/application/standardApp/your-details",
+  							  text: "Change",
+  							  visuallyHiddenText: "name"
+  						  }
+  					  ]
+  				  }
+  			  },
+  			  {
+  				  key: {
+  				  	text: 'Email'
+  				  },
+  				  value: {
+  				  	text: data['email']
+  				  },
+  				  actions: {
+  					  items: [
+  						  {
+  							  href: "/application/standardApp/your-details",
+  							  text: "Change",
+  							  visuallyHiddenText: "email"
+  						  }
+  					  ]
+  				  }
+  			  },
+  			  {
+  				  key: {
+  				  	text: 'Telephone'
+  				  },
+  				  value: {
+  				  	text: data['primary-number']
+  				  },
+  				  actions: {
+  					  items: [
+  						  {
+  							  href: "/application/standardApp/your-details",
+  							  text: "Change",
+  							  visuallyHiddenText: "primary-number"
+  						  }
+  					  ]
+  				  }
+  			  },
+  			  {
+  				  key: {
+  				  	text: 'Mobile No'
+  				  },
+  				  value: {
+  				  	text: data['mobile-number']
+  				  },
+  				  actions: {
+  					  items: [
+  						  {
+  							  href: "/application/standardApp/your-details",
+  							  text: "Change",
+  							  visuallyHiddenText: "mobile-number"
+  						  }
+  					  ]
+  				  }
+  			  }
+  		  ]
+  	    })
+  	  }}
+
+	  <h2 class="govuk-heading-m">
+		  Return addresses
+	  </h2>
+
+  	  {{ govukSummaryList({
+  		  classes: 'govuk-!-margin-bottom-9',
+  		  rows: [
+  			  {
+  				  key: {
+  				  	text: 'Return address for successfully legalised documents'
+  				  },
+  				  value: {
+  				  	text: data['full-name']
+  				  },
+  				  actions: {
+  					  items: [
+  						  {
+  							  href: "/application/standardApp/return-address-form",
+  							  text: "Change",
+  							  visuallyHiddenText: "name"
+  						  }
+  					  ]
+  				  }
+  			  },
+  			  {
+  				  key: {
+  				  	text: "Return address if we can't legalise your documents"
+  				  },
+  				  value: {
+  				  	text: "Same as address before"
+  				  },
+  				  actions: {
+  					  items: [
+  						  {
+  							  href: "/application/standardApp/return-if-cant-legalise",
+  							  text: "Change",
+  							  visuallyHiddenText: "email"
+  						  }
+  					  ]
+  				  }
+  			  }
+  		  ]
+  	    })
+  	  }}
+
+	  <h2 class="govuk-heading-m">
+		  Document details
+	  </h2>
+
+  	  {{ govukSummaryList({
+  		  classes: 'govuk-!-margin-bottom-9',
+  		  rows: [
+  			  {
+  				  key: {
+  				  	text: 'Total number of documents'
+  				  },
+  				  value: {
+  				  	text: "1"
+  				  },
+  				  actions: {
+  					  items: [
+  						  {
+  							  href: "/application/standardApp/sending-us-documents",
+  							  text: "Change",
+  							  visuallyHiddenText: "total documents"
+  						  }
+  					  ]
+  				  }
+  			  }
+  		  ]
+  	    })
+  	  }}
+
+	  <h2 class="govuk-heading-m">
+		  Postage
+	  </h2>
+
+  	  {{ govukSummaryList({
+  		  classes: 'govuk-!-margin-bottom-9',
+  		  rows: [
+  			  {
+  				  key: {
+  				  	text: 'Sending delivery method'
+  				  },
+  				  value: {
+  				  	text: "You'll post your documents from the UK"
+  				  },
+  				  actions: {
+  					  items: [
+  						  {
+  							  href: "/application/standardApp/sending-us-documents",
+  							  text: "Change",
+  							  visuallyHiddenText: "name"
+  						  }
+  					  ]
+  				  }
+  			  },
+  			  {
+  				  key: {
+  				  	text: 'Sending delivery method'
+  				  },
+  				  value: {
+  				  	text: "The Legalisation Office will arrange for the return of your documents by courier (including to British Forces Post Office) from 9am to 5pm Monday to Friday, excluding bank holidays"
+  				  },
+  				  actions: {
+  					  items: [
+  						  {
+  							  href: "/application/standardApp/returning-documents",
+  							  text: "Change",
+  							  visuallyHiddenText: "delivery method"
+  						  }
+  					  ]
+  				  }
+  			  }
+  		  ]
+  	    })
+  	  }}
+
+	  <h2 class="govuk-heading-m">
+		  Additional information
+	  </h2>
+      {% if data['user-reference'] %}
+        {% set userRef = data['user-reference']  %}
+    {% else %}
+        {% set userRef = 'Not specified'  %}
+    {% endif %}
+  	  {{ govukSummaryList({
+  		  classes: 'govuk-!-margin-bottom-9',
+  		  rows: [
+  			  {
+  				  key: {
+  				  	text: 'Your reference'
+  				  },
+  				  value: {
+  				  	text: userRef
+  				  },
+  				  actions: {
+  					  items: [
+  						  {
+  							  href: "/application/standardApp/additional-info",
+  							  text: "Change",
+  							  visuallyHiddenText: "your reference"
+  						  }
+  					  ]
+  				  }
+  			  }
+  		  ]
+  	    })
+  	  }}
+
+	  <h2 class="govuk-heading-m">
+		  Cost
+	  </h2>
+  	  {{ govukSummaryList({
+  		  classes: 'govuk-!-margin-bottom-9',
+  		  rows: [
+  			  {
+  				  key: {
+  				  	text: 'Cost to legalise 1 document'
+  				  },
+  				  value: {
+  				  	text: "£30.00"
+  				  }
+  			  },
+  			  {
+  				  key: {
+  				  	text: 'Cost of postage'
+  				  },
+  				  value: {
+  				  	text: "£5.50"
+  				  }
+  			  },
+  			  {
+  				  key: {
+  				  	text: 'Cost of postage'
+  				  },
+  				  value: {
+  				  	text: "£35.50",
+                    classes: "govuk-!-font-weight-bold"
+  				  }
+  			  }
+  		  ]
+  	    })
+  	  }}
+
+    {{ govukButton({
+        text: "Continue",
+        href: "/application/standardApp/payment-page"
+    }) }}
+
+  </div>
+</div>
+
+
+{% endblock %}

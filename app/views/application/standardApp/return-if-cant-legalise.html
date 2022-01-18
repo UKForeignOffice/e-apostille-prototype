@@ -1,0 +1,60 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Return address if we can’t legalise your documents
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBackLink({
+		text: "Back",
+		href: "/application/standardApp/return-address-form"
+	}) }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">
+                Return address if we can’t legalise your documents
+            </h1>
+
+            <p>Where would you like us to post your documents if we’re unable to legalise them?</p>
+			<form action="/application/standardApp/return-address" method="post">
+                {% if data['full-name'] and data['house-name'] and data['street'] and data['town'] and data['postcode'] %}
+                    {% set sameAddress = "Same address as before" + " <br />" + data['full-name'] + ", " + data['house-name'] + ", " + data['street'] + ", " + data['town'] + ", " + data['postcode'] %}
+                {% else %}
+                    {% set sameAddress = "Same address as before" %}
+                {% endif %}
+				{{ govukRadios({
+					idPrefix: "create-account",
+					name: "create-account",
+                    fieldset: {
+                        legend: {
+                            text: "Is the return address in the UK?",
+                            isPageHeading: false
+                        }
+                    },
+					items: [
+					    {
+							value: "same",
+							html: sameAddress
+						},
+						{
+							value: "different",
+							text: "Different address"
+						}
+					]
+				}) }}
+
+				<div class="govuk-!-padding-top-4">
+					{{ govukButton({
+                        href: "/application/standardApp/sending-us-documents",
+						text: "Continue"
+					}) }}
+				</div>
+			</form>
+        </div>
+    </div>
+
+{% endblock %}

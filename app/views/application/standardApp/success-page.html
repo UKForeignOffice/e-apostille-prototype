@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Application successfully submitted
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1>Total amount: £35.50 for 1 document</h1>
+
+      <div class="fz-1-3">
+        Application reference number <strong>A-A-21-0212-1234-ABCD</strong>
+      </div>
+      <div class="fz-1-3 govuk-!-margin-top-6">
+        Email confirmation sent to <strong>{{data['email']}}</strong>
+      </div>
+    </div>
+
+    <h1 class="govuk-heading-l govuk-!-margin-top-7">
+      What to do next
+    </h1>
+
+    <h2 class="govuk-heading-m">1. Print your cover sheet</h2>
+
+    {{ govukButton({
+        href: "#",
+        text: "Print cover sheet",
+        classes: "govuk-button--secondary"
+    }) }}
+
+    {{ govukDetails({
+        summaryText: "What to do if you don't have a printer?",
+        text: "If you don't have a printer, write down the application reference number, your name and address and send this to us with your documents. We've also sent you an email with the application reference and office address details, so you have the option to print that at another computer later."
+    }) }}
+
+     <h2 class="govuk-heading-m">2. Bringing your documents</h2>
+    <p class="govuk-body">Bring your documents along with a printout of your cover sheet to:</p>
+        <p class="govuk-body">
+        <span>
+            Legalisation Office<br/>
+            Foreign, Commonwealth and Development Office<br/>
+            PO Box 7656<br/>
+            Milton Keynes<br/>
+            MK11 9NS
+        </span>
+        </p>
+
+    <h2 class="govuk-heading-m">How long it takes and when you'll be charged</h2>
+
+    <p class="govuk-body">Applications take up to two working days, plus courier or postage time.</p>
+
+    <p class="govuk-body">We manage payment as follows:</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>your payment card is charged immediately</li>
+        <li>if we haven’t received your documents within 28 days, your payment will be refunded and the money returned to your account - you  will need to make another application </li>
+        <li>if we can’t legalise your documents, we’ll refund your payment, but will charge the courier fee to return your documents to you if you've not supplied your own prepaid return envelope</li>
+    </ul>
+
+    <p class="govuk-body govuk-!-margin-top-9">
+      <a href="/application/14-your-account-from-completed-app">View applications</a>
+    </p>
+
+    <p class="govuk-body govuk-!-margin-top-6">
+      <a href="/application/3-which-service">Start new application</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

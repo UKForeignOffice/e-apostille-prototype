@@ -1,0 +1,42 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Number of documents
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBackLink({
+		text: "Back",
+		href: "/application/6-info-based-on-answers"
+	}) }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">
+                Number of documents
+            </h1>
+
+                {{ govukInput({
+                    label: {
+                        text: "How many documents do you want to legalise?"
+                    },
+                    hint: {
+                        text: "Each document costs £30"
+                    },
+                    classes: "govuk-!-width-one-quarter",
+                    id: "email",
+                    name: "email"
+                }) }}
+
+				{{ govukButton({
+					href: "/application/standardApp/your-details",
+					text: "Continue"
+				}) }}
+			</div>
+        </div>
+    </div>
+
+{% endblock %}

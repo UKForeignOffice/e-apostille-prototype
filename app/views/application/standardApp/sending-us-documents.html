@@ -1,0 +1,55 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Sending us your documents
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBackLink({
+		text: "Back",
+		href: "/application/standardApp/return-if-cant-legalise"
+	}) }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">
+                Sending us your documents
+            </h1>
+
+            {{ govukRadios({
+                idPrefix: "sending-documents",
+                name: "sending-documents",
+                fieldset: {
+                    legend: {
+                        text: "Select how you’ll send your documents",
+                        isPageHeading: false
+                    }
+                },
+                items: [
+                    {
+                        value: "post",
+                        text: "You'll post your documents from the UK"
+                    },
+                    {
+                        value: "courier",
+                        text: "You'll use a courier to send your documents from the UK"
+                    },
+                    {
+                        value: "overseas",
+                        text: "You're overseas and will post or courier your documents to the UK"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                href: "/application/standardApp/returning-documents",
+                text: "Continue"
+            }) }}
+			</div>
+        </div>
+    </div>
+
+{% endblock %}

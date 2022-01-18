@@ -86,7 +86,13 @@ $govuk-assets-path: '/govuk/assets/';
   background: #005ea5;
   color: #fff;
 
-  & > * {
+  .govuk-list--number,
+  .govuk-heading-m,
+  .govuk-body {
     color: #fff;
+  }
+
+  .fz-1-3 {
+    font-size: 1.3rem;
   }
 }

@@ -45,10 +45,24 @@ function documentNames(documents) {
 
 function eAppRoutes() {
   router.post('/application/eApp/eligibility-question-one-answers', (req, res) => {
-    if (req.session.data['eapostille-acceptable'] === 'yes') {
-      return res.redirect('application/eApp/eligibility-question-two');
-    }
-    res.redirect('/application/eApp/eligibility-quesiton-one-fail');
+    const path = req.session.data['eapostille-acceptable'] === 'yes'
+      ? 'application/eApp/eligibility-question-two'
+      : '/application/eApp/eligibility-quesiton-one-fail';
+
+    return res.redirect(path);
+  });
+}
+
+function standardAppRoutes() {
+  router.post('/application/standardApp/your-details-answer', (req, res) => {
+
+    return res.redirect('/application/standardApp/return-address');
+  });
+
+  router.post('/application/standardApp/return-address-form-answer', (req, res) => {
+    console.log(req.session.data, 'test');
+
+    return res.redirect('/application/standardApp/return-if-cant-legalise');
   });
 }
 
@@ -150,5 +164,6 @@ router.post('/application/document-search-answer', (req, res) => {
 });
 
 eAppRoutes();
+standardAppRoutes();
 
 module.exports = router;

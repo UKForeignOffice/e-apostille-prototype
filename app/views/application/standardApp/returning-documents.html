@@ -1,0 +1,51 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Returning your documents
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBackLink({
+		text: "Back",
+		href: "/application/standardApp/sending-us-documents"
+	}) }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">
+                Returning your documents
+            </h1>
+
+            {{ govukRadios({
+                idPrefix: "sending-documents",
+                name: "sending-documents",
+                fieldset: {
+                    legend: {
+                        text: "Select a delivery method for the return of your documents",
+                        isPageHeading: true
+                    }
+                },
+                items: [
+                    {
+                        value: "lo-will-arrange",
+                        text: "The Legalisation Office will arrange for the return of your documents by courier (including to British Forces Post Office) from 9am to 5pm Monday to Friday, excluding bank holidays - £5.00"
+                    },
+                    {
+                        value: "you-will-arrange",
+                        text: "You'll arrange for the return of your documents by adding stamps on to a self-addressed envelope which you'll include with your documents - typically £1 to £8, the cost varies"
+                    }
+                ]
+            }) }}
+
+            {{ govukButton({
+                href: "/application/standardApp/additional-info",
+                text: "Continue"
+            }) }}
+			</div>
+        </div>
+    </div>
+
+{% endblock %}

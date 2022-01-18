@@ -15,14 +15,31 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">
+            <h1 class="govuk-heading-l">
                 How to complete your legalisation application
             </h1>
 
 			<div class="govuk-body interrupt-panel">
 				<ol class="govuk-list govuk-list--number">
-                    <li>the information you've given is correct</li>
+                    <li>
+						<div class="govuk-heading-m govuk-!-margin-bottom-2">Fill in the online application</div>
+						<p class="govuk-body govuk-!-margin-bottom-7">Take as long as you need to finish but if you're inactive for 30 minutes your application will time out.</p>
+					</li>
+                    <li>
+						<div class="govuk-heading-m govuk-!-margin-bottom-2">Pay for your legalisation application</div>
+						<p class="govuk-body govuk-!-margin-bottom-7">Each document costs £30. You can pay by credit or debit card</p>
+					</li>
+                    <li>
+						<div class="govuk-heading-m govuk-!-margin-bottom-2">Post your documents</div>
+						<p class="govuk-body govuk-!-margin-bottom-8">Post your documents to the Legalisation Office</p>
+					</li>
                 </ol>
+
+				{{ govukButton({
+					href: "/application/standardApp/your-details",
+					text: "Continue",
+					classes: "govuk-button--secondary"
+				}) }}
 			</div>
         </div>
     </div>

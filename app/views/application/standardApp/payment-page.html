@@ -1,0 +1,22 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Payment details - GOV.UK Pay
+{% endblock %}
+
+{% block beforeContent %}
+<div class="flex-space-between">
+	{{ govukBackLink({
+	text: "Back",
+	href: "/application/standardApp/summary-page"
+	}) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl">Payment details - GOV.UK Pay</h1>
+<p class="govuk-body">This is where you'd put your credit or debit card details in GOV.UK Pay.</p>
+<p class="govuk-body">
+  <a href="/application/standardApp/success-page">Click to continue (to submit your application)</a>
+</p>
+{% endblock %}

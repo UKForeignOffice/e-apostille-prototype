@@ -1,0 +1,43 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Additional information
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBackLink({
+		text: "Back",
+		href: "/application/standardApp/returning-documents"
+	}) }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">
+                Additional information
+            </h1>
+
+                {{ govukInput({
+                    label: {
+                        text: "Your reference (optional)"
+                    },
+                    hint: {
+                        text: "If you have your own internal reference number you can enter it here"
+                    },
+                    classes: "govuk-!-width-one-half",
+                    id: "user-reference",
+                    name: "user-reference"
+                }) }}
+
+				{{ govukButton({
+					href: "/application/standardApp/summary-page",
+					text: "Continue"
+				}) }}
+				</div>
+			</form>
+        </div>
+    </div>
+
+{% endblock %}
