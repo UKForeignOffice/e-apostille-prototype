@@ -1,0 +1,53 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    How to complete your legalisation application
+{% endblock %}
+
+{% block beforeContent %}
+	{{ govukBackLink({
+		text: "Back",
+		href: "/application/6-info-based-on-answers"
+	}) }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">
+                How to complete your legalisation application
+            </h1>
+
+			<div class="govuk-body interrupt-panel">
+				<ol class="govuk-list govuk-list--number">
+                    <li>
+						<div class="govuk-heading-m govuk-!-margin-bottom-2">Upload your documents</div>
+						<p class="govuk-body govuk-!-margin-bottom-7">
+							Upload your document PDFs. Take as long as you need to finish but if you're inactive for 30 minutes your application will time out. Have all doucments ready at hand
+						</p>
+					</li>
+                    <li>
+						<div class="govuk-heading-m govuk-!-margin-bottom-2">Pay for your legalisation application</div>
+						<p class="govuk-body govuk-!-margin-bottom-7">Each document costs £30. You can pay by credit or debit card</p>
+					</li>
+                    <li>
+						<div class="govuk-heading-m govuk-!-margin-bottom-2">Email</div>
+						<p class="govuk-body govuk-!-margin-bottom-8">An email will be sent to you once your legalised PDFs are ready to download from your account</p>
+					</li>
+                    <li>
+						<div class="govuk-heading-m govuk-!-margin-bottom-2">Download your documents</div>
+						<p class="govuk-body govuk-!-margin-bottom-8">Download your legalised document from your legalisation account</p>
+					</li>
+                </ol>
+
+				{{ govukButton({
+					href: "/application/eApp/upload-documents",
+					text: "Continue",
+					classes: "govuk-button--secondary"
+				}) }}
+			</div>
+        </div>
+    </div>
+
+{% endblock %}

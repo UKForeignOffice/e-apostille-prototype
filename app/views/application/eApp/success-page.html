@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Application successfully submitted
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/my-account-nav.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">Application submitted</h1>
+      <div class="govuk-panel__body">
+        Application reference number
+      </div>
+      <div class="govuk-panel__body">
+        <strong>A-D-21-0212-1234-ABCD</strong>
+      </div>
+    </div>
+    <p class="govuk-body">We have sent a confirmation email to joesephine@example.com</p>
+
+    <h2 class="govuk-heading-l">
+      What happens next
+    </h2>
+
+    <p class="govuk-body">
+      We will email you when the legalised documents are available to download from your account as PDF files.
+    </p>
+
+    <p class="govuk-body">
+      Your documents will be processed within 2 working days.
+    </p>
+
+    <p class="govuk-body">
+      You will have 21 days (up until midnight on the last day) to download the PDFs once they have been made available on your account.
+      Each PDF will contain a copy of the original uploaded PDF along with an e-Apostille.
+    </p>
+
+    <p class="govuk-body">
+      <a href="/application/14-your-account-from-completed-app">View applications</a>
+    </p>
+
+    <p class="govuk-body">
+      <a href="/application/2-search-for-documents">Start new application</a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

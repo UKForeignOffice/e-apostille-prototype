@@ -12,15 +12,8 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-const UPLOADS_PATH = '/application/7-upload-documents/form-handler';
 const COST_PER_PDF = 30;
 
-router.post(UPLOADS_PATH, upload.array('documents'), (req, res) => {
-  req.session.data.cost = totalApplicationCost(req.body.documents);
-  req.session.data.documents = documentNames(req.body.documents);
-  req.session.data.noOfDocs = req.session.data.documents.length;
-  res.redirect('/application/8-user-reference');
-});
 
 /**
  * @param {string | Array<string>} documents
@@ -45,25 +38,43 @@ function documentNames(documents) {
 
 function eAppRoutes() {
   router.post('/application/eApp/eligibility-question-one-answers', (req, res) => {
-    const path = req.session.data['eapostille-acceptable'] === 'yes'
-      ? 'application/eApp/eligibility-question-two'
-      : '/application/eApp/eligibility-quesiton-one-fail';
+    const path =
+      req.session.data['eapostille-acceptable'] === 'yes'
+        ? '/application/eApp/eligibility-question-two'
+        : '/application/eApp/eligibility-quesiton-one-fail';
 
     return res.redirect(path);
   });
+
+  router.post('/application/eApp/eligibility-question-two-answers', (req, res) => {
+    const path =
+      req.session.data['notarised-and-signed'] === 'yes'
+        ? '/application/eApp/info-based-on-answers'
+        : '/application/eApp/eligibility-quesiton-one-fail';
+
+    return res.redirect(path);
+  });
+
+  router.post('/application/eApp/upload-documents/form-handler', upload.array('documents'), (req, res) => {
+    req.session.data.cost = totalApplicationCost(req.body.documents);
+    req.session.data.documents = documentNames(req.body.documents);
+    req.session.data.noOfDocs = req.session.data.documents.length;
+    res.redirect('/application/eApp/user-reference');
+  });
+
+  router.post('/application/eApp/user-reference-answer', (_req, res) =>
+    res.redirect('/application/eApp/summary-page')
+  );
 }
 
 function standardAppRoutes() {
-  router.post('/application/standardApp/your-details-answer', (req, res) => {
+  router.post('/application/standardApp/your-details-answer', (_req, res) =>
+    res.redirect('/application/standardApp/return-address')
+  );
 
-    return res.redirect('/application/standardApp/return-address');
-  });
-
-  router.post('/application/standardApp/return-address-form-answer', (req, res) => {
-    console.log(req.session.data, 'test');
-
-    return res.redirect('/application/standardApp/return-if-cant-legalise');
-  });
+  router.post('/application/standardApp/return-address-form-answer', (_req, res) =>
+    res.redirect('/application/standardApp/return-if-cant-legalise')
+  );
 }
 
 router.post('/application/1-who-are-you-answer', (req, res) => {
@@ -82,37 +93,32 @@ router.post('/application/1-who-are-you-answer', (req, res) => {
 
 router.post('/application/3-document-format-answer', (req, res) => {
   const documentFormat = req.session.data['document-format'];
+  let accountRedirect = "/application/8-complete-standard";
+  let path = '/application/4a-is-document-certified'
 
   if (documentFormat === 'pdf') {
-    return res.redirect('/application/eapp/eligibility-question-one');
+    accountRedirect = "/application/eApp/how-to-complete";
+    path = '/application/eapp/eligibility-question-one';
   }
 
-  res.redirect('/application/4a-is-document-certified');
+  req.session.data['account-redirect'] = accountRedirect;
+  res.redirect(path);
 });
 
 router.post('/application/4a-is-document-certified-answer', (req, res) => {
   const isDocumentCertified = req.session.data['document-certified'];
-  const path = isDocumentCertified === 'yes'
-    ? '/application/5-important-info'
-    : '/application/5a-get-document-certified';
+  const path =
+    isDocumentCertified === 'yes' ? '/application/5-important-info' : '/application/5a-get-document-certified';
 
   return res.redirect(path);
 });
 
 router.post('/application/7-create-online-account-answer', (req, res) => {
   const createAccount = req.session.data['create-account'];
-  const path = createAccount === 'yes'
-    ? '/application/7a-register-page'
-    : '/application/8-complete-standard';
+  const path = createAccount === 'yes' ? '/application/7a-register-page' : '/application/8-complete-standard';
 
   return res.redirect(path);
 });
-
-
-
-// router.post('/application/sign-in/form-handler', (_req, res) => {
-//   res.redirect('/application/2-your-account');
-// });
 
 // router.post('/application/3-which-service/form-handler', (req, res) => {
 //   if (req.session.data['service'] === 'standard-service') {

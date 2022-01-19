@@ -8,9 +8,10 @@
 <div class="flex-space-between">
 	{{ govukBackLink({
 	text: "Back",
-	href: "/application/8-user-reference"
+	href: "/application/eApp/user-reference"
 	}) }}
 </div>
+
 {% endblock %}
 
 {% block content %}
@@ -28,13 +29,14 @@
 		  <div class="govuk-summary-list__row">
 			  <dt class="govuk-summary-list__key">
 				  <ul class="govuk-list">
+
 				      {% for document in data.documents %}
 				          <li>{{document}}</li>
 				      {% endfor %}
 			  </ul>
 			  </dt>
 			  <dd class="govuk-summary-list__actions">
-				  <a class="govuk-link" href="/application/7-upload-documents">
+				  <a class="govuk-link" href="/application/eApp/upload-documents">
 					  Change<span class="govuk-visually-hidden"> files</span>
 				  </a>
 			  </dd>
@@ -58,7 +60,7 @@
   				  actions: {
   					  items: [
   						  {
-  							  href: "8-user-reference",
+  							  href: "/application/eApp/user-reference",
   							  text: "Change",
   							  visuallyHiddenText: "your reference"
   						  }
@@ -82,7 +84,7 @@
             actions: {
               items: [
                 {
-                  href: "8-user-reference",
+                  href: "/application/eApp/user-reference",
                   text: "Change",
                   visuallyHiddenText: "your reference"
                 }
@@ -115,7 +117,7 @@
 
     {{ govukButton({
         text: "Continue",
-        href: "/application/10-pay-for-application"
+        href: "/application/eApp/payment-page"
     }) }}
 
   </div>

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Information based on your answers
+{% endblock %}
+
+{% block beforeContent %}
+<div class="flex-space-between">
+	{{ govukBackLink({
+		text: "Back",
+		href: "/application/eApp/eligibility-question-two"
+	}) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Information based on your<br /> answers</h1>
+
+        <h2 class="govuk-heading-m">
+            e-Apostille service
+        </h2>
+
+							<p class="govuk-body">Use this service to get the documents legalised with an electronic apostille (e-Apostille).</p>
+							<p class="govuk-body">You can:</p>
+							<ul class="govuk-list govuk-list--bullet">
+								<li>upload documents you want to legalise, for example a passport, as a PDF</li>
+								<li>upload multiple documents in a single PDF (for example a passport and a driving licence)</li>
+								<li>pay £30 for each uploaded PDF, even if it contains multiple documents</li>
+								<li>upload up to 50 PDFs in a single application</li>
+								<li>avoid courier or postage costs</li>
+							</ul>
+							<p class="govuk-body">You need to:</p>
+							<ul class="govuk-list govuk-list--bullet">
+								<li>check if an e-Apostille will be accepted in the country in which you want to use it (no refund if an e-Apostille is not accepted)</li>
+								<li>ensure all PDFs are notarised and digitally signed by a notary</li>
+								<li>download the PDFs (including e-Apostilles) from your account within 21 days of the documents being legalised</li>
+							</ul>
+
+
+    <div class="govuk-!-margin-bottom-6">
+
+        <div class="govuk-!-padding-top-4">
+            {{ govukButton({
+                href: "/application/7a-register-page",
+                text: "Continue"
+            }) }}
+        </div>
+
+        </div>
+</div>
+
+{% endblock %}

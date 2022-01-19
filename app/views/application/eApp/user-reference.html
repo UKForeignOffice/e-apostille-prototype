@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Would you like to give this application a reference (optional)?
+{% endblock %}
+
+{% block beforeContent %}
+<div class="flex-space-between">
+	{{ govukBackLink({
+	text: "Back",
+	href: "/application/eApp/upload-documents"
+	}) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+	  <form action="/application/eApp/user-reference-answer" method="post">
+{{ govukInput({
+  label: {
+    text: "Would you like to give this application a reference (optional)?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  hint: {
+    text: "If you wish to add an internal reference to help with your own records, such as a case number or name, then you can enter it here."
+  },
+  id: "user-reference",
+  name: "user-reference"
+}) }}
+
+{{ govukButton({
+    text: "Continue"
+}) }}
+	  </form>
+
+  </div>
+</div>
+
+{% endblock %}
