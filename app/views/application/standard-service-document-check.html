@@ -8,7 +8,7 @@
   <div class="flex-space-between">
     {{ govukBackLink({
       text: "Back",
-      href: "1-choose-a-service"
+      href: "3-which-service"
     }) }}
   </div>
 {% endblock %}
@@ -30,11 +30,12 @@
         Use this tool to check if your document can be legalised.
       </p>
       {{ govukButton({
-          text: "Check your documents"
+          text: "Check your documents",
+          href: "/application/page-not-created"
       }) }}
       <p class="govuk-body">
         If you know your documents can be legalised you can
-        <a href="#" class="govuk-link">skip this document check</a>.
+        <a href="/application/page-not-created" class="govuk-link">skip this document check</a>.
       </p>
     </div>
   </div>

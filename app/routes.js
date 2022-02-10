@@ -18,9 +18,20 @@ const COST_PER_PDF = 30;
 router.post(UPLOADS_PATH, upload.array('documents'), (req, res) => {
   req.session.data.cost = totalApplicationCost(req.body.documents);
   req.session.data.documents = documentNames(req.body.documents);
-  req.session.data.noOfDocs = req.session.data.documents.length;
+  console.log(req.session.data.documents, 'docs')
+  req.session.data.noOfDocs = totalUploadedDocuments(req);
   res.redirect('/application/8-user-reference');
 })
+
+function totalUploadedDocuments(req) {
+  const noDocsUploded = req.session.data.documents[0] === '';
+
+  if(noDocsUploded) {
+    return 0;
+  }
+
+  return req.session.data.documents.length;
+}
 
 /**
  * @param {string | Array<string>} documents
