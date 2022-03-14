@@ -89,9 +89,11 @@ router.post('/application/4-check-documents/form-handler', (req, res) => {
   res.redirect('/application/4-check-documents-fail')
 });
 
-router.post('/application/5-check-notarised-and-signed/form-handler', (req, res, next) => {
+router.post('/application/5-check-notarised-and-signed/form-handler', (req, res) => {
+  const redirectUrl = req.session.data.signedIn ? "/application/7-upload-documents" : "/application/create-an-account";
+
   if (req.session.data['notarised-and-signed'] === 'yes') {
-    res.redirect("/application/6-start-eapostille");
+    res.redirect(redirectUrl);
     return
   }
   res.redirect("/application/5-check-notarised-and-signed-fail");
@@ -110,6 +112,10 @@ router.post('/verify/VerifyApostille/form-handler', (req, res, next) => {
 router.get('/application/sign-out', (req, res) => {
   req.session.data.signedIn = false;
   res.redirect('/application/sign-in');
+});
+
+router.post('/application/create-an-account', (_req, res) => {
+  res.redirect('/application/activate-your-account');
 });
 
 module.exports = router

@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+	<form action="/application/create-an-account" method="post">
+		<h1 class="govuk-heading-xl">Create an account</h1>
+        {{ govukDetails({
+            summaryText: "Benefits of creating an account",
+            html: "
+                <p>
+                    Online accounts are required for our premium business service. For the standard postal service they're optional. You'll get most benefit if you're a regular customer.
+                </p>
+                <p>With an online account you can:</p>
+                <ul class='tick-list'>
+                    <li>make applications more quickly by saving your details eg addresses, payment details</li>
+                    <li>check the status of an application</li>
+                    <li>see your recent application history</li>
+                </ul>
+                "
+        }) }}
+
+        {{ govukInput({
+            label: {
+                text: "Email"
+            },
+            id: "email",
+            name: "email",
+            type: "email",
+            classes: "govuk-!-width-one-half"
+        }) }}
+
+        {{ govukInput({
+            label: {
+                text: "Confirm email"
+            },
+            id: "confirmEmail",
+            name: "confirm-email",
+            type: "email",
+            classes: "govuk-!-width-one-half"
+        }) }}
+
+        {{ govukInput({
+            label: {
+                text: "Password"
+            },
+            id: "password",
+            hint: {
+                    text: "Minimum 8 characters long with at least 1 capital letter and 1 number"
+                },
+            name: "password",
+            type: "password",
+            classes: "govuk-!-width-one-half"
+        }) }}
+
+        {{ govukInput({
+            label: {
+                text: "Confirm password"
+            },
+            id: "confirmPassword",
+            name: "confirm-password",
+            type: "password",
+            classes: "govuk-!-width-one-half"
+        }) }}
+
+
+        {{ govukRadios({
+            classes: "govuk-radios--inline",
+            name: "business",
+            fieldset: {
+                legend: {
+                text: "Are you registering on behalf of a business?"
+                }
+            },
+            hint: {
+                text: "Businesses can access our premium service"
+            },
+            items: [
+                {
+                value: "yes",
+                text: "Yes"
+                },
+                {
+                value: "no",
+                text: "No"
+                }
+            ]
+        }) }}
+
+        <p>By continuing you confirm that:</p>
+        <ul class="govuk-list govuk-list--bullet indent-list">
+            <li>the information you've given is correct</li>
+            <li>you agree to the <a href="https://www.get-document-legalised.service.gov.uk/terms-and-conditions" target="_blank">terms and conditions</a></li>
+        </ul>
+
+        {{ govukCheckboxes({
+            name: "agree",
+            items: [
+                {
+                    value: "agree",
+                    text: "I agree"
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Create an account"
+        }) }}
+
+        <hr class="govuk-!-margin-top-6" />
+        <p class="govuk-!-margin-top-6">Already got an account? <a href="/application/sign-in">Sign in</a></p>
+	</form>
+  </div>
+</div>
+
+{% endblock %}

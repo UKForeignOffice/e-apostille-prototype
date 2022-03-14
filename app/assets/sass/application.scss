@@ -63,3 +63,23 @@ $govuk-assets-path: '/govuk/assets/';
     outline: 3px solid #ffdd00;
   }
 }
+
+.tick-list {
+  list-style: none;
+
+  li {
+    margin-bottom: 0.5rem;
+
+    &:before {
+      color: green;
+      content: '✓';
+      float: left;
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+}
+
+.indent-list {
+  padding-left: 3rem;
+}
