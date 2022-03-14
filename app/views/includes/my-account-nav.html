@@ -1,9 +1,13 @@
-<div id="menubar" style="text-align: right">
-	<span class="govuk-body">Joesephine Bloggs-Smyth</span>
-	<span class="govuk-body">
-  <a href="/application/2-your-account" class="govuk-link" style="margin-left: 10px;">Applications</a>
-  <a href="/application/personal-details" class="govuk-link" style="margin-left: 10px;">Account</a>
-  <a href="/application/addresses" class="govuk-link" style="margin-left: 10px;">Addresses</a>
-  <a href="/application/sign-in" class="govuk-link" style="margin-left: 10px;">Sign out</a>
-  </span>
-</div>
+{% if data['signedIn'] %}
+    <div id="menubar" style="text-align: right">
+        <span class="govuk-body">Joesephine Bloggs-Smyth</span>
+        <span class="govuk-body">
+            <a href="/application/2-your-account" class="govuk-link" style="margin-left: 10px;">Applications</a>
+            <a href="/application/personal-details" class="govuk-link" style="margin-left: 10px;">Account</a>
+            <a href="/application/addresses" class="govuk-link" style="margin-left: 10px;">Addresses</a>
+            <a href="/application/sign-out" class="govuk-link" style="margin-left: 10px;">Sign out</a>
+    </span>
+    </div>
+{% else %}
+    <a href="/application/sign-in">Sign in</a>
+{% endif %}

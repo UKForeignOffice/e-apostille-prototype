@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Check if the documents are eligible for the e-Apostille service
+Check if an e-Apostille is acceptable
 {% endblock %}
 
 {% block beforeContent %}
@@ -11,6 +11,7 @@ Check if the documents are eligible for the e-Apostille service
     text: "Back",
     href: "/application/4a-check-acceptance"
   }) }}
+
 {% include "includes/my-account-nav.html" %}
 </div>
 {% endblock %}
@@ -19,37 +20,28 @@ Check if the documents are eligible for the e-Apostille service
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters-from-desktop">
     <span class="govuk-caption-xl">e-Apostille eligibility - step 2 of 3</span>
-    <h1 class="govuk-heading-l">
-      Check if the documents are eligible for the e-Apostille service
-    </h1>
-
-  <p class="govuk-body">Most types of documents are eligible for the e-Apostille service if they have been
-    notarised and digitally signed by a notary.</p>
-
-  <p class="govuk-body">However, some documents are not eligible for the e-Apostille service. You cannot use the e-Apostille service if the document you wish to legalise is:</p>
-	  <div class="govuk-!-margin-bottom-8">
-  <ul class="govuk-list govuk-list--bullet">
-    <li>issued by the General Register Office (GRO), for example, birth, death, marriage, civil partnership and adoption certificates</li>
-    <li>ACRO police certificate for England and Wales</li>
-    <li>Disclosure Barring Service (DBS) certificate for England and Wales</li>
-    <li>disclosure certificate for Scotland</li>
-    <li>disclosure certificate for Northern Ireland</li>
-    <li>Association of Chartered Certified Accountants (ACCA) membership certificate</li>
-    <li>fingerprint certificate</li>
-  </ul>
-  </div>
 	  <form action="/application/4-check-documents/form-handler" method="post">
 	  {{ govukRadios({
 	  classes: "govuk-radios--inline",
-	  idPrefix: "documents-eligible",
-	  name: "documents-eligible",
+	  idPrefix: "eapostille-acceptable",
+	  name: "eapostille-acceptable",
 	  fieldset: {
 	  legend: {
-	  text: "Are the documents eligible for the e-Apostille service?",
-	  isPageHeading: false,
-	  classes: "govuk-fieldset__legend--m"
+	  text: "Is the e-Apostille accepted in the destination country?",
+	  isPageHeading: true,
+	  classes: "govuk-fieldset__legend--l"
 	  }
 	  },
+    hint: {
+      html: '<p class="govuk-body">Some countries may not accept electronic versions
+        of documents with an electronic Apostille
+        (e-Apostille) as proof that those documents have been legalised.</p>
+            <p class="govuk-body">Before you use this service, you should check if
+              an e-Apostille will be accepted in the country you wish to use it.
+              We cannot offer a refund if the e-Apostille is not accepted.</p>
+            <p class="govuk-body">An e-Apostille can only ever be used electronically
+              and is not valid if the PDF containing the documents is printed out.</p>'
+    },
 	  items: [
 	  {
 	  value: "yes",
@@ -65,7 +57,8 @@ Check if the documents are eligible for the e-Apostille service
         text: "Continue"
     }) }}
 	  </form>
-	 </div>
+
+  </div>
 </div>
 
 

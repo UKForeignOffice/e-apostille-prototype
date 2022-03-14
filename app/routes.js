@@ -54,35 +54,35 @@ function documentNames(documents) {
   return onlyOneDocument ? [documents] : documents;
 }
 
-router.post('/application/sign-in/form-handler', (req, res, next) => {
-
+router.post('/application/sign-in/form-handler', (req, res) => {
+  req.session.data.signedIn = true;
   res.redirect('/application/2-your-account')
 });
 
-router.post('/application/3-which-service/form-handler', (req, res, next) => {
+router.post('/application/3-which-service/form-handler', (req, res) => {
   if (req.session.data['service'] === 'standard-service') {
     res.redirect('/application/standard-service-document-check');
     return
   }
 
   if (req.session.data['service'] === 'premium-service') {
-    res.redirect('/application/standard-service-document-check');
+    res.redirect('/application/page-not-created');
     return
   }
 
   res.redirect("/application/4a-check-acceptance");
 });
 
-router.post('/application/4a-check-acceptance/form-handler', (req, res, next) => {
-  if (req.session.data['eapostille-acceptable'] === 'yes') {
+router.post('/application/4a-check-acceptance/form-handler', (req, res) => {
+  if (req.session.data['documents-eligible'] === 'yes') {
     res.redirect("/application/4-check-documents");
     return
   }
   res.redirect('/application/4a-check-acceptance-fail')
 });
 
-router.post('/application/4-check-documents/form-handler', (req, res, next) => {
-  if (req.session.data['documents-eligible'] === 'yes') {
+router.post('/application/4-check-documents/form-handler', (req, res) => {
+  if (req.session.data['eapostille-acceptable'] === 'yes') {
     res.redirect("/application/5-check-notarised-and-signed");
     return
   }
@@ -105,6 +105,11 @@ router.post('/verify/VerifyApostille/form-handler', (req, res, next) => {
   } else {
     res.redirect('/verify/EApostilleVerified')
   }
-})
+});
+
+router.get('/application/sign-out', (req, res) => {
+  req.session.data.signedIn = false;
+  res.redirect('/application/sign-in');
+});
 
 module.exports = router
