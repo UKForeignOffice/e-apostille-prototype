@@ -62,12 +62,7 @@ function documentNames(documents) {
     });
   });
 
-  router.get('/application/sign-in-authenticated', (_req, res) => {
-    res.render('application/sign-in', {
-      userAuthenticated: true,
-      actionUrl: '/application/sign-in/post-authentication',
-    });
-  });
+
 })();
 
 
@@ -138,6 +133,13 @@ router.post('/application/create-an-account', (req, res) => {
 router.get('/application/sign-out', (req, res) => {
   req.session.data.signedIn = false;
   res.redirect('/application/sign-in');
+});
+
+router.get('/application/sign-in-authenticated', (_req, res) => {
+  res.render('application/sign-in', {
+    userAuthenticated: true,
+    actionUrl: '/application/sign-in/post-authentication',
+  });
 });
 
 module.exports = router;
