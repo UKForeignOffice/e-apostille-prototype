@@ -8,7 +8,11 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters-from-desktop">
-	<form action="/application/sign-in/form-handler" method="post">
+  {% if actionUrl %}
+    <form action="{{ actionUrl }}" method="post">
+  {% else %}
+	  <form action="/application/sign-in/form-handler" method="post">
+  {% endif %}
 		{% call govukFieldset({
 		  legend: {
 			text: "Sign in",
@@ -16,6 +20,9 @@
 			isPageHeading: true
 		  }
 		}) %}
+    {% if userAuthenticated %}
+      <p class="govuk-body green-flash-msg govuk-!-margin-top-5">You've successfully confirmed your email address. Now you can sign in to your account</p>
+    {% endif %}
 
       {{ govukInput({
         label: {

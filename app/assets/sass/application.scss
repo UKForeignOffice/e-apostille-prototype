@@ -83,3 +83,10 @@ $govuk-assets-path: '/govuk/assets/';
 .indent-list {
   padding-left: 3rem;
 }
+
+.green-flash-msg {
+  background: #e9f5f4;
+  border-left: 4px solid #28a197;
+  height: 3rem;
+  padding: 1rem;
+}
