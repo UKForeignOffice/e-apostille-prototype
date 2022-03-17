@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Before you apply for an e-Apostille
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="flex-space-between">
+  {{ govukBackLink({
+    text: "Back",
+    href: "/application/3-which-service"
+  }) }}
+
+{% include "includes/my-account-nav.html" %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+	<form action="/application/3a-before-you-apply" method="post">
+        <h1 class="govuk-fieldset__legend--xl">Before you apply for an <br/> e-Apostille</h1>
+        <p class="govuk-body">Make sure your digital documents are: </p>
+        <ul class="govuk-list govuk-list--bullet indent-list">
+            <li>eligible for the e-Apostille service</li>
+            <li>acceptable by the overseas authority</li>
+            <li>correctly prepared and electronically signed</li>
+        </ul>
+        <h3 class="govuk-fieldset__legend--m">Will you check your documents are suitable?</h3>
+	  {{ govukRadios({
+        idPrefix: "before-you-apply",
+        name: "before-you-apply",
+        fieldset: {
+	  },
+	  items: [
+        {
+            value: "yes",
+            text: "Yes, help me check now"
+        },
+        {
+            value: "no",
+            text: "No, I have already checked"
+        }
+	  ]
+	  }) }}
+    {{ govukButton({
+        text: "Continue"
+    }) }}
+	</form>
+
+  </div>
+</div>
+
+
+{% endblock %}

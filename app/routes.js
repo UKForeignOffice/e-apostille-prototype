@@ -90,6 +90,14 @@ router.post('/application/3-which-service/form-handler', (req, res) => {
   res.redirect('/application/4a-check-acceptance');
 });
 
+router.post('/application/3a-before-you-apply', (req, res) => {
+  if (req.session.data['before-you-apply'] === 'yes') {
+    res.redirect('/application/4a-check-acceptance');
+    return;
+  }
+  res.redirect('/application/sign-in-mid-flow');
+});
+
 router.post('/application/4a-check-acceptance/form-handler', (req, res) => {
   if (req.session.data['documents-eligible'] === 'yes') {
     res.redirect('/application/4-check-documents');
@@ -107,10 +115,8 @@ router.post('/application/4-check-documents/form-handler', (req, res) => {
 });
 
 router.post('/application/5-check-notarised-and-signed/form-handler', (req, res) => {
-  const redirectUrl = req.session.data.signedIn ? '/application/7-upload-documents' : '/application/create-an-account';
-
   if (req.session.data['notarised-and-signed'] === 'yes') {
-    res.redirect(redirectUrl);
+    res.redirect( '/application/5a-how-to-complete-app');
     return;
   }
   res.redirect('/application/5-check-notarised-and-signed-fail');

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+How to complete your legalisation application
+{% endblock %}
+
+{% block beforeContent %}
+
+<div class="flex-space-between">
+  {{ govukBackLink({
+    text: "Back",
+    href: "/application/5-check-notarised-and-signed"
+  }) }}
+
+{% include "includes/my-account-nav.html" %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+    <h1 class="govuk-fieldset__legend--xl">How to complete your legalisation application</h1>
+    {% if data['signedIn'] %}
+        {{ govukButton({
+            text: "Continue",
+            href: "/application/7-upload-documents"
+        }) }}
+    {% else %}
+        {{ govukButton({
+            text: "Continue",
+            href: "/application/create-an-account"
+        }) }}
+    {% endif %}
+  </div>
+</div>
+
+
+{% endblock %}
