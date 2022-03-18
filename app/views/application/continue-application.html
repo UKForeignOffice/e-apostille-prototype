@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  You will now continue to your application
+{% endblock %}
+
+{% block beforeContent %}
+<div class="flex-space-between">
+    {{ govukBackLink({
+        text: "Back",
+        href: "/application/finish-account-setup"
+    }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+    <h1 class="govuk-heading-xl">You will now continue to your application</h1>
+    <p class="govuk-body">You have successfully created your account and signed in. You will now continue to your e-Apostille application.</p>
+
+    {{ govukButton({
+        href: "/application/7-upload-documents",
+        text: "Continue"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

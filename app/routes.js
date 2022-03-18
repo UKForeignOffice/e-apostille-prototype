@@ -54,21 +54,32 @@ function documentNames(documents) {
   return onlyOneDocument ? [documents] : documents;
 }
 
-(function signInGetRequests() {
-  router.get('/application/sign-in-mid-flow', (_req, res) => {
-    res.render('application/sign-in', {
-      midFlow: true,
-      actionUrl: '/application/sign-in/post-authentication',
-    });
-  });
-
-
-})();
-
 
 router.post('/application/sign-in/form-handler', (req, res) => {
   req.session.data.signedIn = true;
   res.redirect('/application/2-your-account');
+});
+
+
+// User continuing account setup process
+router.get('/application/sign-in-authenticated', (_req, res) => {
+  res.render('application/sign-in', {
+    userAuthenticated: true,
+    actionUrl: '/application/sign-in/continue-setup',
+  });
+});
+
+router.post('/application/sign-in/continue-setup', (req, res) => {
+  req.session.data.signedIn = true;
+  res.redirect('/application/finish-account-setup');
+});
+
+// User with account continuing eApp flow
+router.get('/application/sign-in-mid-flow', (_req, res) => {
+  res.render('application/sign-in', {
+    midFlow: true,
+    actionUrl: '/application/sign-in/post-authentication',
+  });
 });
 
 router.post('/application/sign-in/post-authentication', (req, res) => {
@@ -87,7 +98,7 @@ router.post('/application/3-which-service/form-handler', (req, res) => {
     return;
   }
 
-  res.redirect('/application/4a-check-acceptance');
+  res.redirect('/application/3a-before-you-apply');
 });
 
 router.post('/application/3a-before-you-apply', (req, res) => {
@@ -141,11 +152,5 @@ router.get('/application/sign-out', (req, res) => {
   res.redirect('/application/sign-in');
 });
 
-router.get('/application/sign-in-authenticated', (_req, res) => {
-  res.render('application/sign-in', {
-    userAuthenticated: true,
-    actionUrl: '/application/sign-in/post-authentication',
-  });
-});
 
 module.exports = router;

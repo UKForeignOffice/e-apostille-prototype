@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Check if an e-Apostille is acceptable
+Check the authority accepts e-Apostilles
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,43 +19,48 @@ Check if an e-Apostille is acceptable
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters-from-desktop">
-    <span class="govuk-caption-xl">e-Apostille eligibility - step 2 of 3</span>
+    <span class="govuk-caption-xl">e-Apostille suitability - 2 of 3</span>
+		<h1 class="govuk-heading-l">
+			Check the authority accepts e-Apostilles
+		</h1>
+		<p class="govuk-body">
+			Ask the overseas authority exactly what they need from you and if they will:
+		</p>
+		<ul class="govuk-list govuk-list--bullet indent-list">
+			<li>accept digital documents with e-Apostilles</li>
+			<li>require separate e-Apostille certificates for each document (if legalising more than one) </li>
+			<li>accept documents signed by a solicitor or notary, or either</li>
+		</ul>
+		<p class="govuk-body">
+			Make sure they understand e-Apostilles are only valid in digital form as they contain unique electronic signatures.
+		</p>
+
+		{{ govukDetails({
+			summaryText: "Why you need to check",
+			html: '<p><a href="https://www.hcch.net/en/instruments/conventions/authorities1/?cid=41" target="_blank">Countries that accept paper apostilles</a> should equally accept e-Apostilles.<p>
+			<p>However, there are circumstances in which an authority (such as a bank, employer or government department) could reject an e-Apostille. For example, they could do this if they do not accept a digital version of the document the e-Apostille is attached to.</p>
+			'
+		}) }}
+
 	  <form action="/application/4-check-documents/form-handler" method="post">
-	  {{ govukRadios({
-	  classes: "govuk-radios--inline",
-	  idPrefix: "eapostille-acceptable",
-	  name: "eapostille-acceptable",
-	  fieldset: {
-	  legend: {
-	  text: "Is the e-Apostille accepted in the destination country?",
-	  isPageHeading: true,
-	  classes: "govuk-fieldset__legend--l"
-	  }
-	  },
-    hint: {
-      html: '<p class="govuk-body">Some countries may not accept electronic versions
-        of documents with an electronic Apostille
-        (e-Apostille) as proof that those documents have been legalised.</p>
-            <p class="govuk-body">Before you use this service, you should check if
-              an e-Apostille will be accepted in the country you wish to use it.
-              We cannot offer a refund if the e-Apostille is not accepted.</p>
-            <p class="govuk-body">An e-Apostille can only ever be used electronically
-              and is not valid if the PDF containing the documents is printed out.</p>'
-    },
-	  items: [
-	  {
-	  value: "yes",
-	  text: "Yes"
-	  },
-	  {
-	  value: "no",
-	  text: "No"
-	  }
-	  ]
-	  }) }}
-    {{ govukButton({
-        text: "Continue"
-    }) }}
+		<h2 class="govuk-fieldset__legend--m">Are the documents eligible for the e-Apostille service?</h2>
+		{{ govukRadios({
+			idPrefix: "eapostille-acceptable",
+			name: "eapostille-acceptable",
+			items: [
+				{
+					value: "yes",
+					text: "Yes, the authority accepts e-Apostilles"
+				},
+				{
+					value: "no",
+					text: "No, I have not checked"
+				}
+			]
+		}) }}
+		{{ govukButton({
+			text: "Continue"
+		}) }}
 	  </form>
 
   </div>

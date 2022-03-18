@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Finish setting up your account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+    <h1 class="govuk-heading-xl">Finish setting up your account</h1>
+    <p class="govuk-body">We need a few more details to set your account up</p>
+
+    {{ govukInput({
+        label: {
+            text: "First name"
+        },
+        id: "firstName",
+        name: "firstName",
+        type: "text",
+        classes: "govuk-!-width-one-half"
+    }) }}
+
+    {{ govukInput({
+        label: {
+            text: "Last name"
+        },
+        id: "lastName",
+        name: "lastName",
+        type: "text",
+        classes: "govuk-!-width-one-half"
+    }) }}
+
+    {{ govukInput({
+        label: {
+            text: "Telephone number"
+        },
+        id: "telephone",
+        name: "telephone",
+        type: "number",
+        classes: "govuk-!-width-one-half"
+    }) }}
+
+    {{ govukInput({
+        label: {
+            text: "Mobile number"
+        },
+        id: "confirmPassword",
+        name: "confirm-password",
+        type: "password",
+        classes: "govuk-!-width-one-half"
+    }) }}
+
+
+
+    <div class="govuk-body">
+        <strong>Feedback</strong>
+        <p>
+            We welcome your views on the legalisation service. If you agree to be contacted by answering "Yes" below, you will be consenting to share your personal data - name, email address, telephone number and service received - with our iondepemdemt partner research agency, IFF research. You may withdraw your consent at any stage by emailing <a href="mailto:consular.research@fcdo.gov.uk">consular.research@fcdo.gov.uk</a>. For more details on how your data will be handled in relation to feedback see the <a href="https://www.gov.uk/government/organisations/foreign-commonwealth-office/about/research" target="_blank" class="govuk-link">research privacy policy</a>.
+        </p>
+    </div>
+    {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "partner-contact",
+        fieldset: {
+            legend: {
+            text: "Can our partner contact you for feedback to help improve this service?"
+            }
+        },
+        items: [
+            {
+            value: "yes",
+            text: "Yes"
+            },
+            {
+            value: "no",
+            text: "No"
+            }
+        ]
+    }) }}
+
+
+    {{ govukButton({
+        href: "/application/continue-application",
+        text: "Continue"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}
