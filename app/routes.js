@@ -6,60 +6,72 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
   destination: 'uploads/',
-  filename: function (req, file, cb) {
+  filename: function (_req, file, cb) {
     cb(null, file.originalname);
   },
 });
 
 const upload = multer({ storage });
-const UPLOADS_PATH = '/application/7-upload-documents/form-handler';
 const COST_PER_PDF = 30;
 
-router.post(UPLOADS_PATH, upload.array('documents'), (req, res) => {
-  req.session.data.cost = totalApplicationCost(req.body.documents);
-  req.session.data.documents = documentNames(req.body.documents);
-  console.log(req.session.data.documents, 'docs');
-  req.session.data.noOfDocs = totalUploadedDocuments(req);
-  res.redirect('/application/8-user-reference');
+router.post('/application/7-upload-documents/form-handler', upload.array('documents'), (req, res) => {
+  const docsFromForm = createDocumentArray(req.session.data.documents);
+  const existingDocs = createDocumentArray(removeEmptyStringsFromArr(req.session.data.existingDocs));
+  const totalDocuments = [...docsFromForm, ...existingDocs];
+  req.session.data.cost = totalApplicationCost(totalDocuments);
+  req.session.data.documents = totalDocuments;
+  req.session.data.noOfDocs = totalUploadedDocuments(totalDocuments);
+  console.log(existingDocs, 'existingDocs')
+  res.redirect('/application/7-upload-documents');
 });
 
-function totalUploadedDocuments(req) {
-  const noDocsUploded = req.session.data.documents[0] === '';
+router.post('/application/delete-file', (req, res) => {
+  const copyOfDocuments = [...req.session.data.documents];
+  const newDocumentsArray = copyOfDocuments.filter(document => document !== req.body.document);
 
-  if (noDocsUploded) {
-    return 0;
-  }
+  req.session.data.noOfDocs = totalUploadedDocuments(newDocumentsArray);
+  req.session.data.documents = newDocumentsArray;
+  res.redirect('/application/7-upload-documents');
+});
 
-  return req.session.data.documents.length;
+/**
+ * @param {string | Array<string>} documents
+ * @returns {Array<string>}
+ */
+ function createDocumentArray(documents) {
+  const onlyOneDocument = typeof documents === 'string' && documents !== '';
+  return onlyOneDocument ? [documents] : documents;
+}
+
+function removeEmptyStringsFromArr(existingDocs) {
+  const docsArr = existingDocs.split(',');
+  const filteredArr = docsArr.filter(doc => doc !== '');
+
+  return filteredArr;
 }
 
 /**
  * @param {string | Array<string>} documents
  * @returns {number}
  */
-function totalApplicationCost(documents) {
-  const onlyOneDocument = typeof documents === 'string' && documents !== '';
-  const totalDocumentCost = documents.length * COST_PER_PDF;
-
-  return onlyOneDocument ? 30 : totalDocumentCost;
+ function totalApplicationCost(documents) {
+  return documents.length * COST_PER_PDF;
 }
 
-/**
- * @param {string | Array<string>} documents
- * @returns {Array<string>}
- */
-function documentNames(documents) {
-  const onlyOneDocument = typeof documents === 'string';
+function totalUploadedDocuments(totalDocs) {
+  const noDocsUploded = totalDocs[0] === '';
 
-  return onlyOneDocument ? [documents] : documents;
+  if (noDocsUploded) {
+    return 0;
+  }
+
+  return totalDocs.length;
 }
-
 
 router.post('/application/sign-in/form-handler', (req, res) => {
   req.session.data.signedIn = true;
   res.redirect('/application/2-your-account');
 });
-
 
 // User continuing account setup process
 router.get('/application/sign-in-authenticated', (_req, res) => {
@@ -127,7 +139,7 @@ router.post('/application/4-check-documents/form-handler', (req, res) => {
 
 router.post('/application/5-check-notarised-and-signed/form-handler', (req, res) => {
   if (req.session.data['notarised-and-signed'] === 'yes') {
-    res.redirect( '/application/5a-how-to-complete-app');
+    res.redirect('/application/5a-how-to-complete-app');
     return;
   }
   res.redirect('/application/5-check-notarised-and-signed-fail');
@@ -151,6 +163,5 @@ router.get('/application/sign-out', (req, res) => {
   req.session.data.signedIn = false;
   res.redirect('/application/sign-in');
 });
-
 
 module.exports = router;

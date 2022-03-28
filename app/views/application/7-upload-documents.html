@@ -19,7 +19,7 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-three-quarters-from-desktop">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
 
 	  {% if (errors.length > 0) %}
 	  <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
@@ -36,31 +36,59 @@
 	  </div>
 	  {% endif %}
 
-    <h1 class="govuk-heading-xl">Add PDFs</h1>
-    <p class="govuk-body">It costs £30 for each uploaded PDF.</p>
-    <p class="govuk-body">You can upload a maximum of 50 PDFs in a single application.</p>
-    <p class="govuk-body">If you are unable to upload the PDFs you can still get the
-        documents legalised by using the
-        <a href="/application/1-choose-a-service">paper-based service</a>.
-    </p>
+	<h1 class="govuk-heading-xl">Add PDFs</h1>
+	<p class="govuk-body">It costs £30 for each uploaded PDF.</p>
+	<p class="govuk-body">You can upload a maximum of 50 PDFs in a single application.</p>
+	<p class="govuk-body">If you are unable to upload the PDFs you can still get the
+		documents legalised by using the
+		<a href="/application/1-choose-a-service">paper-based service</a>.
+	</p>
 
-	  <form action="/application/7-upload-documents/form-handler" method="post">
-		  <div class="govuk-form-group">
-    	  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-    	    <label class="govuk-label" for="file-upload-1">
-    		      Upload files
-    	    </label>
-    		  <div class="flex flex--v-center">
-    			  <input class="govuk-file-upload" id="file-upload-1" name="documents" type="file" multiple accept="application/pdf">
-    		  </div>
-    	  </fieldset>
-		  </div>
+	<form id="delete-file" action="/application/delete-file" method="post"></form>
+	<form id="upload-files" action="/application/7-upload-documents/form-handler" method="post"></form>
 
-  	  {{ govukButton({
-  	  text: "Continue"
-  	  }) }}
+	<div class="govuk-form-group">
+		<fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+		<label class="govuk-label" for="file-upload-1">
+				Upload files
+		</label>
+			<div class="flex flex--v-center">
+				<input form="upload-files" class="govuk-file-upload" id="file-upload-1" name="documents" type="file" multiple accept="application/pdf">
+			</div>
+		</fieldset>
+	</div>
 
-	  </form>
+	<input form="upload-files" type="hidden" value="{{data.documents}}" name="existingDocs" />
+	<button form="upload-files" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+		Upload
+	</button>
+
+	{% if (data.documents[0] !== '') and (data.documents.length > 0) %}
+		<h3 class="govuk-heading-m">
+			{% if (data.noOfDocs > 1)%}
+				{{ data.noOfDocs}} files were uploaded
+			{% else %}
+				1 file was uploaded
+			{% endif %}
+		</h3>
+		<ul class="govuk-body uploaded-files">
+			{% for document in data.documents %}
+				<li>
+					{{document}}
+					<button form="delete-file" name="document" value="{{document}}" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+						Delete
+					</button>
+				</li>
+			{% endfor %}
+		</ul>
+
+		{{ govukButton({
+			href: "/application/8-user-reference",
+			text: "Continue"
+		}) }}
+	{% endif %}
+
+
 	</div>
 </div>
 
