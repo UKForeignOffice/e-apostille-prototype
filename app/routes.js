@@ -17,17 +17,35 @@ const COST_PER_PDF = 30;
 router.post('/application/7-upload-documents/form-handler', upload.array('documents'), (req, res) => {
   const docsFromForm = createDocumentArray(req.session.data.documents);
   const existingDocs = createDocumentArray(removeEmptyStringsFromArr(req.session.data.existingDocs));
-  const totalDocuments = [...docsFromForm, ...existingDocs];
+  const docsClean = removeFilesWithIssues(docsFromForm, req);
+  const totalDocuments = [...docsClean, ...existingDocs];
+
   req.session.data.cost = totalApplicationCost(totalDocuments);
   req.session.data.documents = totalDocuments;
   req.session.data.noOfDocs = totalUploadedDocuments(totalDocuments);
-  console.log(existingDocs, 'existingDocs')
   res.redirect('/application/7-upload-documents');
 });
 
+function removeFilesWithIssues(docsFromForm, req) {
+  const LARGE_FILE_NAME = 'large_file.pdf';
+
+  const docsClean = docsFromForm.filter(docName => {
+    switch(docName) {
+      case LARGE_FILE_NAME:
+        req.flash('errors', ['LARGE_FILE_ERROR']);
+        break;
+      default:
+        return docName;
+    }
+  });
+
+  req.session.data.errors = req.flash('errors');
+  return docsClean;
+}
+
 router.post('/application/delete-file', (req, res) => {
   const copyOfDocuments = [...req.session.data.documents];
-  const newDocumentsArray = copyOfDocuments.filter(document => document !== req.body.document);
+  const newDocumentsArray = copyOfDocuments.filter((document) => document !== req.body.document);
 
   req.session.data.noOfDocs = totalUploadedDocuments(newDocumentsArray);
   req.session.data.documents = newDocumentsArray;
@@ -38,14 +56,15 @@ router.post('/application/delete-file', (req, res) => {
  * @param {string | Array<string>} documents
  * @returns {Array<string>}
  */
- function createDocumentArray(documents) {
-  const onlyOneDocument = typeof documents === 'string' && documents !== '';
+function createDocumentArray(documents) {
+  const onlyOneDocument = typeof documents === 'string';
   return onlyOneDocument ? [documents] : documents;
 }
 
-function removeEmptyStringsFromArr(existingDocs) {
+function removeEmptyStringsFromArr(existingDocs = []) {
+  console.log(existingDocs, 'existingDocs')
   const docsArr = existingDocs.split(',');
-  const filteredArr = docsArr.filter(doc => doc !== '');
+  const filteredArr = docsArr.filter((doc) => doc !== '');
 
   return filteredArr;
 }
@@ -54,7 +73,7 @@ function removeEmptyStringsFromArr(existingDocs) {
  * @param {string | Array<string>} documents
  * @returns {number}
  */
- function totalApplicationCost(documents) {
+function totalApplicationCost(documents) {
   return documents.length * COST_PER_PDF;
 }
 

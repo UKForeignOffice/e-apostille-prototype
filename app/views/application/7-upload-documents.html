@@ -15,22 +15,21 @@
 {% endblock %}
 
 
-
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
-	  {% if (errors.length > 0) %}
+	  {% if (data.errors) and (data.errors.length > 0) %}
 	  <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
 		  <h2 class="govuk-error-summary__title" id="error-summary-title">
 			  There is a problem
 		  </h2>
 		  <div class="govuk-error-summary__body">
 			  <ul class="govuk-list govuk-error-summary__list">
-				  <li>
-					  <a href="#error-list">One or more files could not be uploaded</a>
-				  </li>
+				<li>
+					<a href="#error-list">One or more files could not be uploaded</a>
+				</li>
 			  </ul>
 		  </div>
 	  </div>
@@ -62,6 +61,26 @@
 	<button form="upload-files" class="govuk-button govuk-button--secondary" data-module="govuk-button">
 		Upload
 	</button>
+
+	{% if (data.errors) and (data.errors.length > 0) %}
+		<h3 class="govuk-heading-m" id="error-list">
+			{% if (data.errors.length > 1)%}
+				{{ data.errors.length }} files have errors
+			{% else %}
+				1 file had errors
+			{% endif %}
+		</h3>
+		<section class="govuk-body multi-file-upload__list">
+		{% if (data.errors.includes('LARGE_FILE_ERROR')) %}
+			<div class="multi-file-upload__error-item">
+				<p>large_file.pdf</p>
+				<p class="govuk-error-message">
+					The file is too big. Each file you upload must be a maximum of 200Mb
+				<p>
+			</div>
+		{% endif %}
+		</section>
+	{% endif %}
 
 	{% if (data.documents[0] !== '') and (data.documents.length > 0) %}
 		<h3 class="govuk-heading-m">

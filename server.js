@@ -9,7 +9,7 @@ const express = require('express')
 const nunjucks = require('nunjucks')
 const sessionInCookie = require('client-sessions')
 const sessionInMemory = require('express-session')
-
+const flash = require('connect-flash');
 // Run before other code to make sure variables from .env are available
 dotenv.config()
 
@@ -95,6 +95,9 @@ var nunjucksAppEnv = nunjucks.configure(appViews, nunjucksConfig)
 
 // Add Nunjucks filters
 utils.addNunjucksFilters(nunjucksAppEnv)
+
+// Flash messages
+app.use(flash());
 
 // Set views engine
 app.set('view engine', 'html')

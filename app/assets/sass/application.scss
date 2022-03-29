@@ -106,3 +106,13 @@ $govuk-assets-path: '/govuk/assets/';
     }
   }
 }
+
+.multi-file-upload__list {
+  margin-bottom: govuk-spacing(6);
+}
+
+.multi-file-upload__error-item {
+	border: 3px solid govuk-colour('red');
+  padding: govuk-spacing(2) govuk-spacing(4);
+  margin-bottom: govuk-spacing(2);
+}
