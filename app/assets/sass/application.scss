@@ -43,6 +43,13 @@ $govuk-assets-path: '/govuk/assets/';
   }
 }
 
+.remove-bottom-border {
+  .govuk-summary-list__actions,
+  .govuk-summary-list__key {
+    border-bottom: none;
+  }
+}
+
 .no-table-header-border .govuk-table__head .govuk-table__header{
   border-bottom: none;
 }

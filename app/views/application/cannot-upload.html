@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Get support with your application
+{% endblock %}
+
+{% block beforeContent %}
+<div class="flex-space-between">
+    {{ govukBackLink({
+        text: "Back",
+        href: "/application/7-upload-documents"
+    }) }}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop govuk-body">
+    <h1 class="govuk-heading-l">Get support with your application</h1>
+    <p>You can contact the Legalisation Office if you need support to use this service..</p>
+
+    <strong>Legalisation Office</strong><br />
+    <a href="mailto:legalisation@fcdo.gov.uk" class="govuk-link">legalisation@fcdo.gov.uk </a><br />
+    Telephone: <a href="tel:03700 00 22 44">03700 00 22 44</a><br />
+    Monday to Friday, 9am to 5pm<br />
+    <a href="https://www.gov.uk/call-charges" target="_blank" class="govuk-link">Find out about call charges</a>
+
+    <p class="govuk-!-margin-top-5">You may also be able to <a href="/application/1-choose-a-service" class="govuk-link">use the paper-based service instead</a></p>.
+
+  </div>
+</div>
+
+{% endblock %}

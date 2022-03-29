@@ -44,9 +44,9 @@ module.exports = function (env) {
   }
 
   filters.formatCurrency = function(value) {
-    return typeof value === 'number' ? `£${value.toFixed(2)}` : ''
+    return typeof value === 'number' ? `£${value.toFixed(0)}` : ''
   }
-  
+
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */

@@ -45,13 +45,15 @@
 		</div>
 	  {% endif %}
 
-	<h1 class="govuk-heading-xl">Add PDFs</h1>
-	<p class="govuk-body">It costs £30 for each uploaded PDF.</p>
-	<p class="govuk-body">You can upload a maximum of 50 PDFs in a single application.</p>
-	<p class="govuk-body">If you are unable to upload the PDFs you can still get the
-		documents legalised by using the
-		<a href="/application/1-choose-a-service">paper-based service</a>.
-	</p>
+	<section class="govuk-body">
+		<h1 class="govuk-heading-xl">Upload your PDF files </h1>
+		<p>One e-Apostille can be issued per PDF file, even if it includes multiple documents.</p>
+		<p>£30 fee per e-Apostille issued.</p>
+		<strong>Upload files</strong>
+		<p class="govuk-!-margin-top-2">
+			Up to 50 PDFs can be uploaded in a single application. The maximum file size for each PDF is 200MB.
+		</p>
+	</section>
 
 	<form id="delete-file" action="/application/delete-file" method="post"></form>
 	<form id="upload-files" action="/application/7-upload-documents/form-handler" method="post"></form>
@@ -59,7 +61,7 @@
 	<div class="govuk-form-group">
 		<fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
 		<label class="govuk-label" for="file-upload-1">
-				Upload files
+				Select PDFs
 		</label>
 			<div class="flex flex--v-center">
 				<input form="upload-files" class="govuk-file-upload" id="file-upload-1" name="documents" type="file" multiple accept="application/pdf">
@@ -125,7 +127,12 @@
 		}) }}
 	{% endif %}
 
+		{{ govukDetails({
+		summaryText: "I cannot upload my files ",
+		text: "We're sorry your having a bad experience uploading your documents. Please consider contacting the Legalisation Office for more assistance on 01234 567 8901. Alternatively you can try using the paper service which doesn't require a document to be uploaded."
+		}) }}
 
+		<a href="/application/cannot-upload" class="govuk-link govuk-body">I still cannot upload my PDFs</a>
 	</div>
 </div>
 

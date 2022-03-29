@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Would you like to give this application a reference (optional)?
+  Your reference (optional)
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,12 +21,9 @@
 	  <form action="/application/9-check-your-answers">
 {{ govukInput({
   label: {
-    text: "Would you like to give this application a reference (optional)?",
+    text: "Your reference (optional)",
     classes: "govuk-label--l",
     isPageHeading: true
-  },
-  hint: {
-    text: "If you wish to add an internal reference to help with your own records, such as a case number or name, then you can enter it here."
   },
   id: "user-reference",
   name: "user-reference"
