@@ -20,19 +20,29 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
-	  {% if (data.errors) and (data.errors.length > 0) %}
-	  <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
-		  <h2 class="govuk-error-summary__title" id="error-summary-title">
-			  There is a problem
-		  </h2>
-		  <div class="govuk-error-summary__body">
-			  <ul class="govuk-list govuk-error-summary__list">
-				<li>
-					<a href="#error-list">One or more files could not be uploaded</a>
-				</li>
-			  </ul>
-		  </div>
-	  </div>
+	  {% if (data.errors) and (data.errors.length > 0) or (data.infectedFile) %}
+		<div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+			<h2 class="govuk-error-summary__title" id="error-summary-title">
+				There is a problem
+			</h2>
+			<div class="govuk-error-summary__body">
+				<ul class="govuk-list govuk-error-summary__list">
+					{% if (data.errors.length > 0) %}
+						<li>
+							<a href="#error-list">One or more files could not be uploaded</a>
+						</li>
+					 {% endif %}
+					{% if (data.infectedFile) %}
+						<li>
+							<a href="#file-upload">
+								The following file cannot be uploaded because it is infected (may contain a virus). You might be able to upload a
+                                    different copy of this file:</a>
+						</li>
+						<li>infected_file.pdf</li>
+					 {% endif %}
+				</ul>
+			</div>
+		</div>
 	  {% endif %}
 
 	<h1 class="govuk-heading-xl">Add PDFs</h1>
@@ -57,7 +67,7 @@
 		</fieldset>
 	</div>
 
-	<input form="upload-files" type="hidden" value="{{data.documents}}" name="existingDocs" />
+	<input form="upload-files" id="file-upload" type="hidden" value="{{data.documents}}" name="existingDocs" />
 	<button form="upload-files" class="govuk-button govuk-button--secondary" data-module="govuk-button">
 		Upload
 	</button>
@@ -76,6 +86,14 @@
 				<p>large_file.pdf</p>
 				<p class="govuk-error-message">
 					The file is too big. Each file you upload must be a maximum of 200Mb
+				<p>
+			</div>
+		{% endif %}
+		{% if (data.errors.includes('NOT_PDF_ERROR')) %}
+			<div class="multi-file-upload__error-item">
+				<p>not_pdf.pdf</p>
+				<p class="govuk-error-message">
+					The file is in the wrong file type. Only PDF files are allowed.
 				<p>
 			</div>
 		{% endif %}
