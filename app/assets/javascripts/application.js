@@ -8,3 +8,11 @@ if (window.console && window.console.info) {
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
 })
+
+// Hide upload button
+document.querySelector('#file-upload-btn').style.display = 'none';
+
+// Automatically upload file on selection
+document.getElementById("file-upload-input").onchange = () => {
+  document.getElementById("upload-files").submit();
+};
