@@ -146,6 +146,13 @@ router.post('/application/3a-before-you-apply', (req, res) => {
     res.redirect('/application/4a-check-acceptance');
     return;
   }
+
+  if (req.session.data['signedIn'])
+  {
+    res.redirect('/application/7-upload-documents');
+    return;
+  }
+  
   res.redirect('/application/sign-in-mid-flow');
 });
 

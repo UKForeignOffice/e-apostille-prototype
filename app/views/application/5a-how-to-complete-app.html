@@ -100,6 +100,31 @@ How to complete your legalisation application
           </div>
 
         </li>
+
+        <li class="app-step-nav__step js-step" id="driving-lessons-and-practice" >
+          <div class="app-step-nav__header js-toggle-panel" data-position="3">
+            <h2 class="app-step-nav__title">
+              <span class="app-step-nav__circle app-step-nav__circle--number">
+                <span class="app-step-nav__circle-inner">
+                  <span class="app-step-nav__circle-background">
+                    <span class="govuk-visually-hidden">Step</span> 4
+                  </span>
+                </span>
+              </span>
+
+              <span class="js-step-title">
+                Download
+              </span>
+            </h2>
+          </div>
+
+          <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-get-a-provisional-licence-3">
+            <p class="app-step-nav__paragraph">You will be notified by email when your application has been completed.</p>
+            <p class="app-step-nav__paragraph">If your documents were successfully legalised, you can download them for your account. You have 21 days to
+          download them before they are deleted. You can share the downloaded documents, for example, by email. Documents that couldn't be legalised will automatically be refunded.</p>
+          </div>
+
+        </li>
       </ol>
     </div>
 
@@ -112,7 +137,7 @@ How to complete your legalisation application
     {% else %}
         {{ govukButton({
             text: "Continue",
-            href: "/application/create-an-account"
+            href: "/application/sign-in"
         }) }}
     {% endif %}
   </div>
