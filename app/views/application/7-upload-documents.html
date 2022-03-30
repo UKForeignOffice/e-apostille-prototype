@@ -48,10 +48,12 @@
 	<section class="govuk-body">
 		<h1 class="govuk-heading-xl">Upload your PDF files </h1>
 		<p>One e-Apostille can be issued per PDF file, even if it includes multiple documents.</p>
-		<p>£30 fee per e-Apostille issued.</p>
-		<strong>Upload files</strong>
+    {{ govukInsetText({
+        text: "£30 fee per e-Apostille issued."
+      }) }}
+		<h2 class="govuk-heading-m">Upload files</h2>
 		<p class="govuk-!-margin-top-2">
-			Up to 50 PDFs can be uploaded in a single application. The maximum file size for each PDF is 200MB.
+			Up to 50 PDFs can be uploaded in a single application. Maximum PDF size 200MB.
 		</p>
 	</section>
 
@@ -129,10 +131,8 @@
 
 		{{ govukDetails({
 		summaryText: "I cannot upload my files ",
-		text: "We're sorry your having a bad experience uploading your documents. Please consider contacting the Legalisation Office for more assistance on 01234 567 8901. Alternatively you can try using the paper service which doesn't require a document to be uploaded."
+		html: 'XXXXXXXX  XXXXXXX XX XXXX XX X XXX XX X XXXXXXXX  XXXXXXX XX XXXX XX X XXX XX X XXXXXXXX  XXXXXXX XX XXXX XX X XXX XX X <p><a href="/application/cannot-upload" class="govuk-link govuk-body">I still cannot upload my PDFs</a></p>'
 		}) }}
-
-		<a href="/application/cannot-upload" class="govuk-link govuk-body">I still cannot upload my PDFs</a>
 	</div>
 </div>
 

@@ -29,7 +29,7 @@ Check the authority accepts e-Apostilles
 		<ul class="govuk-list govuk-list--bullet indent-list">
 			<li>accept digital documents with e-Apostilles</li>
 			<li>require separate e-Apostille certificates for each document (if legalising more than one) </li>
-			<li>accept documents signed by a solicitor or notary, or either</li>
+			<li>accept documents signed by a UK notary or solicitor, or either</li>
 		</ul>
 		<p class="govuk-body">
 			Make sure they understand e-Apostilles are only valid in digital form as they contain unique electronic signatures.
@@ -43,7 +43,7 @@ Check the authority accepts e-Apostilles
 		}) }}
 
 	  <form action="/application/4-check-documents/form-handler" method="post">
-		<h2 class="govuk-fieldset__legend--m">Are the documents eligible for the e-Apostille service?</h2>
+		<h2 class="govuk-fieldset__legend--m">Have you checked the authority accepts e-Apostilles?</h2>
 		{{ govukRadios({
 			idPrefix: "eapostille-acceptable",
 			name: "eapostille-acceptable",

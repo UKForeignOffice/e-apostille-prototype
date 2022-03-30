@@ -55,9 +55,10 @@
 	  <p class="govuk-body">
 		  <a href="/application/page-not-created">Forgotten your password?</a>
 	  </p>
-    <h3 class="govuk-heading-m">When you start an application</a>
-    <p class="govuk-body">Your application will time out and you will have to start again if you do not enter information for 30 minutes.</p>
-  </div>
+    {{ govukInsetText({
+      text: "Your application will time out and you will have to start again if you do not enter information for 30 minutes."
+    }) }}
+    </div>
 </div>
 
 {% endblock %}
