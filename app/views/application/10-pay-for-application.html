@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Pay for your application
+  Enter card details
 {% endblock %}
 
 {% block beforeContent %}
@@ -15,21 +15,184 @@
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-three-quarters-from-desktop">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">
+      Enter card details
+    </h1>
 
-  <h1 class="govuk-heading-xl">
-    Pay for your application
-  </h1>
+    <div class="govuk-panel govuk-panel--confirmation ">
+      <h1 class="govuk-panel__title">
+        Payment summary
+      </h1>
+      <div class="govuk-panel__body">
+        <p>Pay to get your documents legalised</p>
+        <p>Total amount:</p>
+        <br><strong>{{data.cost | formatCurrency}}</strong>
+      </div>
+    </div>
 
-  <p class="govuk-body">You will now be taken to GOV.UK Pay, where you will be asked to provide your payment details.</p>
-  <p class="govuk-body">Once you’ve provided your payment information your application will be submitted.</p>
 
-  {{ govukButton({
-      text: "Pay",
-      href: "/application/11-payment-details"
+    {% call govukFieldset({
+    legend: {
+      text: "Card number",
+      classes: "govuk-fieldset__legend--m",
+      isPageHeading: false
+    }
+  }) %}
+
+  {{ govukInput({
+    label: {
+      html: ' '
+    },
+    id: "card-number",
+    name: "card-number"
   }) }}
 
-</div>
+  {% endcall %}
+
+  {{ govukDateInput({
+    id: "expiry-date",
+    namePrefix: "expiry-date",
+    fieldset: {
+      legend: {
+        text: "Expiry date",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: "For example, 27 3 2007"
+    }
+  }) }}
+
+  {% call govukFieldset({
+  legend: {
+    text: "Name on card",
+    classes: "govuk-fieldset__legend--m",
+    isPageHeading: false
+  }
+}) %}
+
+{{ govukInput({
+  label: {
+    html: ' '
+  },
+  id: "name-on-card",
+  name: "name-on-card"
+}) }}
+
+{% endcall %}
+
+{% call govukFieldset({
+legend: {
+  text: "Card security code",
+  classes: "govuk-fieldset__legend--m",
+  isPageHeading: false
+}
+}) %}
+
+{{ govukInput({
+label: {
+  html: ' '
+},
+classes: "govuk-input--width-3",
+id: "card-sec",
+name: "card-sec",
+hint: {
+    text: "The last 3 digits on the back of the card"
+  }
+}) }}
+
+{% endcall %}
+
+  {% call govukFieldset({
+  legend: {
+    text: "Billing address",
+    classes: "govuk-fieldset__legend--m",
+    isPageHeading: false
+  }
+}) %}
+
+  {{ govukInput({
+    label: {
+      html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+    },
+    id: "address-line-1",
+    name: "address-line-1",
+    autocomplete: "address-line1"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+    },
+    id: "address-line-2",
+    name: "address-line-2",
+    autocomplete: "address-line2"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Town or city"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "address-town",
+    name: "address-town",
+    autocomplete: "address-level2"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "County"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "address-county",
+    name: "address-county"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Postcode"
+    },
+    classes: "govuk-input--width-10",
+    id: "address-postcode",
+    name: "address-postcode",
+    autocomplete: "postal-code"
+  }) }}
+
+{% endcall %}
+
+{% call govukFieldset({
+legend: {
+  text: "Contact details",
+  classes: "govuk-fieldset__legend--m",
+  isPageHeading: false
+}
+}) %}
+
+{{ govukInput({
+label: {
+  html: 'Email'
+},
+id: "email",
+name: "email",
+hint: {
+    text: "We will send a payment confirmation here"
+  }
+}) }}
+
+{% endcall %}
+
+  {{ govukButton({
+      text: "Continue",
+      href: "/application/10-pay-for-application-2"
+  }) }}
+
+  <p class="govuk-body">
+    <a href="#">Cancel payment</a>
+  </p>
+
+  </div>
 </div>
 
 {% endblock %}

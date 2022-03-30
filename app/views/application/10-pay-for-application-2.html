@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Confirm your payment
+{% endblock %}
+
+{% block beforeContent %}
+<div class="flex-space-between">
+	{{ govukBackLink({
+	text: "Back",
+	href: "/application/10-pay-for-application"
+	}) }}
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          Confirm your payment
+        </h1>
+
+        <div class="govuk-panel govuk-panel--confirmation ">
+          <h1 class="govuk-panel__title">
+            Payment summary
+          </h1>
+          <div class="govuk-panel__body">
+            <p>Pay to get your documents legalised</p>
+            <p>Total amount:</p>
+            <br><strong>{{data.cost | formatCurrency}}</strong>
+          </div>
+        </div>
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Card number"
+              },
+              value: {
+                text: "************1234"
+              }
+            },
+            {
+              key: {
+                text: "Expiry date"
+              },
+              value: {
+                text: "03/23"
+              }
+            },
+            {
+              key: {
+                text: "Name on card"
+              },
+              value: {
+                text: "Sam Bloggs-Smyth"
+              }
+            },
+            {
+              key: {
+                text: "Billing address"
+              },
+              value: {
+                text: "123 The Street, Biggle Town, Countyshire, AB1 2DE"
+              }
+            },
+            {
+              key: {
+                text: "Confirmation email"
+              },
+              value: {
+                text: "yourname@example.com"
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+            text: "Pay",
+            href: "/application/12-success"
+        }) }}
+
+          <p class="govuk-body">
+            <a href="#">Cancel payment</a>
+          </p>
+      </div>
+    </div>
+
+{% endblock %}
