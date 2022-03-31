@@ -26,29 +26,24 @@
 		  Your application
 	  </h2>
 
-	  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+	  <dl class="govuk-summary-list govuk-!-margin-bottom-1">
 		  <div class="govuk-summary-list__row remove-bottom-border">
 			  <dt class="govuk-summary-list__key">
 				  <strong>Uploaded files</strong>
 			  </dt>
 			  <dd class="govuk-summary-list__actions">
 				  <a class="govuk-link" href="/application/7-upload-documents">
-					  Change<span class="govuk-visually-hidden"> files</span>
+					  Change<span class="govuk-visually-hidden"> uploaded files</span>
 				  </a>
 			  </dd>
 		  </div>
-		  <div class="govuk-summary-list__row">
-			  <dt class="govuk-summary-list__key">
-				  <ul class="govuk-list">
-				      {% for document in data.documents %}
-				          <li class="govuk-!-padding-1">{{document}}</li>
-				      {% endfor %}
-			  </ul>
-			  </dt>
-			  <dd class="govuk-summary-list__actions" />
-
-		  </div>
 	  </dl>
+    <ul class="govuk-list govuk-list--spaced govuk-!-margin-bottom-9">
+      {% for document in data.documents %}
+          <li>{{document}}</li>
+      {% endfor %}
+    </ul>
+
 
     {% if data['user-reference'] %}
   	  {{ govukSummaryList({
@@ -100,7 +95,7 @@
       }}
     {% endif %}
 
-	  <h2 class="govuk-heading-m">
+	  <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
 		  Cost
 	  </h2>
 	  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
