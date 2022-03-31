@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-How to complete your legalisation application
+Completing your application
 {% endblock %}
 
 {% block pageScripts %}
@@ -28,9 +28,13 @@ How to complete your legalisation application
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters-from-desktop">
-    <h1 class="govuk-fieldset__legend--l">How to complete your legalisation application</h1>
+    <h1 class="govuk-heading-l">Completing your application</h1>
 
-    <div id="step-by-step-navigation" class="app-step-nav app-step-nav--large " data-show-text="Show" data-hide-text="" data-show-all-text="Show all" data-hide-all-text="">
+    <p class="govuk-body">Based on your answers your documents are suitable for the e-Apostille service.</p>
+
+    <h2 class="govuk-heading-m">Next steps</h1>
+      
+    <div id="step-by-step-navigation" class="app-step-nav app-step-nav--large " data-show-text="Show" data-hide-text="" data-show-all-text="" data-hide-all-text="">
       <ol class="app-step-nav__steps">
         <li class="app-step-nav__step js-step step-is-shown" id="check-youre-allowed-to-drive" data-show>
           <div class="app-step-nav__header js-toggle-panel" data-position="1">
@@ -50,7 +54,8 @@ How to complete your legalisation application
           </div>
 
           <div class="app-step-nav__panel js-panel" id="step-panel-check-youre-allowed-to-drive-1">
-            <p class="app-step-nav__paragraph">To submit an application you will need to sign in, or create an account.</p>
+            <p class="app-step-nav__paragraph">You need an account to use the e-Apostille service.
+              This is so that you can view the progress of your application and access your documents once legalised.</p>
           </div>
 
         </li>
@@ -73,7 +78,7 @@ How to complete your legalisation application
           </div>
 
           <div class="app-step-nav__panel js-panel" id="step-panel-get-a-provisional-licence-2">
-            <p class="app-step-nav__paragraph">Upload your document PDFs. Take as long as you need to finish but if you're inactive for 30 minutes your application will time out. Have all doucments ready at hand</p>
+            <p class="app-step-nav__paragraph">Upload the documents you want to be legalised in PDF files. We can issue one e-Apostille per PDF file.</p>
           </div>
 
         </li>
@@ -90,13 +95,14 @@ How to complete your legalisation application
               </span>
 
               <span class="js-step-title">
-                Pay for your legalisation application
+                Pay the application fees
               </span>
             </h2>
           </div>
 
           <div class="app-step-nav__panel js-panel" id="step-panel-get-a-provisional-licence-3">
-            <p class="app-step-nav__paragraph">Each uploaded PDF costs £30. You can pay by credit or debit card</p>
+            <p class="app-step-nav__paragraph">Each PDF costs £30. Pay by credit or debit card.</p>
+            <p class="app-step-nav__paragraph">If we cannot legalise any of your documents you will get an automatic refund of the fee for that file.</p>
           </div>
 
         </li>
@@ -113,15 +119,14 @@ How to complete your legalisation application
               </span>
 
               <span class="js-step-title">
-                Download
+                Download your legalised documents
               </span>
             </h2>
           </div>
 
           <div class="app-step-nav__panel js-panel" id="step-panel-get-a-provisional-licence-3">
-            <p class="app-step-nav__paragraph">You will be notified by email when your application has been completed.</p>
-            <p class="app-step-nav__paragraph">If your documents were successfully legalised, you can download them for your account. You have 21 days to
-          download them before they are deleted. You can share the downloaded documents, for example, by email. Documents that couldn't be legalised will automatically be refunded.</p>
+            <p class="app-step-nav__paragraph">We will email you when your application has been processed. You will have 21 days to download PDFs containing your legalised documents and e-Apostille certificate.</p>
+            <p class="app-step-nav__paragraph">You can then digitally share your files with the overseas authority (for example, by email).</p>
           </div>
 
         </li>
