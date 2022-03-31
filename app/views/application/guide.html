@@ -4,6 +4,17 @@
   Guide
 {% endblock %}
 
+{% block beforeContent %}
+<div class="flex-space-between">
+  <a id="go-back" href="#" class="govuk-back-link">Back</a>
+  <script type="text/javascript">
+  document.getElementById('go-back').addEventListener('click', () => {
+    history.back();
+  });
+  </script>
+</div>
+{% endblock %}
+
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters-from-desktop">

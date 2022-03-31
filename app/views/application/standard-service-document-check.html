@@ -5,12 +5,15 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <div class="flex-space-between">
-    {{ govukBackLink({
-      text: "Back",
-      href: "3-which-service"
-    }) }}
-  </div>
+<div class="flex-space-between">
+  <a id="go-back" href="#" class="govuk-back-link">Back</a>
+  <script type="text/javascript">
+  document.getElementById('go-back').addEventListener('click', () => {
+    history.back();
+  });
+  </script>
+  {% include "includes/my-account-nav.html" %}
+</div>
 {% endblock %}
 
 {% block content %}

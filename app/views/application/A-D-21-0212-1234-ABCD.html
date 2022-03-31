@@ -6,10 +6,12 @@ Application A-D-22-0212-1234-ABCD
 
 {% block beforeContent %}
 <div class="flex-space-between">
-  {{ govukBackLink({
-  text: "Back",
-  href: "/application/14-your-account-from-completed-app"
-  }) }}
+  <a id="go-back" href="#" class="govuk-back-link">Back</a>
+  <script type="text/javascript">
+  document.getElementById('go-back').addEventListener('click', () => {
+    history.back();
+  });
+  </script>
   {% include "includes/my-account-nav.html" %}
 </div>
 {% endblock %}
