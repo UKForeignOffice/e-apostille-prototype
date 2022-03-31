@@ -20,14 +20,14 @@
       Enter card details
     </h1>
 
-    <div class="govuk-panel govuk-panel--confirmation ">
-      <h1 class="govuk-panel__title">
+    <div class="govuk-!-padding-2" style="background-color: #f3f2f1">
+      <h2 class="govuk-heading-m">
         Payment summary
-      </h1>
-      <div class="govuk-panel__body">
-        <p>Pay to get your documents legalised</p>
-        <p>Total amount:</p>
-        <br><strong>{{data.cost | formatCurrency}}</strong>
+      </h2>
+      <div>
+        <p class="govuk-body">Pay to get your documents legalised</p>
+        <p class="govuk-body">Total amount:
+        <br><span class="govuk-!-font-size-27"><strong>{{data.cost | formatCurrency}}</strong></span></p>
       </div>
     </div>
 
@@ -189,7 +189,7 @@ hint: {
   }) }}
 
   <p class="govuk-body">
-    <a href="#">Cancel payment</a>
+    <a href="/application/9-check-your-answers">Cancel payment</a>
   </p>
 
   </div>
