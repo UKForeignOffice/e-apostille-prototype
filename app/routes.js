@@ -152,7 +152,7 @@ router.post('/application/3a-before-you-apply', (req, res) => {
     res.redirect('/application/7-upload-documents');
     return;
   }
-  
+
   res.redirect('/application/sign-in-mid-flow');
 });
 
@@ -161,7 +161,7 @@ router.post('/application/4a-check-acceptance/form-handler', (req, res) => {
     res.redirect('/application/4-check-documents');
     return;
   }
-  res.redirect('/application/4a-check-acceptance-fail');
+  res.redirect('/application/4a-check-acceptance-exit');
 });
 
 router.post('/application/4-check-documents/form-handler', (req, res) => {
@@ -169,7 +169,7 @@ router.post('/application/4-check-documents/form-handler', (req, res) => {
     res.redirect('/application/5-check-notarised-and-signed');
     return;
   }
-  res.redirect('/application/4-check-documents-fail');
+  res.redirect('/application/4-check-documents-exit');
 });
 
 router.post('/application/5-check-notarised-and-signed/form-handler', (req, res) => {
@@ -177,7 +177,7 @@ router.post('/application/5-check-notarised-and-signed/form-handler', (req, res)
     res.redirect('/application/5a-how-to-complete-app');
     return;
   }
-  res.redirect('/application/5-check-notarised-and-signed-fail');
+  res.redirect('/application/5-check-notarised-and-signed-exit');
 });
 
 router.post('/verify/VerifyApostille/form-handler', (req, res, next) => {
