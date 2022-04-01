@@ -50,7 +50,12 @@
       <p class="govuk-body">You cannot get documents issued outside the UK legalised using this service - get them
         legalised in the country they were issued.</p>
 
-      <h2 class="govuk-heading-l">
+      {{ govukInsetText({
+        text: "The Legalisation Office cannot return documents to Belarus, Russia or Ukraine at the moment."
+      }) }}
+
+
+      <h2 class="govuk-heading-m">
         What it costs
       </h2>
 
@@ -58,7 +63,7 @@
 
       {{ govukTable({
   caption: "Courier costs",
-  captionClasses: "govuk-table__caption--m",
+  captionClasses: "govuk-table__caption--s",
   firstCellIsHeader: false,
   head: [
     {
@@ -100,7 +105,7 @@
   ]
 }) }}
 
-  <h3 class="govuk-heading-m">
+  <h3 class="govuk-heading-s">
     If you do not want to pay courier fees
   </h3>
   <p class="govuk-body">Your documents will be returned by courier but if you’re in the UK you can
@@ -109,7 +114,7 @@
     return postage.
     </p>
 
-    <h2 class="govuk-heading-l">
+    <h2 class="govuk-heading-m">
       What you’ll need
     </h2>
    <p class="govuk-body">To use the service you’ll need:</p>
@@ -130,53 +135,31 @@
       }) }}
 </div>
 
-  <h2 class="govuk-heading-l">
+  <h2 class="govuk-heading-m">
 	How long it takes
   </h2>
-<p class="govuk-body">It currently takes about 10 working days to process your
-  documents, plus courier or postage time. This is because of coronavirus (COVID-19).</p>
+<p class="govuk-body">It can take up to 10 working days to process your documents
+  using the standard service, plus courier or postage time.</p>
 
 <p class="govuk-body">Call the Legalisation Office if your application is urgent.</p>
 
-<h2 class="govuk-heading-l">
+<h2 class="govuk-heading-m">
   Premium same-day business service
 </h2>
 
-<p class="govuk-body">The premium same-day business service is for registered
-  businesses only and costs £75 per document.</p>
-
-<p class="govuk-body">Documents must be taken to and collected from the premium
-  office in central London.<p>
-
-<p class="govuk-body">You can only:</p>
-  <ul class="govuk-list govuk-list--bullet">
-    <li>take documents to the premium office between 9am and 1pm</li>
-    <li>collect documents from the premium office between 2pm and 4pm</li>
-  </ul>
-
-<p class="govuk-body">This is because of coronavirus (COVID-19).</p>
+<p class="govuk-body">The premium same-day business service is for registered businesses only and costs £75 per document.</p>
+<p class="govuk-body">You must take your documents to the premium office in central London between 9am and 12:30pm.
+  You will be given a collection time between 1:30pm and 4:30pm.</p>
 
 <p class="govuk-body">You need an account to use the premium service. <a href="/application/sign-in">Sign in</a> if
   you’re an existing user or <a href="#">create an account</a>.</p>
 
-  <h2 class="govuk-heading-l">
+  <h2 class="govuk-heading-m">
     Contact the Legalisation Office
   </h2>
-
-
-<p class="govuk-body">Contact the Legalisation Office if you need an update on
+  <p class="govuk-body">Contact the Legalisation Office if you need an update on
   an application or if you have a general enquiry.</p>
-
-
-  <div class="contact">
-  <p><strong>Legalisation Office</strong>
-  <br>
-  <a href="mailto:legalisationenquiries@fcdo.gov.uk">legalisationenquiries@fcdo.gov.uk</a> <br>
-  Telephone: 03700 002 244<br>
-  Monday to Friday, 10am to 4pm<br>
-  <a href="#">Find out about call charges</a>
-  </p>
-  </div>
+  {% include "includes/contact-details.html" %}
 
     </div>
   	<as class="govuk-grid-column-one-third-from-desktop">
