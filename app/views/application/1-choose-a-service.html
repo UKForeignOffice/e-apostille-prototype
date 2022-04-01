@@ -26,36 +26,19 @@ href: "/application"
 						Choose a service
 					</h1>
 				</legend>
+				<p class="govuk-body">With both the standard paper-based and electronic (e-Apostille) services you will:</p>
+				<ul class="govuk-list govuk-list--bullet">
+					<li>Apply and pay online</li>
+					<li>Pay £30 (debit or credit card) for each Apostille certificate</li>
+					<li>Get your application processed within 2 working days *</li>
+				</ul>
 				{{ govukInsetText({
-					text: "It takes up to 2 working days to process your documents, plus courier or postage time if you choose the standard (paper-based) service."
-					}) }}
+					text: "Account for courier/postage time and costs if you choose the paper-based service."
+				}) }}
+				<p class="govuk-body">* Processing time may exceed 2 working days if the Legalisation Office has questions about your application.</p>
+
+
 				<div class="govuk-radios">
-					<div class="govuk-radios__item">
-						<input class="govuk-radios__input" id="e-apostille" name="service" type="radio"
-							   value="eapostille-service" aria-describedby="eApp-item-hint">
-						<label class="govuk-label govuk-radios__label" for="e-apostille">
-							<span class="govuk-heading-m">
-								e-Apostille service
-							</span>
-						</label>
-						<div id="eApp-item-hint" class="govuk-hint govuk-radios__hint">
-							<p class="govuk-body">Use this service to get the documents legalised with an electronic apostille (e-Apostille).</p>
-							<p class="govuk-body">You can:</p>
-							<ul class="govuk-list govuk-list--bullet">
-								<li>upload documents you want to legalise, for example a passport, as a PDF</li>
-								<li>upload multiple documents in a single PDF (for example a passport and a driving licence)</li>
-								<li>pay £30 for each uploaded PDF, even if it contains multiple documents</li>
-								<li>upload up to 50 PDFs in a single application</li>
-								<li>avoid courier or postage costs</li>
-							</ul>
-							<p class="govuk-body">You need to:</p>
-							<ul class="govuk-list govuk-list--bullet">
-								<li>check if an e-Apostille will be accepted in the country in which you want to use it (no refund if an e-Apostille is not accepted)</li>
-								<li>ensure all PDFs are notarised and digitally signed by a notary</li>
-								<li>download the PDFs (including e-Apostilles) from your account within 21 days of the documents being legalised</li>
-							</ul>
-						</div>
-					</div>
 					<div class="govuk-radios__item">
 						<input class="govuk-radios__input" id="standard" name="service" type="radio"
 							   value="standard-service" aria-describedby="standard-item-hint">
@@ -65,22 +48,15 @@ href: "/application"
 							</span>
 						</label>
 						<div id="standard-item-hint" class="govuk-hint govuk-radios__hint">
-							<p class="govuk-body">
-								The standard service involves applying online and posting the documents you wish to
-								legalise.</p>
 							<ul class="govuk-list govuk-list--bullet">
-								<li>you need to post the documents you wish to legalise to the Legalisation
-									Office
-								</li>
-								<li>your legalised documents and Apostille will be returned to your chosen
-									address by courier or post
-								</li>
-								<li>it costs £30 per document, plus courier fees or postage</li>
+								<li>Send in your signed documents by post/courier</li>
+								<li>Get legalised documents (with paper Apostilles) returned to you or the overseas authority by post/courier</li>
+								<li>Share your legalised paper documents with an authority, for example by post/courier</li>
+								<li>Account optional</li>
 							</ul>
-
 							{{ govukDetails({
-							  summaryText: "How much are the courier fees or postage?",
-							  html: '
+								summaryText: "Courier/postage costs",
+								html: '
 									<table class="govuk-table">
 										<caption class="govuk-table__caption govuk-table__caption--m">Courier costs</caption>
 										<thead class="govuk-table__head">
@@ -95,45 +71,60 @@ href: "/application"
 												<td class="govuk-table__cell">£5 per 1.5kg</td>
 											</tr>
 											<tr class="govuk-table__row">
-												<th scope="row" class="govuk-table__header">European countries (not including Albania, Armenia, Azerbaijan, Belarus,
-												Bosnia and Herzegovina, Georgia, Liechtenstein, Kazakhstan, Moldova,
-												Montenegro, North Macedonia, Russia, Serbia, Turkey and Ukraine)</th>
-												<td class="govuk-table__cell">£15 per 1.5kg</td>
+												<th scope="row" class="govuk-table__header">European countries (not including Albania, Armenia,
+													Azerbaijan, Bosnia and Herzegovina, Georgia, Liechtenstein, Kazakhstan, Moldova, Montenegro,
+													North Macedonia, Serbia and Turkey)</th>
+												<td class="govuk-table__cell">£17.50 per 1.5kg</td>
 											</tr>
 											<tr class="govuk-table__row">
 												<th scope="row" class="govuk-table__header">Rest of the world</th>
-												<td class="govuk-table__cell">£20 per 1.5kg</td>
+												<td class="govuk-table__cell">£22.50 per 1.5kg</td>
 											</tr>
 										</tbody>
 									</table>
 
-								  <h3 class="govuk-heading-m">
-								    If you do not want to pay courier fees
-								  </h3>
-								  <p class="govuk-body">Your documents will be returned by courier but if you’re in the UK you can
-								    have them returned by post. You must include an A4-sized envelope with the
-								    return address written on it. Attach enough UK postage stamps to cover the
-								    return postage.
-								    </p>'
+									<h3 class="govuk-heading-m">
+										If you do not want to pay courier fees
+									</h3>
+									<p class="govuk-body">Your documents will be returned by courier but if you’re in the UK you can have them
+										returned by post. You must include an A4-sized envelope with the return address written on it. Attach
+										enough UK postage stamps to cover the return postage.
+										</p>'
 							}) }}
-							</div>
+						</div>
+					</div>
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="e-apostille" name="service" type="radio"
+								 value="eapostille-service" aria-describedby="eApp-item-hint">
+						<label class="govuk-label govuk-radios__label" for="e-apostille">
+							<span class="govuk-heading-m">
+								e-Apostille service
+							</span>
+						</label>
+						<div id="eapostille-item-hint" class="govuk-hint govuk-radios__hint">
+							<ul class="govuk-list govuk-list--bullet">
+								<li>Upload your documents as electronically signed PDF files</li>
+								<li>Download legalised documents (with e-Apostilles) as soon as they are ready</li>
+								<li>Share legalised digital versions with an overseas authority, for example by email</li>
+								<li>Account required</li>
+							</ul>
+						</div>
 					</div>
 					<div class="govuk-radios__item">
 						<input class="govuk-radios__input" id="premiumService" name="service" type="radio"
 							   value="premium-service" aria-describedby="premium-item-hint">
 						<label class="govuk-label govuk-radios__label" for="premiumService">
 							<span class="govuk-heading-m">
-								Premium service
+								Business-only premium service
 							</span>
 						</label>
 						<div id="premium-item-hint" class="govuk-hint govuk-radios__hint">
-							<p class="govuk-body">Same day London drop-off and collection for businesses only</p>
 							<ul class="govuk-list govuk-list--bullet">
 								<li>£75 per document</li>
-								<li>Each application is limited to 20 documents</li>
-								<li>The service is open on working days, 9am to 12:30pm for drop-off</li>
+								<li>20 documents per application</li>
+								<li>The service is open on working days, 9am to 12:30pm for London drop-off</li>
 								<li>A collection time will be allocated between 1:30pm to 4:30pm</li>
-								<li>To use the premium service you need to create an account. You'll be asked to provide company details</li>
+								<li>Account and company details required</li>
 							</ul>
 						</div>
 					</div>
