@@ -1,0 +1,43 @@
+{{ govukTable({
+  caption: "Courier costs",
+  captionClasses: "govuk-table__caption--s",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Country",
+      classes: "govuk-!-width-three-quarters"
+    },
+    {
+      text: "Price",
+      classes: "govuk-!-width-one-quarter"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "UK (including British Forces Post Office)"
+      },
+      {
+        text: "£5 per 1.5kg"
+      }
+    ],
+    [
+      {
+        text: "European countries (not including Albania, Armenia, Azerbaijan, Belarus,
+        Bosnia and Herzegovina, Georgia, Liechtenstein, Kazakhstan, Moldova,
+        Montenegro, North Macedonia, Russia, Serbia, Turkey and Ukraine)"
+      },
+      {
+        text: "£17.50 per 1.5kg"
+      }
+    ],
+    [
+      {
+        text: "Rest of the world"
+      },
+      {
+        text: "£22.50 per 1.5kg"
+      }
+    ]
+  ]
+}) }}

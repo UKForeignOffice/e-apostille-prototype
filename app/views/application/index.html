@@ -37,131 +37,52 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds-from-desktop">
-      <p class="govuk-body">You can get certain official UK documents ‘legalised’ by asking the Legalisation Office
-        to confirm that the signature, stamp or seal is from a UK public official.</p>
-
-      <p class="govuk-body">You might need to do this if an official in another country has asked you to provide a
-          UK document and they’ve said it must be legalised.</p>
-
-      <p class="govuk-body">The Legalisation Office will check the document, including whether the signature, stamp
-        or seal is genuine. They’ll legalise the document by attaching a stamped official
-        certificate (an ‘Apostille’) to it.</p>
-
-      <p class="govuk-body">You cannot get documents issued outside the UK legalised using this service - get them
-        legalised in the country they were issued.</p>
+      <p class="govuk-body">Use this service if you need to provide a legalised UK public document to an overseas authority.</p>
 
       {{ govukInsetText({
-        text: "The Legalisation Office cannot return documents to Belarus, Russia or Ukraine at the moment."
+        text: "The Legalisation Office cannot send documents to Belarus, Russia or Ukraine at the moment."
       }) }}
 
-
       <h2 class="govuk-heading-m">
-        What it costs
+        Before you apply
       </h2>
-
-      <p class="govuk-body">The standard service costs £30 per document, plus courier fees or postage.</p>
-
-      {{ govukTable({
-  caption: "Courier costs",
-  captionClasses: "govuk-table__caption--s",
-  firstCellIsHeader: false,
-  head: [
-    {
-      text: "Country",
-		classes: "govuk-!-width-three-quarters"
-    },
-    {
-      text: "Price",
-	  classes: "govuk-!-width-one-quarter"
-    }
-  ],
-  rows: [
-    [
-      {
-        text: "UK (including British Forces Post Office)"
-      },
-      {
-        text: "£5 per 1.5kg"
-      }
-    ],
-    [
-      {
-        text: "European countries (not including Albania, Armenia, Azerbaijan, Belarus,
-        Bosnia and Herzegovina, Georgia, Liechtenstein, Kazakhstan, Moldova,
-        Montenegro, North Macedonia, Russia, Serbia, Turkey and Ukraine)"
-      },
-      {
-        text: "£17.50 per 1.5kg"
-      }
-    ],
-    [
-      {
-        text: "Rest of the world"
-      },
-      {
-        text: "£22.50 per 1.5kg"
-      }
-    ]
-  ]
-}) }}
-
-  <h3 class="govuk-heading-s">
-    If you do not want to pay courier fees
-  </h3>
-  <p class="govuk-body">Your documents will be returned by courier but if you’re in the UK you can
-    have them returned by post. You must include an A4-sized envelope with the
-    return address written on it. Attach enough UK postage stamps to cover the
-    return postage.
-    </p>
+      <p class="govuk-body">Your documents must be suitable for legalisation, including the signature, stamp or seal of a UK public official.
+        If you choose the e-Apostille service option your documents must be electronically signed.</p>
+      <p class="govuk-body">Find out about <a class="govuk-link" href="/application/guide#ApostilleCertificates">legalisation and ‘Apostille’ certificates</a> and the different ways you can apply.</p>
+      <p class="govuk-body">Businesses can also use the <a class="govuk-link" href="/application/guide#PremiumService">same-day Premium service</a>.</p>
 
     <h2 class="govuk-heading-m">
       What you’ll need
     </h2>
-   <p class="govuk-body">To use the service you’ll need:</p>
+    <p class="govuk-body">To make an application you will need:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>the documents you want to legalise</li>
-      <li>a credit or debit card for payment</li>
-      <li>the address you want your documents returned to</li>
-      <li>access to a printer</li>
+      <li>a debit or credit card to pay <a class="govuk-link" href="/application/guide#what-it-costs">legalisation fees</a></li>
+      <li>the address you want documents returned to, if using the paper-based service (<a class="govuk-link" href="/application/guide#what-it-costs">post/courier fees apply</a>)</li>
     </ul>
 
-    <p class="govuk-body">If you do not enter any information for more than 30
-      minutes, your application will time out and you’ll have to start again.</p>
-<div class="govuk-!-margin-bottom-6">
+    <div class="govuk-!-margin-bottom-6">
       {{ govukButton({
         text: "Start now",
         href: "/application/1-choose-a-service",
         isStartButton: true
       }) }}
-</div>
-
-  <h2 class="govuk-heading-m">
-	How long it takes
-  </h2>
-<p class="govuk-body">It can take up to 10 working days to process your documents
-  using the standard service, plus courier or postage time.</p>
-
-<p class="govuk-body">Call the Legalisation Office if your application is urgent.</p>
-
-<h2 class="govuk-heading-m">
-  Premium same-day business service
-</h2>
-
-<p class="govuk-body">The premium same-day business service is for registered businesses only and costs £75 per document.</p>
-<p class="govuk-body">You must take your documents to the premium office in central London between 9am and 12:30pm.
-  You will be given a collection time between 1:30pm and 4:30pm.</p>
-
-<p class="govuk-body">You need an account to use the premium service. <a href="/application/sign-in">Sign in</a> if
-  you’re an existing user or <a href="#">create an account</a>.</p>
-
-  <h2 class="govuk-heading-m">
-    Contact the Legalisation Office
-  </h2>
-  <p class="govuk-body">Contact the Legalisation Office if you need an update on
-  an application or if you have a general enquiry.</p>
-  {% include "includes/contact-details.html" %}
-
     </div>
+
+    <h2 class="govuk-heading-m" id="how-long-it-takes">
+    How long it takes
+    </h2>
+    <p class="govuk-body">It takes up to 10 working days to process an application,
+      plus courier or postage time if you use the paper-based service.
+      You can contact the Legalisation Office if your application is urgent.</p>
+
+    <h2 class="govuk-heading-m">
+      Contact the Legalisation Office
+    </h2>
+    {% include "includes/contact-details.html" %}
+
+  </div>
+
   	<as class="govuk-grid-column-one-third-from-desktop">
 
 		<aside class="app-related-items" role="complementary">
@@ -170,14 +91,11 @@
 			</h2>
 			<nav role="navigation" aria-labelledby="subsection-title">
 				<ul class="govuk-list govuk-!-font-size-16">
+          <li><a class="govuk-link" href="/application/guide">UK public document legalisation</a></li>
 					<li><a class="govuk-link" href="/verify">Verify an Apostille</a></li>
-
-					  </ul>
-				  </nav>
-
+				</ul>
+			</nav>
 		</aside>
     </as>
-
-	  </div>
   </div>
 {% endblock %}
