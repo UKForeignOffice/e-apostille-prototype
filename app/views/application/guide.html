@@ -1,28 +1,31 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Guide
+  Get your document legalised guide
 {% endblock %}
 
 {% block beforeContent %}
 <div class="flex-space-between">
   <a id="go-back" href="#" class="govuk-back-link">Back</a>
   <script type="text/javascript">
-  document.getElementById('go-back').addEventListener('click', () => {
-    history.back();
-  });
+    document.getElementById('go-back').addEventListener('click', () => {
+      history.back();
+    });
   </script>
 </div>
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-three-quarters-from-desktop">
-    <h1 class="govuk-heading-l">
-      Guide
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-xl">
+      Get your document legalised guide
     </h1>
-    <p class="govuk-body">
-    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
     <h2 class="govuk-heading-m" id="what-it-costs">
       What it costs
     </h2>
@@ -48,6 +51,20 @@
       you’re an existing user or <a href="/application/create-an-account">create an account</a>.</p>
 
   </div>
+
+  <as class="govuk-grid-column-one-third-from-desktop">
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-s" id="subsection-title">
+        Related content
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li><a class="govuk-link" href="/application">Get your document legalised</a></li>
+          <li><a class="govuk-link" href="/verify">Verify an Apostille</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </as>
 </div>
 
 {% endblock %}
