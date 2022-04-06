@@ -28,12 +28,14 @@ router.post('/application/7-upload-documents/form-handler', upload.array('docume
 
 function removeFilesWithIssues(docsFromForm, req) {
   const LARGE_FILE_NAME = 'large_file.pdf';
+  const TEMP_LARGE_FILE_NAME = 'eapp_test_pdf.pdf';
   const NOT_PDF_NAME = 'not_pdf.pdf';
   const INFECTED_FILE_NAME = 'infected_file.pdf';
 
   const docsClean = docsFromForm.filter(docName => {
     switch(docName) {
       case LARGE_FILE_NAME:
+      case TEMP_LARGE_FILE_NAME:
         req.flash('errors', ['LARGE_FILE_ERROR']);
         break;
       case NOT_PDF_NAME:
