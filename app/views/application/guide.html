@@ -46,8 +46,9 @@
 <p class="govuk-body">When you need to share an official UK document with an authority in another country they might ask that the document is ‘legalised’. This is because an authority like an employer or bank needs to be sure your document is genuine.</p>
 <p class="govuk-body">Official UK documents include birth certificates, passports, UK qualifications, contracts and many other documents. There is no definitive list.</p>
 {{ govukInsetText({
-  text: "You cannot get documents issued outside the UK legalised using this service - get them legalised in the country they were issued."
+  text: "You cannot get non-UK documents legalised using this service - get them legalised in the country they were issued."
 }) }}
+<p class="govuk-body">If you already know your documents are suitable for legalisation you can <a class="govuk-link" href="/application/">apply now</a>.</p>
 
 <h3 class="govuk-heading-s" id="how-documents-are-legalised">
   How documents are legalised
@@ -99,15 +100,15 @@
         text: "Standard service (paper-based)"
       },
       {
-        html: "£30<br>Plus courier/postage costs"
+        html: "£30<br>Plus courier or postage costs"
       },
       {
-        html: "Up to 2 working days<br>Plus courier/postage time"
+        html: "Up to 2 working days<br>Plus courier or postage time"
       }
     ],
     [
       {
-        text: "e-Apostille service (digital)"
+        text: "e-Apostille service (electronic)"
       },
       {
         html: "£30"
@@ -165,7 +166,7 @@
 <p class="govuk-body">If the authority needs a legalised version (Apostille), check exactly what it will accept. For example:</p>
 <ul class="govuk-list govuk-list--bullet">
   <li>legalised copy, original document, or either</li>
-  <li>electronic apostille, paper apostille, or either</li>
+  <li>electronic Apostille, paper Apostille, or either</li>
 </ul>
 <p class="govuk-body">If legalising more than one document, also check if the authority will accept a single Apostille certificate or requires a separate one for each document.</p>
 
@@ -173,6 +174,7 @@
   Check the rules for your document
 </h3>
 <p class="govuk-body">There are different rules for different types of documents. For example the Legalisation Office is only able to legalise original versions of some types of document and certified copies of other documents.</p>
+<p class="govuk-body">There is also <a class="govuk-link" href="/application/terms-and-conditions">guidance legal professionals must follow</a> when certifying and signing documents.
 
 <h3 class="govuk-heading-s" id="paper-based-applications">
   Standard (paper-based) applications
@@ -210,7 +212,7 @@
 </ul>
 <p class="govuk-body">* Processing time may exceed 2 working days if the Legalisation Office has questions about your application.</p>
 {{ govukInsetText({
-text: "Account for courier/postage time and costs if you choose the paper-based service."
+text: "Account for courier or postage time and costs if you choose the paper-based service."
 }) }}
 
 <h3 class="govuk-heading-s" id="standard-service-paper-based">
@@ -219,8 +221,8 @@ text: "Account for courier/postage time and costs if you choose the paper-based 
 <ul class="govuk-list govuk-list--bullet">
   <li>Send in your signed documents by post/courier</li>
   <li>Get legalised documents (with paper Apostilles) returned to you or the overseas authority by post/courier</li>
-  <li>Share your legalised paper documents with an authority, for example by courier/postage</li>
-  <li>You will get a coversheet at the end of the application. You will need to print or write down some of the details</li>
+  <li>Share your legalised paper documents with an authority, for example by courier or postage</li>
+  <li>You will get a coversheet at the end of your application. You will need to print or write down some of the details</li>
   <li>Account optional</li>
 </ul>
 <p class="govuk-body">Find out about <a class="govuk-link" href="/application/guide#fees-and-courier-costs">courier or postage costs</a>.</p>
@@ -229,7 +231,7 @@ text: "Account for courier/postage time and costs if you choose the paper-based 
   e-Apostille service
 </h3>
 <ul class="govuk-list govuk-list--bullet">
-  <li>Upload your documents as electronically signed PDF files</li>
+  <li>Upload your documents as PDFs electronically signed by a UK notary or solicitor</li>
   <li>Download legalised documents (with e-Apostilles) as soon as they are ready</li>
   <li>Share legalised digital versions with an overseas authority, for example by email</li>
   <li>Account required</li>
@@ -238,9 +240,10 @@ text: "Account for courier/postage time and costs if you choose the paper-based 
 <h3 class="govuk-heading-s" id="business-only-premium-service">
   Business-only premium service
 </h3>
+<p class="govuk-body">This service is for businesses only and you will need to provide additional information to sign up.</p>
 <ul class="govuk-list govuk-list--bullet">
   <li>£75 per document</li>
-  <li>20 documents per application</li>
+  <li>A maximum of 20 documents per application</li>
   <li>The service is open on working days, 9am to 12:30pm for London drop-off</li>
   <li>A collection time will be allocated between 1:30pm to 4:30pm</li>
   <li>Account and company details required</li>
@@ -268,7 +271,7 @@ text: "Account for courier/postage time and costs if you choose the paper-based 
 </ul>
 
 <p class="govuk-body">If applying for a paper apostille you will also need the address you want your legalised documents to be sent to. For example you might want them returned to your address or sent directly to the overseas authority.</p>
-<p class="govuk-body">If applying for a digital apostille your legalised documents will be returned to you by email.</p>
+<p class="govuk-body">If applying for an e-Apostille you will be emailed when your documents are available to download from your account.</p>
 
 <div id="step-by-step-navigation" class="app-step-nav app-step-nav--large " data-show-text="Show" data-hide-text="" data-show-all-text="" data-hide-all-text="">
   <ol class="app-step-nav__steps">
@@ -290,7 +293,7 @@ text: "Account for courier/postage time and costs if you choose the paper-based 
       </div>
 
       <div class="app-step-nav__panel js-panel" id="step-panel-check-youre-allowed-to-drive-1">
-        <p class="app-step-nav__paragraph">If your document meets the rules you can <a class="govuk-link" href="/application">apply online for it to be legalised</a></p>
+        <p class="app-step-nav__paragraph">If your document meets the rules you can <a class="govuk-link" href="/application">apply online</a>.</p>
       </div>
 
     </li>
@@ -313,7 +316,7 @@ text: "Account for courier/postage time and costs if you choose the paper-based 
       </div>
 
       <div class="app-step-nav__panel js-panel" id="step-panel-get-a-provisional-licence-2">
-        <p class="app-step-nav__paragraph">No postage required where the e-Apostille service is used.</p>
+        <p class="app-step-nav__paragraph">No courier or postage required where the e-Apostille service is used.</p>
       </div>
 
     </li>
@@ -397,9 +400,9 @@ text: "Account for courier/postage time and costs if you choose the paper-based 
 <p class="govuk-body">Your legalised document and its Apostille certificate must always be shared together.</p>
 <p class="govuk-body"><strong>Paper Apostilles</strong> must be shared physically in paper form (for example, in person or by post). This is so the authority can view the original ink signatures.</p>
 <p class="govuk-body"><strong>Electronic Apostilles (e-Apostilles)</strong> must be shared digitally (for example, by email, portal upload, on a memory stick, or in person by showing the Apostille on screen). This is so the authority can check the unique electronic signatures.</p>
-<p class="govuk-body">With an e-Apostille you can download and digitally share as many copies of your legalised document and its e-Apostille as you want. This means you can share with multiple authorities simultaneously rather than needing to apply for separate paper-based copies for each one.</p>
+<p class="govuk-body">With an e-Apostille you can download and digitally share as many copies of your legalised document and its e-Apostille as you want. This means you can share with multiple authorities simultaneously rather than needing to apply for separate paper copies for each one.</p>
 {{ govukInsetText({
-  html: 'The authority can choose to <a class="govuk-link" href="/verify">verify an apostille (paper or e-Apostille) online</a> by entering the Apostille date and number.'
+  html: 'The authority can choose to <a class="govuk-link" href="/verify">verify an apostille</a> (paper or e-Apostille) online by entering the Apostille date and number.'
 }) }}
 
 <h2 class="govuk-heading-m" id="find-a-uk-notary-or-solicitor">
