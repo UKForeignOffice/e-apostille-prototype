@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Application A-D-22-0212-1234-ABCD
+{% endblock %}
+
+{% block beforeContent %}
+<div class="flex-space-between">
+  <a id="go-back" href="#" class="govuk-back-link">Back</a>
+  <script type="text/javascript">
+  document.getElementById('go-back').addEventListener('click', () => {
+    history.back();
+  });
+  </script>
+  {% include "includes/my-account-nav.html" %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters-from-desktop">
+
+    <span class="govuk-caption-xl">e-Apostille application</span>
+    <h1 class="govuk-heading-xl">
+      A-D-22-0212-1234-ABCD
+    </h1>
+
+    <p class="govuk-body">Sorry, there is a problem with viewing this application.</p>
+    <p class="govuk-body">You can <a id="go-back2" href="/application/14-your-account-from-completed-app" class="govuk-link">go back to the application list</a> to try again.</p>
+
+{% endblock %}
