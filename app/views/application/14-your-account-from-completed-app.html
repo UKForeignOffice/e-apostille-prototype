@@ -32,7 +32,7 @@
     spellcheck="false"
     aria-describedby="search-hint"
     autocomplete="email"
-    placeholder="Search by reference or service"
+    placeholder="Search by reference"
   >
   <input
     class="submit-button"
@@ -58,10 +58,10 @@
       html: '<a href="#">Cost</a>'
     },
     {
-      html: '<a href="#">Service</a>'
+      html: 'Status'
     },
     {
-      html: 'Status'
+      html: ''
     }
   ],
   rows: [
@@ -70,7 +70,7 @@
       text: "05-03-2022"
     },
     {
-      html: '<a href="/application/A-D-21-0212-1234-ABCD">A-D-22-0212-1234-ABCD</a>'
+      html: 'A-D-22-0212-1234-ABCD'
     },
     {
       text: "220305/RJC"
@@ -79,10 +79,10 @@
       text: "£30"
     },
     {
-      text: "e-Apostille"
+      html: '<strong class="govuk-tag govuk-tag--blue">In progress</strong><br>1 PDF<br>submitted'
     },
     {
-      html: '<strong class="govuk-tag govuk-tag--blue">In progress</strong>'
+      html: '<button id="A-D-21-0212-1234-ABCD" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">View</button>'
     }
   ],
   [
@@ -90,7 +90,7 @@
       text: "02-03-2022"
     },
     {
-      html: '<a href="/application/A-D-21-0205-0343-5BEC-completed">A-D-22-0205-0343-5BEC</a>'
+      html: 'A-D-22-0205-0343-5BEC'
     },
     {
       text: "220302 JS"
@@ -99,10 +99,10 @@
       text: "£90"
     },
     {
-      text: "e-Apostille"
+      html: '<strong class="govuk-tag">Completed</strong><br>1 of 4 PDFs<br>rejected'
     },
     {
-      html: '<strong class="govuk-tag">Completed</strong><br>1 PDF rejected'
+      html: '<button id="A-D-21-0205-0343-5BEC-completed" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">View</button>'
     }
   ],
   [
@@ -110,7 +110,7 @@
       text: "12-02-2022"
     },
     {
-      html: '<a href="/application/A-D-21-0212-5678-EFDH">A-D-22-0212-5678-EFDH</a>'
+      html: 'A-D-22-0212-5678-EFDH'
     },
     {
       text: "220212/HJS"
@@ -119,10 +119,10 @@
       text: "£60"
     },
     {
-      text: "e-Apostille"
+      html: '<strong class="govuk-tag">Completed</strong>'
     },
     {
-      html: '<strong class="govuk-tag">Completed</strong>'
+      html: '<button id="A-D-21-0212-5678-EFDH" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">View</button>'
     }
   ],
   [
@@ -139,10 +139,10 @@
       text: "£35"
     },
     {
-      text: "Standard"
+      html: '<strong class="govuk-tag">Despatched</strong><br><a href="#">Tracking ref:<br>1234567890</a>'
     },
     {
-      html: '<strong class="govuk-tag">Despatched</strong><br><a href="#">Tracking ref:<br>1234567890</a>'
+      html: '<button id="A-C-22-0205-0343-5BEC" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">View</button>'
     }
   ]
   ]
@@ -150,5 +150,24 @@
 <p class="govuk-body">
   Showing 1 – 4 of 4 applications submitted in the last 60 days
 </p>
+
+<!-- Code to route user to correct application based on 'view' button press - hacky!! -->
+<script type="text/javascript">
+document.getElementById('A-D-21-0212-1234-ABCD').addEventListener('click', () => {
+  window.location.href = '/application/A-D-21-0212-1234-ABCD';
+});
+
+document.getElementById('A-D-21-0205-0343-5BEC-completed').addEventListener('click', () => {
+  window.location.href = '/application/A-D-21-0205-0343-5BEC-completed';
+});
+
+document.getElementById('A-D-21-0212-5678-EFDH').addEventListener('click', () => {
+  window.location.href = '/application/A-D-21-0212-5678-EFDH';
+});
+
+document.getElementById('A-C-22-0205-0343-5BEC').addEventListener('click', () => {
+  //do nothing
+});
+</script>
 
 {% endblock %}
