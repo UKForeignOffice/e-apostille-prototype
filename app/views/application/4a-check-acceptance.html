@@ -24,7 +24,7 @@ Check your documents are eligible
 		</h1>
 
 		<p class="govuk-body">
-			The e-Apostille service excludes a small number of document types. To legalise the following documents, <a href="/application/1-choose-a-service">use the paper-based service instead</a>.
+			The e-Apostille service excludes a small number of document types. To legalise the following documents, <a class="govuk-link" href="/application/1-choose-a-service">use the paper-based service instead</a>.
 		</p>
 		<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">Excluded documents</p>
 
@@ -37,15 +37,13 @@ Check your documents are eligible
 			<li>Association of Chartered Certified Accountants (ACCA) membership certificates</li>
 		</ul>
 
-		<p class="govuk-body">
-			Find out <a href="/application/page-not-created">why these documents are excluded.</a>
-		</p>
+    {{ govukDetails({
+      summaryText: "Why these documents are excluded",
+      text: "The organisations that issue these documents do not currently allow electronic copies to be legalised. For example, some of the documents include physical features and therefore must be viewed in their original format."
+    }) }}
 
 		<form action="/application/4a-check-acceptance/form-handler" method="post">
 			<h2 class="govuk-fieldset__legend--m">Are your documents eligible for the e-Apostille service?</h2>
-			<p class="govuk-body">
-				Unless your documents are listed as excluded it is highly likely they are eligible.
-			</p>
 			{{ govukRadios({
 				idPrefix: "documents-eligible",
 				name: "documents-eligible",

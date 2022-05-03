@@ -17,14 +17,12 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters-from-desktop">
+    <h1 class="govuk-heading-l">Your reference (optional)</h1>
+    <p class="govuk-body">You will get an official reference when you submit your application.</p>
+    <p class="govuk-body">You can also add your own reference here if you want to.</p>
 
 	  <form action="/application/9-check-your-answers">
 {{ govukInput({
-  label: {
-    text: "Your reference (optional)",
-    classes: "govuk-label--l",
-    isPageHeading: true
-  },
   id: "user-reference",
   name: "user-reference"
 }) }}

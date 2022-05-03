@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Add your PDFs
+  Upload your PDF files
 {% endblock %}
 
 {% block beforeContent %}
@@ -46,17 +46,20 @@
 	  {% endif %}
 
 	<section class="govuk-body">
-		<h1 class="govuk-heading-xl">Upload your PDF files </h1>
-		<p>One e-Apostille can be issued per PDF file, even if it includes multiple documents.</p>
+		<h1 class="govuk-heading-xl">Upload your PDF files</h1>
     {{ govukInsetText({
         text: "£30 fee per e-Apostille issued."
       }) }}
-		<h2 class="govuk-heading-m">Upload files</h2>
-		<p class="govuk-!-margin-top-2">
-			Up to 50 PDFs can be uploaded in a single application. Maximum PDF size 200MB.
-		</p>
+
+    {{ govukDetails({
+      summaryText: "Legalising multiple documents",
+      html: '<p class="govuk-body">One e-Apostille can be issued per PDF.</p>
+            <p class="govuk-body">If documents require their own e-Apostille you must upload each one as a separate PDF.</p>
+            <p class="govuk-body">PDFs that contain multiple documents must contain a cover sheet from the notary or solicitor, listing all of the documents.</p>'
+    }) }}
 	</section>
 
+  <h2 class="govuk-heading-m">Upload PDFs</h2>
 	<form id="delete-file" action="/application/delete-file" method="post"></form>
 	<form id="upload-files" action="/application/7-upload-documents/form-handler" method="post"></form>
 
@@ -124,15 +127,15 @@
 		</ul>
 
 		{{ govukButton({
-			href: "/application/8-user-reference",
-			text: "Continue"
+         href: "/application/8-user-reference",
+         text: "Continue"
 		}) }}
 	{% endif %}
 
-		{{ govukDetails({
-		summaryText: "I cannot upload my files ",
-		html: 'XXXXXXXX  XXXXXXX XX XXXX XX X XXX XX X XXXXXXXX  XXXXXXX XX XXXX XX X XXX XX X XXXXXXXX  XXXXXXX XX XXXX XX X XXX XX X <p><a href="/application/cannot-upload" class="govuk-link govuk-body">I still cannot upload my PDFs</a></p>'
-		}) }}
+  <p class="govuk-body">
+    <a class="govuk-link" href="/application/7-upload-documents-exit">I cannot upload my PDFs</a>
+  </p>
+
 	</div>
 </div>
 

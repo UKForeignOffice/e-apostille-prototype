@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add your PDFs
+{% endblock %}
+
+{% block beforeContent %}
+	<div class="flex-space-between">
+		{{ govukBackLink({
+			text: "Back",
+			href: "/application/7-upload-documents"
+		}) }}
+		{% include "includes/my-account-nav.html" %}
+	</div>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+
+		<h1 class="govuk-heading-l">Get support with your application</h1>
+    <p class="govuk-body">You can contact the Legalisation Office if you need support to use this service.</p>
+
+    {% include "includes/contact-details.html" %}
+
+    <p class="govuk-body">
+			You may also be able to <a class="govuk-link" href="/application/1-choose-a-service">use the paper-based service instead</a>.
+		</p>
+</div>
+</div>
+
+
+{% endblock %}
