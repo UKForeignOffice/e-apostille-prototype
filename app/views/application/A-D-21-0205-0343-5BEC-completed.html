@@ -22,7 +22,7 @@ Application A-D-22-0205-0343-5BEC
 
     {% set html %}
     <p class="govuk-notification-banner__heading">
-      You have 21 days left to download the legalised documents.
+      21 days left to download the legalised documents.
     </p>
     {% endset %}
 
@@ -35,22 +35,20 @@ Application A-D-22-0205-0343-5BEC
       A-D-22-0205-0343-5BEC
     </h1>
 
-    <p class="govuk-body">You can now download PDF versions of the legalised documents.</p>
+    <h2 class="govuk-table__caption--m">Download and share PDFs</h2>
+
+    <p class="govuk-body">Download as many copies as you want and share digitally (for example, by email).</p>
+    <p class="govuk-body">Share the full PDF digitally. Do not edit or print copies as each PDF contains
+      the FCDO electronic signature to ensure authenticity and prevent tampering.</p>
 
       {{ govukWarningText({
-        text: "If you do not download your legalised documents within 21 days (by midnight on the last day),
-        they will be deleted for data privacy reasons. You will need to pay for another application to have
-        the documents legalised again.",
+        text: "For data privacy reasons all PDFs are deleted after 21 days (midnight on the last day).
+        If you do not download PDFs within 21 days you will need to apply and pay to have the documents legalised again.",
         iconFallbackText: "Warning"
       }) }}
 
-      <h2 class="govuk-table__caption--m">Download documents</h2>
-      <p class="govuk-body">You can download each PDF as many times as you wish before it is deleted.</p>
-      <p class="govuk-body">Once downloaded, you can send the entire PDF to the overseas authority
-      that needs the legalised documents.
-      Each PDF contains a copy of the original uploaded PDF along with an e-Apostille.</p>
-      <p class="govuk-body">You cannot use a printed version of the PDF, as the PDF contains the FCDO digital signature
-        which ensures its authenticity and prevents tampering.</p>
+      <h2 class="govuk-table__caption--m">View in Adobe Reader</h2>
+      <p class="govuk-body">If you want to view the legalised documents, eApostille certificate and electronic signatures, you must open the downloaded PDF in Adobe Reader (free software).</p>
 
       {{ govukTable({
       caption: "PDF files",

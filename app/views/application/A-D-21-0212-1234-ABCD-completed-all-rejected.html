@@ -1,0 +1,151 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Application A-D-22-0212-1234-ABCD
+{% endblock %}
+
+{% block beforeContent %}
+<div class="flex-space-between">
+  <a id="go-back" href="#" class="govuk-back-link">Back</a>
+  <script type="text/javascript">
+  document.getElementById('go-back').addEventListener('click', () => {
+    history.back();
+  });
+  </script>
+  {% include "includes/my-account-nav.html" %}
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters-from-desktop">
+
+        <span class="govuk-caption-xl">e-Apostille application</span>
+        <h1 class="govuk-heading-xl">
+          A-D-22-0212-1234-ABCD
+        </h1>
+
+              {{ govukTable({
+              caption: "PDF files",
+              captionClasses: "govuk-table__caption--m",
+              firstCellIsHeader: false,
+                    rows: [
+              [
+              {
+              html: '<p class="govuk-body">my_clients_documents_20220213.pdf</p>
+                    <p class="govuk-body">This PDF has been rejected for the following reasons:</p>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li><strong>GRO certificates cannot be legalised using the e-Apostille service</strong>
+                        <details class="govuk-details" data-module="govuk-details">
+                          <summary class="govuk-details__summary">
+                            <span class="govuk-details__summary-text">
+                              Further information <span class="govuk-visually-hidden">GRO certificates cannot be legalised using the e-Apostille service</span>
+                            </span>
+                          </summary>
+                          <div class="govuk-details__text">
+                            <p  class="govuk-body">
+                              You must use the standard service to legalise General Register
+                              Office (GRO) certificates.
+                            </p>
+                            <p  class="govuk-body">
+                              Certificates from GRO are birth, marriage, civil partnership, death,
+                              adoption and commemorative certificates.
+                            </p>
+                            <p  class="govuk-body">
+                              We are unable to legalise scanned copies of GRO certificates.
+                              We can only legalise original paper certificates or paper certified
+                              copies that have been produced by the GRO.
+                            </p>
+                            <p class="govuk-body">
+                              For more information on obtaining a paper certified copy from the GRO
+                              please visit:
+                              <a href="https://www.gro.gov.uk/gro/content/" class="govuk-link">www.gro.gov.uk/gro/content/</a>.
+                            </p>
+                          </div>
+                        </details>
+                      </li>
+                  </ul>
+
+                  <p  class="govuk-body">
+                    You have been refunded for this PDF.
+                  </p>'
+              },
+              {
+              html: '<strong class="govuk-tag govuk-tag--red">Rejected</strong>'
+              }
+              ]
+              ]
+              }) }}
+
+        <div class="no-table-border">
+            {{ govukTable({
+            caption: "Application details",
+            captionClasses: "govuk-table__caption--m",
+            firstCellIsHeader: true,
+            rows: [
+              [
+              {
+              text: "Service"
+              },
+              {
+              text: "e-Apostille"
+              }
+              ],
+              [
+              {
+              text: "Date submitted"
+              },
+              {
+              text: "5 March 2022"
+              }
+              ],
+              [
+              {
+              text: "Date completed"
+              },
+              {
+              text: "11 March 2022"
+              }
+              ],
+              [
+              {
+              text: "Your reference"
+              },
+              {
+              text: "220305/RJC"
+              }
+              ]
+            ]
+            }) }}
+        </div>
+
+        <div class="no-table-border">
+            {{ govukTable({
+            caption: "Payment details",
+            captionClasses: "govuk-table__caption--m",
+            firstCellIsHeader: true,
+            rows: [
+              [
+              {
+              text: "Total paid"
+              },
+              {
+              text: "£0"
+              }
+              ],
+              [
+              {
+              text: "Payment reference"
+              },
+              {
+              text: "thy81np44cbc8evcl67qnq7kj5"
+              }
+              ]
+            ]
+            }) }}
+        </div>
+
+        <p class="govuk-body">Your payment will appear on your bank statement as FCDO Legalisation Service.</p>
+        <p class="govuk-body"><a href="#" class="govuk-link">Download your receipt</a></p>
+        {% endblock %}
