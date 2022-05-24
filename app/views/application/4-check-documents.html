@@ -21,15 +21,15 @@ Check the authority accepts e-Apostilles
   <div class="govuk-grid-column-three-quarters-from-desktop">
     <span class="govuk-caption-xl">e-Apostille suitability - 2 of 3</span>
 		<h1 class="govuk-heading-l">
-			Check the authority accepts e-Apostilles
+			Check the intended recipient accepts e-Apostilles
 		</h1>
 		<p class="govuk-body">
-			Ask the overseas authority exactly what they need from you and if they will:
+			Contact and ask the intended overseas recipient exactly what they need from you and if they will:
 		</p>
 		<ul class="govuk-list govuk-list--bullet indent-list">
-			<li>accept digital documents with e-Apostilles</li>
-			<li>require separate e-Apostille certificates for each document (if legalising more than one) </li>
-			<li>accept documents signed by a UK notary or solicitor, or either</li>
+			<li>accept digital documents with e-Apostille certificates</li>
+			<li>require a separate e-Apostille for each document (if legalising more than one)</li>
+			<li>accept documents electronically signed by a UK notary or solicitor, or only by a notary</li>
 		</ul>
 		<p class="govuk-body">
 			Make sure they understand e-Apostilles are only valid in digital form as they contain unique electronic signatures.
@@ -37,20 +37,20 @@ Check the authority accepts e-Apostilles
 
 		{{ govukDetails({
 			summaryText: "Why you need to check",
-			html: '<p class="govuk-body"><a class="govuk-link" href="https://www.hcch.net/en/instruments/conventions/authorities1/?cid=41" rel="noreferrer noopener" target="_blank">Countries that accept paper apostilles (opens in new tab)</a> should equally accept e-Apostilles.<p>
-			<p class="govuk-body">However, there are circumstances in which an authority (such as a bank, employer or government department) could reject an e-Apostille. For example, they could do this if they do not accept a digital version of the document the e-Apostille is attached to.</p>
+			html: '<p class="govuk-body">Under international agreement <a class="govuk-link" href="https://www.hcch.net/en/instruments/conventions/authorities1/?cid=41" rel="noreferrer noopener" target="_blank">countries that are signed up to the Apostille Convention (opens in new tab)</a> should equally accept e-Apostilles.<p>
+			<p class="govuk-body">However, there are circumstances in which an intended recipient could reject an e-Apostille. For example, they could do this if they do not accept a digital version of the document the e-Apostille is attached to.</p>
 			'
 		}) }}
 
 	  <form action="/application/4-check-documents/form-handler" method="post">
-		<h2 class="govuk-fieldset__legend--m">Have you checked the authority accepts e-Apostilles?</h2>
+		<h2 class="govuk-fieldset__legend--m">Have you checked the intended recipient will accept e-Apostilles?</h2>
 		{{ govukRadios({
 			idPrefix: "eapostille-acceptable",
 			name: "eapostille-acceptable",
 			items: [
 				{
 					value: "yes",
-					text: "Yes, the authority accepts e-Apostilles"
+					text: "Yes, they will accept e-Apostilles"
 				},
 				{
 					value: "no",

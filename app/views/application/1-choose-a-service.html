@@ -26,7 +26,7 @@ href: "/application"
 						Choose a service
 					</h1>
 				</legend>
-				<p class="govuk-body">With both the standard paper-based and electronic (e-Apostille) services you will:</p>
+				<p class="govuk-body">With both standard paper-based and electronic (e-Apostille) services you will:</p>
 				<ul class="govuk-list govuk-list--bullet">
 					<li>Apply and pay online</li>
 					<li>Pay £30 (debit or credit card) for each Apostille certificate</li>
@@ -35,8 +35,7 @@ href: "/application"
 				{{ govukInsetText({
 					text: "Account for courier or postage time and costs if you choose the paper-based service."
 				}) }}
-				<p class="govuk-body">* Processing time may exceed 2 working days if the Legalisation Office has questions about your application.</p>
-
+				<p class="govuk-body">* Processing time may vary if there are questions about your application.</p>
 
 				<div class="govuk-radios">
 					<div class="govuk-radios__item">
@@ -44,15 +43,14 @@ href: "/application"
 							   value="standard-service" aria-describedby="standard-item-hint">
 						<label class="govuk-label govuk-radios__label" for="standard">
 							<span class="govuk-heading-m">
-								Standard service (paper-based)
+								Standard paper-based service
 							</span>
 						</label>
 						<div id="standard-item-hint" class="govuk-hint govuk-radios__hint">
 							<ul class="govuk-list govuk-list--bullet">
-								<li>Send in your signed documents by courier or post</li>
-								<li>Get legalised documents (with paper Apostilles) returned to you or the overseas authority by courier or post</li>
-								<li>Share your legalised paper documents with an authority, for example by post/courier</li>
-								<li>You will get a coversheet at the end of the application. You will need to print or write down some of the details</li>
+								<li>Send in signed documents by courier or post</li>
+								<li>Get legalised documents (with paper Apostilles) sent back to your specified address</li>
+								<li>Share legalised paper documents by courier or post</li>
 								<li>Account optional</li>
 							</ul>
 							{{ govukDetails({
@@ -99,15 +97,15 @@ href: "/application"
 								 value="eapostille-service" aria-describedby="eApp-item-hint">
 						<label class="govuk-label govuk-radios__label" for="e-apostille">
 							<span class="govuk-heading-m">
-								e-Apostille service
+								Electronic 'e-Apostille' service
 							</span>
 						</label>
 						<div id="eapostille-item-hint" class="govuk-hint govuk-radios__hint">
 							<ul class="govuk-list govuk-list--bullet">
-								<li>Upload your documents as PDFs electronically signed by a UK notary or solicitor</li>
+								<li>Upload documents as PDFs electronically signed by a UK notary or solicitor</li>
 								<li>Download legalised documents (with e-Apostilles) as soon as they are ready</li>
-								<li>Share legalised digital versions with an overseas authority, for example by email</li>
-								<li>Account required</li>
+								<li>Share legalised digital versions, for example by email</li>
+								<li>Account required - allows you to check progress and download documents</li>
 							</ul>
 						</div>
 					</div>
