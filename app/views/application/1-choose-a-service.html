@@ -5,14 +5,23 @@ Choose a service
 {% endblock %}
 
 {% block beforeContent %}
-
-<div class="flex-space-between">
-{{ govukBackLink({
-text: "Back",
-href: "/application"
-}) }}
-	<a href="/application/sign-in">Sign in</a>
-</div>
+	{% if data['signedIn'] %}
+	<div class="flex-space-between">
+		{{ govukBackLink({
+			text: "Back",
+			href: "/application/2-your-account"
+		}) }}
+		{% include "includes/my-account-nav.html" %}
+	</div>
+	{% else %}
+	<div class="flex-space-between">
+		{{ govukBackLink({
+			text: "Back",
+			href: "/application"
+		}) }}
+		{% include "includes/my-account-nav.html" %}
+	</div>
+	{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -126,7 +135,7 @@ href: "/application"
 			</fieldset>
 		</div>
 		{{ govukButton({
-		text: "Continue"
+			text: "Continue"
 		}) }}
 	</div>
 </div>
