@@ -48,14 +48,15 @@
 	<section class="govuk-body">
 		<h1 class="govuk-heading-xl">Upload your PDF files</h1>
     {{ govukInsetText({
-        text: "£30 fee per e-Apostille issued."
+        text: "£30 for each e-Apostille issued."
       }) }}
 
     {{ govukDetails({
-      summaryText: "Legalising multiple documents",
+      summaryText: "Legalising more than one document",
       html: '<p class="govuk-body">One e-Apostille can be issued per PDF.</p>
-            <p class="govuk-body">If documents require their own e-Apostille you must upload each one as a separate PDF.</p>
-            <p class="govuk-body">PDFs that contain multiple documents must contain a cover sheet from the notary or solicitor, listing all of the documents.</p>'
+            <p class="govuk-body">PDFs that contain multiple documents must have a cover sheet from the notary or solicitor listing all documents.</p>
+            <p class="govuk-body">Prepare and upload each document that requires its own e-Apostille certificate as a separate PDF file.</p>
+            <p class="govuk-body">If you include multiple documents in the same PDF file you will get a single e-Apostille that applies to, and must be shared together with, all of the documents in that PDF.</p>'
     }) }}
 	</section>
 
