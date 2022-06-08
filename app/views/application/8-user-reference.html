@@ -17,19 +17,27 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters-from-desktop">
-    <h1 class="govuk-heading-l">Your reference (optional)</h1>
-    <p class="govuk-body">You will get an official reference when you submit your application.</p>
-    <p class="govuk-body">You can also add your own reference here if you want to.</p>
+    <form action="/application/9-check-your-answers">
+      {{ govukCharacterCount({
+        name: "user-reference",
+        id: "user-reference",
+        classes: "govuk-!-width-two-thirds",
+        maxlength: 30,
+        rows: 1,
+        label: {
+          text: "Your reference (optional)",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          html: '<p>You will get an official reference when you submit your application.</p>
+                <p>You can also add your own reference here if you want to.</p>'
+        }
+      }) }}
 
-	  <form action="/application/9-check-your-answers">
-{{ govukInput({
-  id: "user-reference",
-  name: "user-reference"
-}) }}
-
-{{ govukButton({
-    text: "Continue"
-}) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 	  </form>
 
   </div>
