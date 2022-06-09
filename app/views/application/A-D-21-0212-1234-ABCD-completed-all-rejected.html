@@ -25,6 +25,20 @@ Application A-D-22-0212-1234-ABCD
           A-D-22-0212-1234-ABCD
         </h1>
 
+        <!-- not sure if this is the most appropriate use or way of styling this notification banner -->
+        <div class="govuk-notification-banner" style="background-color: #d4351c; border-color: #d4351c;" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Application issue
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <p class="govuk-notification-banner__heading">
+              Your documents could not be legalised.
+            </p>
+          </div>
+        </div>
+
               {{ govukTable({
               caption: "PDF files",
               captionClasses: "govuk-table__caption--m",

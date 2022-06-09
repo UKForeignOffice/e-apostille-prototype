@@ -20,6 +20,20 @@ Application A-D-22-0205-0343-5BEC
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters-from-desktop">
 
+    <!-- not sure if this is the most appropriate use or way of styling this notification banner -->
+    <div class="govuk-notification-banner" style="background-color: #d4351c; border-color: #d4351c;" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Application issue
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          Some of your documents could not be legalised.
+        </p>
+      </div>
+    </div>
+
     {% set html %}
     <p class="govuk-notification-banner__heading">
       21 days left to download the legalised documents.
